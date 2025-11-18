@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import productShoes from "@/assets/product-shoes.jpg";
 import productLipgloss from "@/assets/product-lipgloss.jpg";
 import productNecklace from "@/assets/product-necklace.jpg";
+import FadeIn from "@/components/FadeIn";
 
 const favorites = [
   {
@@ -26,11 +27,14 @@ const Favorites = () => {
   return (
     <section className="py-24 bg-card">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-16">Favoritos</h2>
+        <FadeIn>
+          <h2 className="text-4xl font-bold mb-16">Favoritos</h2>
+        </FadeIn>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {favorites.map((item, index) => (
-            <div key={index} className="bg-background rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+            <FadeIn key={index} delay={index * 0.15}>
+              <div className="bg-background rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
               <div className="aspect-square overflow-hidden">
                 <img
                   src={item.image}
@@ -50,7 +54,8 @@ const Favorites = () => {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>
-            </div>
+              </div>
+            </FadeIn>
           ))}
         </div>
       </div>

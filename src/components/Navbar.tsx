@@ -29,13 +29,14 @@ const Navbar = () => {
               <SheetTitle className="text-2xl font-bold">Menu</SheetTitle>
             </SheetHeader>
             <nav className="flex flex-col gap-6 mt-8">
-              <a
-                href="#"
+              <NavLink
+                to="/"
                 className="text-lg py-3 px-2 hover:text-accent hover:bg-accent/5 rounded-md transition-all"
+                activeClassName="text-accent bg-accent/10"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Moda
-              </a>
+                Home
+              </NavLink>
               <NavLink
                 to="/beleza"
                 className="text-lg py-3 px-2 hover:text-accent hover:bg-accent/5 rounded-md transition-all"
@@ -44,20 +45,6 @@ const Navbar = () => {
               >
                 Beleza
               </NavLink>
-              <a
-                href="#"
-                className="text-lg py-3 px-2 hover:text-accent hover:bg-accent/5 rounded-md transition-all"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Viagem
-              </a>
-              <a
-                href="#"
-                className="text-lg py-3 px-2 hover:text-accent hover:bg-accent/5 rounded-md transition-all"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Vídeos
-              </a>
               <NavLink
                 to="/sobre"
                 className="text-lg py-3 px-2 hover:text-accent hover:bg-accent/5 rounded-md transition-all"
@@ -72,14 +59,22 @@ const Navbar = () => {
 
         {/* Logo */}
         <div className="flex-1 lg:flex-none lg:mr-8">
-          <h1 className="text-2xl font-bold tracking-wide">Drica Divina</h1>
+          <NavLink to="/" className="inline-block">
+            <h1 className="text-2xl font-bold tracking-wide hover:text-accent transition-colors cursor-pointer">
+              Drica Divina
+            </h1>
+          </NavLink>
         </div>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-8 flex-1 justify-center">
-          <a href="#" className="text-base py-3 px-2 hover:text-accent hover:bg-accent/5 rounded-md transition-all">
-            Moda
-          </a>
+          <NavLink
+            to="/"
+            className="text-base py-3 px-2 hover:text-accent hover:bg-accent/5 rounded-md transition-all"
+            activeClassName="text-accent bg-accent/10 font-semibold"
+          >
+            Home
+          </NavLink>
           <NavLink
             to="/beleza"
             className="text-base py-3 px-2 hover:text-accent hover:bg-accent/5 rounded-md transition-all"
@@ -87,12 +82,6 @@ const Navbar = () => {
           >
             Beleza
           </NavLink>
-          <a href="#" className="text-base py-3 px-2 hover:text-accent hover:bg-accent/5 rounded-md transition-all">
-            Viagem
-          </a>
-          <a href="#" className="text-base py-3 px-2 hover:text-accent hover:bg-accent/5 rounded-md transition-all">
-            Vídeos
-          </a>
           <NavLink
             to="/sobre"
             className="text-base py-3 px-2 hover:text-accent hover:bg-accent/5 rounded-md transition-all"

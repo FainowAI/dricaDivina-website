@@ -7,6 +7,7 @@ import postSkincare from "@/assets/post-skincare.jpg";
 import vitaminSerum from "@/assets/skincare-vitamin.jpg";
 import moisturizer from "@/assets/skincare-moisturizer.jpg";
 import sunscreen from "@/assets/skincare-sunscreen.jpg";
+import FadeIn from "@/components/FadeIn";
 
 const categories = ["Maquiagem", "Skincare", "Cabelos", "Dicas"];
 
@@ -127,11 +128,15 @@ const Beleza = () => {
       <section className="pt-36 pb-16 bg-secondary/30">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Beleza</h1>
-            <p className="text-xl text-foreground leading-relaxed">
-              Dicas, tutoriais e produtos que amo. 410 posts sobre skincare,
-              maquiagem, cabelos e cuidados pessoais.
-            </p>
+            <FadeIn>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6">Beleza</h1>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="text-xl text-foreground leading-relaxed">
+                Dicas, tutoriais e produtos que amo. 410 posts sobre skincare,
+                maquiagem, cabelos e cuidados pessoais.
+              </p>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -160,19 +165,19 @@ const Beleza = () => {
       {/* Featured Posts - Destaque Skincare */}
       <section className="py-20 bg-rose-50/50">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center mb-12">
-            <h2 className="text-4xl font-bold">Destaque Skincare</h2>
-            <Button variant="link" className="text-accent text-base hover:underline py-2 px-3">
-              Ver todos
-            </Button>
-          </div>
+          <FadeIn>
+            <div className="flex justify-between items-center mb-12">
+              <h2 className="text-4xl font-bold">Destaque Skincare</h2>
+              <Button variant="link" className="text-accent text-base hover:underline py-2 px-3">
+                Ver todos
+              </Button>
+            </div>
+          </FadeIn>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {featuredPosts.map((post) => (
-              <article
-                key={post.id}
-                className="group cursor-pointer bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
-              >
+            {featuredPosts.map((post, index) => (
+              <FadeIn key={post.id} delay={index * 0.2}>
+                <article className="group cursor-pointer bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <img
                     src={post.image}
@@ -191,7 +196,8 @@ const Beleza = () => {
                     {post.description}
                   </p>
                 </div>
-              </article>
+                </article>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -200,14 +206,14 @@ const Beleza = () => {
       {/* Filtered Posts Grid */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12 capitalize">{activeCategory}</h2>
+          <FadeIn>
+            <h2 className="text-4xl font-bold mb-12 capitalize">{activeCategory}</h2>
+          </FadeIn>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {filteredPosts.map((post) => (
-              <article
-                key={post.id}
-                className="group cursor-pointer bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
-              >
+            {filteredPosts.map((post, index) => (
+              <FadeIn key={post.id} delay={index * 0.1}>
+                <article className="group cursor-pointer bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
                 <div className="relative aspect-square overflow-hidden">
                   <img
                     src={post.image}
@@ -226,16 +232,19 @@ const Beleza = () => {
                     {post.description}
                   </p>
                 </div>
-              </article>
+                </article>
+              </FadeIn>
             ))}
           </div>
 
           {filteredPosts.length === 0 && (
-            <div className="text-center py-16">
-              <p className="text-lg text-foreground">
-                Nenhum post encontrado nesta categoria ainda.
-              </p>
-            </div>
+            <FadeIn>
+              <div className="text-center py-16">
+                <p className="text-lg text-foreground">
+                  Nenhum post encontrado nesta categoria ainda.
+                </p>
+              </div>
+            </FadeIn>
           )}
         </div>
       </section>

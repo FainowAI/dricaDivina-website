@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import FadeIn from "@/components/FadeIn";
 
 const Newsletter = () => {
   const { toast } = useToast();
@@ -33,14 +34,19 @@ const Newsletter = () => {
     <section className="py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-foreground mb-6">
-            Fique Por Dentro
-          </h2>
-          <p className="text-xl mb-10 leading-relaxed">
-            Receba novidades do blog, lançamentos e vídeos direto no seu e-mail.
-          </p>
+          <FadeIn>
+            <h2 className="text-4xl font-bold text-foreground mb-6">
+              Fique Por Dentro
+            </h2>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <p className="text-xl mb-10 leading-relaxed">
+              Receba novidades do blog, lançamentos e vídeos direto no seu e-mail.
+            </p>
+          </FadeIn>
 
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+          <FadeIn delay={0.4}>
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
             <Input
               type="email"
               placeholder="Seu melhor e-mail"
@@ -55,7 +61,8 @@ const Newsletter = () => {
             >
               Enviar
             </Button>
-          </form>
+            </form>
+          </FadeIn>
         </div>
       </div>
     </section>
