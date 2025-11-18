@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import productShoes from "@/assets/product-shoes.jpg";
 import productLipgloss from "@/assets/product-lipgloss.jpg";
 import productNecklace from "@/assets/product-necklace.jpg";
+import FadeIn from "@/components/FadeIn";
 
 const favorites = [
   {
@@ -24,33 +25,37 @@ const favorites = [
 
 const Favorites = () => {
   return (
-    <section className="py-20 bg-card">
+    <section className="py-24 bg-card">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold uppercase mb-12">Favoritos</h2>
-        
+        <FadeIn>
+          <h2 className="text-4xl font-bold mb-16">Favoritos</h2>
+        </FadeIn>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {favorites.map((item, index) => (
-            <div key={index} className="bg-background rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="aspect-square">
-                <img 
-                  src={item.image} 
+            <FadeIn key={index} delay={index * 0.15}>
+              <div className="bg-background rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+              <div className="aspect-square overflow-hidden">
+                <img
+                  src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <div className="p-6">
-                <p className="text-xs text-accent font-semibold mb-2 uppercase tracking-wide">
+              <div className="p-8">
+                <p className="text-sm text-accent font-semibold mb-3 tracking-wide">
                   {item.category}
                 </p>
-                <h3 className="text-lg font-bold mb-4 leading-tight">
+                <h3 className="text-xl font-bold mb-6 leading-tight min-h-[56px]">
                   {item.title}
                 </h3>
-                <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full rounded-full">
+                <Button className="bg-accent text-accent-foreground hover:bg-accent/90 hover:shadow-lg hover:scale-105 active:scale-95 w-full h-12 rounded-full text-base font-semibold transition-all duration-200">
                   Compre aqui!
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>
-            </div>
+              </div>
+            </FadeIn>
           ))}
         </div>
       </div>
