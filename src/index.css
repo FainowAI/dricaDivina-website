@@ -23,8 +23,8 @@ All colors MUST be HSL.
     --secondary: 33 39% 95%;
     --secondary-foreground: 0 0% 0%;
 
-    --muted: 0 0% 40%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 0 0% 25%;
+    --muted-foreground: 0 0% 25%;
 
     --accent: 6 78% 57%;
     --accent-foreground: 0 0% 100%;
@@ -106,5 +106,24 @@ All colors MUST be HSL.
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* Respeito a preferências de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Desabilita transformações de escala em hover */
+  img,
+  button,
+  a {
+    transform: none !important;
   }
 }

@@ -1,25 +1,58 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
 
 const Newsletter = () => {
+  const { toast } = useToast();
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!email) {
+      toast({
+        title: "Ops!",
+        description: "Por favor, insira seu e-mail.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Simula envio
+    toast({
+      title: "Sucesso!",
+      description: "Você está inscrita! Em breve receberá nossas novidades.",
+      duration: 5000,
+    });
+
+    setEmail("");
+  };
+
   return (
-    <section className="py-20 bg-background">
+    <section className="py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-accent uppercase mb-4">
+          <h2 className="text-4xl font-bold text-foreground mb-6">
             Fique Por Dentro
           </h2>
-          <p className="text-lg mb-8">
+          <p className="text-xl mb-10 leading-relaxed">
             Receba novidades do blog, lançamentos e vídeos direto no seu e-mail.
           </p>
-          
-          <form className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <Input 
-              type="email" 
+
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+            <Input
+              type="email"
               placeholder="Seu melhor e-mail"
-              className="flex-1 h-12 border-primary rounded-full px-6"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="flex-1 h-14 text-base border-2 border-muted rounded-full px-6 focus:border-accent transition-colors"
+              aria-label="Digite seu e-mail"
             />
-            <Button className="bg-accent text-accent-foreground hover:bg-accent/90 h-12 px-8 rounded-full">
+            <Button
+              type="submit"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 hover:shadow-lg hover:scale-105 active:scale-95 h-14 px-10 rounded-full text-base font-semibold transition-all duration-200"
+            >
               Enviar
             </Button>
           </form>
