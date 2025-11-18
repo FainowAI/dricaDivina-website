@@ -38,6 +38,14 @@ const Navbar = () => {
                 Home
               </NavLink>
               <NavLink
+                to="/blog"
+                className="text-lg py-3 px-2 hover:text-accent hover:bg-accent/5 rounded-md transition-all"
+                activeClassName="text-accent bg-accent/10"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Blog
+              </NavLink>
+              <NavLink
                 to="/beleza"
                 className="text-lg py-3 px-2 hover:text-accent hover:bg-accent/5 rounded-md transition-all"
                 activeClassName="text-accent bg-accent/10"
@@ -74,6 +82,13 @@ const Navbar = () => {
             activeClassName="text-accent bg-accent/10 font-semibold"
           >
             Home
+          </NavLink>
+          <NavLink
+            to="/blog"
+            className="text-base py-3 px-2 hover:text-accent hover:bg-accent/5 rounded-md transition-all"
+            activeClassName="text-accent bg-accent/10 font-semibold"
+          >
+            Blog
           </NavLink>
           <NavLink
             to="/beleza"
@@ -116,7 +131,7 @@ const Navbar = () => {
             aria-label="YouTube"
             asChild
           >
-            <a href="https://youtube.com/@dricadivina" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.youtube.com/dricadivina" target="_blank" rel="noopener noreferrer">
               <Youtube className="h-6 w-6" />
             </a>
            </Button>

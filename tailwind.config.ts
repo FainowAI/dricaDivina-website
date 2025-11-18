@@ -60,7 +60,10 @@ export default {
       },
       fontFamily: {
         playfair: ['"Playfair Display"', 'Georgia', 'serif'],
+        lora: ['Lora', 'Georgia', 'serif'],
+        inter: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
         serif: ['Georgia', '"Times New Roman"', 'serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
