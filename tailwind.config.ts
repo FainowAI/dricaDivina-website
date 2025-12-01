@@ -59,11 +59,10 @@ export default {
         },
       },
       fontFamily: {
-        playfair: ['"Playfair Display"', 'Georgia', 'serif'],
-        lora: ['Lora', 'Georgia', 'serif'],
-        inter: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        serif: ['Georgia', '"Times New Roman"', 'serif'],
-        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+        abhaya: ['"Abhaya Libre"', 'Georgia', 'serif'],
+        montserrat: ['Montserrat', 'system-ui', '-apple-system', 'sans-serif'],
+        serif: ['"Abhaya Libre"', 'Georgia', '"Times New Roman"', 'serif'],
+        sans: ['Montserrat', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -1,7 +1,14 @@
-import { Button } from "@/components/ui/button";
+import ClickableLink from "@/components/ClickableLink";
 import vitaminSerum from "@/assets/skincare-vitamin.jpg";
 import moisturizer from "@/assets/skincare-moisturizer.jpg";
 import sunscreen from "@/assets/skincare-sunscreen.jpg";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 
 const products = [
   {
@@ -31,43 +38,51 @@ const SkinCare = () => {
   return (
     <section className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
-        <div className="mb-12">
-          <h2 className="text-4xl font-bold uppercase mb-4">Skin Care</h2>
-          <p className="text-lg text-muted-foreground">
+        <div className="text-center mb-12">
+          <div className="flex items-center justify-center gap-8 mb-4">
+            <div className="h-px bg-border w-32"></div>
+            <h2 className="text-4xl font-bold uppercase">Skin Care</h2>
+            <div className="h-px bg-border w-32"></div>
+          </div>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Meus cuidados para uma pele luminosa. Produtos que uso e recomendo diariamente.
           </p>
         </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
-            <div key={index} className="bg-card rounded-lg overflow-hidden shadow-sm">
-              <div className="relative aspect-square">
-                <img 
-                  src={product.image} 
-                  alt={product.name}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-background px-3 py-1 rounded-full text-xs font-semibold">
-                    {product.tag}
-                  </span>
+
+        <Carousel opts={{ align: "start", loop: true }} className="w-full">
+          <CarouselContent className="-ml-2 md:-ml-4">
+            {products.map((product, index) => (
+              <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
+                <div className="bg-card rounded-lg overflow-hidden shadow-sm h-full">
+                  <div className="relative aspect-square">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-background px-3 py-1 rounded-full text-xs font-semibold">
+                        {product.tag}
+                      </span>
+                    </div>
+                    <div className="absolute top-4 right-4">
+                      <span className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-semibold">
+                        {product.discount}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-bold mb-2 text-foreground">{product.name}</h3>
+                    <p className="text-2xl font-bold mb-4 text-foreground">{product.price}</p>
+                    <ClickableLink text="Comprar" href="#" />
+                  </div>
                 </div>
-                <div className="absolute top-4 right-4">
-                  <span className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-semibold">
-                    {product.discount}
-                  </span>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="font-bold mb-2">{product.name}</h3>
-                <p className="text-2xl font-bold mb-4">{product.price}</p>
-                <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full rounded-full">
-                  Comprar
-                </Button>
-              </div>
-            </div>
-          ))}
-        </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="hidden md:flex" />
+          <CarouselNext className="hidden md:flex" />
+        </Carousel>
       </div>
     </section>
   );

@@ -13,11 +13,11 @@ const Sobre = () => {
       <section className="pt-36 pb-24 bg-background">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <FadeIn>
-            <h1 className="text-5xl md:text-6xl font-bold mb-8">Quem é Drica Divina?</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-8">Quem é DRICA DIVINA?</h1>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="text-xl text-foreground leading-relaxed">
-              A missão da Drica é inspirar o autocuidado como expressão de amor-próprio. Acredita que rotinas simples,
+              A missão da DRICA DIVINA é inspirar o autocuidado como expressão de amor-próprio. Acredita que rotinas simples,
               consistentes e prazerosas transformam a relação com o espelho e com o tempo. Aqui, beleza é bem-estar, informação
               acessível e liberdade para envelhecer com dignidade, estilo e alegria.
             </p>

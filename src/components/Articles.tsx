@@ -7,9 +7,12 @@ const Articles = () => {
     <section className="py-16 md:py-20 bg-background">
       <div className="container mx-auto px-4 max-w-7xl">
         <FadeIn>
-          <div className="mb-8 md:mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Matérias</h2>
-            <div className="h-0.5 bg-accent w-20"></div>
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-8 mb-4">
+              <div className="h-px bg-border w-32"></div>
+              <h2 className="text-3xl md:text-4xl font-bold uppercase">Matérias</h2>
+              <div className="h-px bg-border w-32"></div>
+            </div>
           </div>
         </FadeIn>
 

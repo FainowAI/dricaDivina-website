@@ -40,8 +40,8 @@ const Newsletter = () => {
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-xl mb-10 leading-relaxed">
-              Receba novidades do blog, lançamentos e vídeos direto no seu e-mail.
+            <p className="text-lg md:text-xl mb-10 leading-relaxed">
+              Receba novidades do Conhecimento, lançamentos e vídeos direto no seu e-mail.
             </p>
           </FadeIn>
 

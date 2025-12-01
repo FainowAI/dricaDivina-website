@@ -174,10 +174,10 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProp
         ref={ref}
         variant={variant}
         size={size}
-        className={cn(
-          "absolute h-8 w-8 rounded-full",
+          className={cn(
+          "absolute h-10 w-10 rounded-full bg-background/95 backdrop-blur-sm border-2 border-border shadow-lg hover:bg-accent hover:text-accent-foreground hover:border-accent hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all z-10",
           orientation === "horizontal"
-            ? "-left-12 top-1/2 -translate-y-1/2"
+            ? "left-2 md:-left-12 top-1/2 -translate-y-1/2"
             : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
           className,
         )}
@@ -185,7 +185,7 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProp
         onClick={scrollPrev}
         {...props}
       >
-        <ArrowLeft className="h-4 w-4" />
+        <ArrowLeft className="h-5 w-5" />
         <span className="sr-only">Previous slide</span>
       </Button>
     );
@@ -202,10 +202,10 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
         ref={ref}
         variant={variant}
         size={size}
-        className={cn(
-          "absolute h-8 w-8 rounded-full",
+          className={cn(
+          "absolute h-10 w-10 rounded-full bg-background/95 backdrop-blur-sm border-2 border-border shadow-lg hover:bg-accent hover:text-accent-foreground hover:border-accent hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all z-10",
           orientation === "horizontal"
-            ? "-right-12 top-1/2 -translate-y-1/2"
+            ? "right-2 md:-right-12 top-1/2 -translate-y-1/2"
             : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
           className,
         )}
@@ -213,7 +213,7 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
         onClick={scrollNext}
         {...props}
       >
-        <ArrowRight className="h-4 w-4" />
+        <ArrowRight className="h-5 w-5" />
         <span className="sr-only">Next slide</span>
       </Button>
     );

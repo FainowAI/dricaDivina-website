@@ -15,9 +15,11 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-background z-50 border-b border-border">
-      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-        {/* Mobile Menu */}
-        <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+      <div className="container mx-auto px-4">
+        {/* Main Nav Row */}
+        <div className="h-20 flex items-center justify-between">
+          {/* Mobile Menu */}
+          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" className="lg:hidden h-11 w-11 p-0">
               <Menu className="h-6 w-6" />
@@ -43,7 +45,7 @@ const Navbar = () => {
                 activeClassName="text-accent bg-accent/10"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Blog
+                Conhecimento
               </NavLink>
               <NavLink
                 to="/beleza"
@@ -69,13 +71,13 @@ const Navbar = () => {
         <div className="flex-1 lg:flex-none lg:mr-8">
           <NavLink to="/" className="inline-block">
             <h1 className="text-2xl font-bold tracking-wide hover:text-accent transition-colors cursor-pointer">
-              Drica Divina
+              DRICA DIVINA
             </h1>
           </NavLink>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-8 flex-1 justify-center">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8 flex-1 justify-center">
           <NavLink
             to="/"
             className="text-base py-3 px-2 hover:text-accent hover:bg-accent/5 rounded-md transition-all"
@@ -88,7 +90,7 @@ const Navbar = () => {
             className="text-base py-3 px-2 hover:text-accent hover:bg-accent/5 rounded-md transition-all"
             activeClassName="text-accent bg-accent/10 font-semibold"
           >
-            Blog
+            Conhecimento
           </NavLink>
           <NavLink
             to="/beleza"
@@ -135,6 +137,7 @@ const Navbar = () => {
               <Youtube className="h-6 w-6" />
             </a>
            </Button>
+        </div>
         </div>
       </div>
     </nav>
