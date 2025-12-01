@@ -12,9 +12,9 @@ const AdPlaceholder = ({
   className
 }: AdPlaceholderProps) => {
   const sizeClasses = {
-    small: "h-24",
-    medium: "h-48",
-    large: "h-64",
+    small: "h-17 md:h-20 lg:h-24",
+    medium: "h-34 md:h-40 lg:h-48",
+    large: "h-45 md:h-52 lg:h-64",
   };
 
   const variantClasses = {
@@ -26,7 +26,7 @@ const AdPlaceholder = ({
   return (
     <div
       className={cn(
-        "border-2 border-dashed border-muted bg-muted/30 rounded-lg flex items-center justify-center my-8",
+        "border-2 border-dashed border-muted bg-muted/30 rounded-lg flex items-center justify-center my-6 md:my-7 lg:my-8",
         sizeClasses[size],
         variantClasses[variant],
         className

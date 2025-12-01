@@ -31,16 +31,16 @@ const Newsletter = () => {
   };
 
   return (
-    <section className="py-24 bg-background">
+    <section className="py-17 md:py-20 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center">
           <FadeIn>
-            <h2 className="text-4xl font-bold text-foreground mb-6">
+            <h2 className="text-4xl font-bold text-foreground mb-4 md:mb-5 lg:mb-6">
               Fique Por Dentro
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-lg md:text-xl mb-10 leading-relaxed">
+            <p className="text-lg md:text-xl mb-7 md:mb-9 lg:mb-10 leading-relaxed">
               Receba novidades do Conhecimento, lançamentos e vídeos direto no seu e-mail.
             </p>
           </FadeIn>

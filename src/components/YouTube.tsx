@@ -1,4 +1,5 @@
 import { Play } from "lucide-react";
+import CarouselIndicators from "@/components/CarouselIndicators";
 import {
   Carousel,
   CarouselContent,
@@ -16,9 +17,9 @@ const videos = [
 
 const YouTube = () => {
   return (
-    <section className="py-20 bg-primary text-primary-foreground">
+    <section className="py-14 md:py-17 lg:py-20 bg-primary text-primary-foreground">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 md:mb-9 lg:mb-12">
           <div className="flex items-center justify-center gap-8 mb-4">
             <div className="h-px bg-primary-foreground/30 w-32"></div>
             <h2 className="text-4xl font-bold uppercase">YouTube</h2>
@@ -50,6 +51,8 @@ const YouTube = () => {
           <CarouselPrevious className="hidden md:flex border-primary-foreground/30 hover:border-primary-foreground hover:bg-primary-foreground/20" />
           <CarouselNext className="hidden md:flex border-primary-foreground/30 hover:border-primary-foreground hover:bg-primary-foreground/20" />
         </Carousel>
+
+        <CarouselIndicators totalItems={videos.length} className="opacity-80" />
       </div>
     </section>
   );

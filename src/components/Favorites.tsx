@@ -1,5 +1,6 @@
 import FadeIn from "@/components/FadeIn";
 import ClickableLink from "@/components/ClickableLink";
+import CarouselIndicators from "@/components/CarouselIndicators";
 import productShoes from "@/assets/product-shoes.jpg";
 import productLipgloss from "@/assets/product-lipgloss.jpg";
 import productNecklace from "@/assets/product-necklace.jpg";
@@ -31,10 +32,10 @@ const favorites = [
 
 const Favorites = () => {
   return (
-    <section className="py-20 bg-card">
+    <section className="py-14 md:py-17 lg:py-20 bg-card">
       <div className="container mx-auto px-4">
         <FadeIn>
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 md:mb-9 lg:mb-12">
             <div className="flex items-center justify-center gap-8 mb-4">
               <div className="h-px bg-border w-32"></div>
               <h2 className="text-4xl font-bold uppercase">Favoritos</h2>
@@ -55,11 +56,11 @@ const Favorites = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
-                  <div className="p-8">
-                    <p className="text-sm text-accent font-semibold mb-3 tracking-wide">
+                  <div className="p-4 md:p-5 lg:p-6">
+                    <p className="text-sm text-accent font-semibold mb-1.5 md:mb-2 tracking-wide">
                       {item.category}
                     </p>
-                    <h3 className="text-xl font-bold mb-6 leading-tight min-h-[56px] text-foreground group-hover:text-accent transition-colors">
+                    <h3 className="text-xl font-bold mb-4 md:mb-6 leading-tight min-h-[56px] text-foreground group-hover:text-accent transition-colors">
                       {item.title}
                     </h3>
                     <ClickableLink text="Comprar" href="#" />
@@ -71,6 +72,8 @@ const Favorites = () => {
           <CarouselPrevious className="hidden md:flex" />
           <CarouselNext className="hidden md:flex" />
         </Carousel>
+
+        <CarouselIndicators totalItems={favorites.length} />
       </div>
     </section>
   );

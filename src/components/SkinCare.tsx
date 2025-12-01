@@ -1,4 +1,5 @@
 import ClickableLink from "@/components/ClickableLink";
+import CarouselIndicators from "@/components/CarouselIndicators";
 import vitaminSerum from "@/assets/skincare-vitamin.jpg";
 import moisturizer from "@/assets/skincare-moisturizer.jpg";
 import sunscreen from "@/assets/skincare-sunscreen.jpg";
@@ -36,9 +37,9 @@ const products = [
 
 const SkinCare = () => {
   return (
-    <section className="py-20 bg-secondary/30">
+    <section className="py-14 md:py-17 lg:py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 md:mb-9 lg:mb-12">
           <div className="flex items-center justify-center gap-8 mb-4">
             <div className="h-px bg-border w-32"></div>
             <h2 className="text-4xl font-bold uppercase">Skin Care</h2>
@@ -71,9 +72,9 @@ const SkinCare = () => {
                       </span>
                     </div>
                   </div>
-                  <div className="p-6">
+                  <div className="p-4 md:p-5 lg:p-6">
                     <h3 className="font-bold mb-2 text-foreground">{product.name}</h3>
-                    <p className="text-2xl font-bold mb-4 text-foreground">{product.price}</p>
+                    <p className="text-2xl font-bold mb-3 md:mb-4 text-foreground">{product.price}</p>
                     <ClickableLink text="Comprar" href="#" />
                   </div>
                 </div>
@@ -83,6 +84,8 @@ const SkinCare = () => {
           <CarouselPrevious className="hidden md:flex" />
           <CarouselNext className="hidden md:flex" />
         </Carousel>
+
+        <CarouselIndicators totalItems={products.length} />
       </div>
     </section>
   );

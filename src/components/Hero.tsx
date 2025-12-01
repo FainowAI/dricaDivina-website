@@ -7,7 +7,7 @@ const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="pt-20 min-h-[80vh] flex items-center bg-background">
+    <section className="pt-14 md:pt-17 lg:pt-20 min-h-[80vh] flex items-center bg-background">
       <div className="container mx-auto px-4">
         <FadeIn>
           <article
