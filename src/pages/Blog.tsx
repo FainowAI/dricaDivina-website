@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Search } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
+import AdPlaceholder from "@/components/AdPlaceholder";
 import postDecor from "@/assets/post-decor.jpg";
 import postSkincare from "@/assets/post-skincare.jpg";
 import postTravel from "@/assets/post-travel.jpg";
@@ -149,7 +150,7 @@ const Blog = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <FadeIn>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">Blog</h1>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6">Conhecimento</h1>
             </FadeIn>
             <FadeIn delay={0.2}>
               <p className="text-xl text-foreground leading-relaxed mb-8">
@@ -195,6 +196,11 @@ const Blog = () => {
           </div>
         </div>
       </section>
+
+      {/* Ad Space */}
+      <div className="container mx-auto px-4">
+        <AdPlaceholder variant="horizontal" size="large" />
+      </div>
 
       {/* Posts Grid */}
       <section className="py-20 bg-background">
@@ -261,6 +267,11 @@ const Blog = () => {
           )}
         </div>
       </section>
+
+      {/* Ad Space */}
+      <div className="container mx-auto px-4">
+        <AdPlaceholder variant="horizontal" size="medium" />
+      </div>
 
       <Footer />
     </div>

@@ -1,42 +1,38 @@
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-image.jpg";
+import { useNavigate } from "react-router-dom";
+import { Badge } from "@/components/ui/badge";
+import postSkincare from "@/assets/post-skincare.jpg";
 import FadeIn from "@/components/FadeIn";
 
 const Hero = () => {
-  return (
-    <section className="pt-20 min-h-[80vh] flex items-center bg-background">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 py-12">
-            <FadeIn delay={0.1}>
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
-                Bem-vinda, Divina!
-              </h1>
-            </FadeIn>
-            <FadeIn delay={0.3}>
-              <p className="text-xl text-foreground max-w-lg leading-relaxed">
-                Sou a Drica, sua amiga de carinho e bem-estar. Aqui você encontra dicas do dia, beleza descomplicada, roteiros de viagem e conversas sinceras sobre saúde e autocuidado.
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.5}>
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:scale-105 active:scale-95 h-14 px-8 rounded-full text-base transition-all duration-200">
-                Conheça o Blog
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </FadeIn>
-          </div>
+  const navigate = useNavigate();
 
-          <FadeIn delay={0.2} direction="left">
-            <div className="relative h-[600px] lg:h-[700px]">
+  return (
+    <section className="pt-14 md:pt-17 lg:pt-20 min-h-[80vh] flex items-center bg-background">
+      <div className="container mx-auto px-4">
+        <FadeIn>
+          <article
+            onClick={() => navigate('/beleza')}
+            className="group cursor-pointer relative rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 max-w-5xl mx-auto"
+          >
+            <div className="relative aspect-[16/9] overflow-hidden">
               <img
-                src={heroImage}
-                alt="Drica Divina"
-                className="absolute inset-0 w-full h-full object-contain rounded-lg"
+                src={postSkincare}
+                alt="Rotina minimalista de beleza"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 text-white">
+                <Badge className="bg-accent text-white mb-4 text-xs md:text-sm py-1.5 px-3 hover:bg-accent/90 transition-colors">
+                  BELEZA
+                </Badge>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+                  Rotina minimalista: 4 passos que realmente funcionam
+                </h2>
+              </div>
             </div>
-          </FadeIn>
-        </div>
+          </article>
+        </FadeIn>
       </div>
     </section>
   );

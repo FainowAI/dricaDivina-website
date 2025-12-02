@@ -8,6 +8,7 @@ import vitaminSerum from "@/assets/skincare-vitamin.jpg";
 import moisturizer from "@/assets/skincare-moisturizer.jpg";
 import sunscreen from "@/assets/skincare-sunscreen.jpg";
 import FadeIn from "@/components/FadeIn";
+import AdPlaceholder from "@/components/AdPlaceholder";
 
 const categories = ["Maquiagem", "Skincare", "Cabelos", "Dicas"];
 
@@ -162,6 +163,11 @@ const Beleza = () => {
         </div>
       </section>
 
+      {/* Ad Space */}
+      <div className="container mx-auto px-4">
+        <AdPlaceholder variant="horizontal" size="large" />
+      </div>
+
       {/* Featured Posts - Destaque Skincare */}
       <section className="py-20 bg-rose-50/50">
         <div className="container mx-auto px-4">
@@ -202,6 +208,11 @@ const Beleza = () => {
           </div>
         </div>
       </section>
+
+      {/* Ad Space */}
+      <div className="container mx-auto px-4 flex justify-end">
+        <AdPlaceholder variant="square" size="medium" />
+      </div>
 
       {/* Filtered Posts Grid */}
       <section className="py-20 bg-background">
@@ -248,6 +259,11 @@ const Beleza = () => {
           )}
         </div>
       </section>
+
+      {/* Ad Space */}
+      <div className="container mx-auto px-4">
+        <AdPlaceholder variant="horizontal" size="medium" />
+      </div>
 
       <Footer />
     </div>
