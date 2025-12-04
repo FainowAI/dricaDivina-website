@@ -8,50 +8,48 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 33 39% 95%;
-    --foreground: 0 0% 0%;
+    /* Nova paleta de cores - Drica Divina Redesign */
+    --background: 0 0% 99%;
+    --foreground: 0 0% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
+    --card-foreground: 0 0% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 0 0% 0%;
+    --primary: 0 65% 40%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 33 39% 95%;
-    --secondary-foreground: 0 0% 0%;
+    --secondary-foreground: 0 0% 10%;
 
-    --muted: 0 0% 25%;
-    --muted-foreground: 0 0% 25%;
+    --muted: 0 0% 40%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 6 78% 57%;
+    --accent: 0 65% 40%;
     --accent-foreground: 0 0% 100%;
+
+    --beige: 20 40% 94%;
+
+    --footer-bg: 0 65% 30%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 33 39% 85%;
     --input: 33 39% 85%;
-    --ring: 0 0% 0%;
+    --ring: 0 65% 40%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -108,41 +106,91 @@ All colors MUST be HSL.
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', Georgia, serif;
-    line-height: 1.2;
+    line-height: 1.2; /* leading-tight */
   }
 
+  /* Escala mobile-first conforme guia UX */
   h1 {
-    font-size: clamp(3rem, 5vw, 4rem);
+    font-size: 2.25rem; /* text-4xl mobile */
     font-weight: 700;
   }
 
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 3rem; /* md:text-5xl */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 3.75rem; /* lg:text-6xl */
+    }
+  }
+
   h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: 1.875rem; /* text-3xl mobile */
     font-weight: 600;
+  }
+
+  @media (min-width: 768px) {
+    h2 {
+      font-size: 2.25rem; /* md:text-4xl */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    h2 {
+      font-size: 3rem; /* lg:text-5xl */
+    }
   }
 
   h3 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: 1.5rem; /* text-2xl mobile */
     font-weight: 600;
+  }
+
+  @media (min-width: 768px) {
+    h3 {
+      font-size: 1.875rem; /* md:text-3xl */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    h3 {
+      font-size: 2.25rem; /* lg:text-4xl */
+    }
   }
 
   h4 {
-    font-size: 1.5rem;
+    font-size: 1.25rem; /* text-xl mobile */
     font-weight: 600;
   }
 
+  @media (min-width: 768px) {
+    h4 {
+      font-size: 1.5rem; /* md:text-2xl */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    h4 {
+      font-size: 1.875rem; /* lg:text-3xl */
+    }
+  }
+
   h5 {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: 600;
   }
 
   h6 {
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 600;
   }
 
   p {
     margin-bottom: 1rem;
+    line-height: 1.6; /* leading-relaxed */
   }
 
   /* UI Elements - Navegação, Botões, Labels */
