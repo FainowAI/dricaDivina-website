@@ -1,58 +1,81 @@
-import { Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import FadeIn from "@/components/FadeIn";
+import VideoCard from "@/components/VideoCard";
 import CarouselIndicators from "@/components/CarouselIndicators";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
 } from "@/components/ui/carousel";
 
 const videos = [
-  { title: "Vlog: Um dia comigo — dicas de looks", featured: true },
-  { title: "Maquiagem com linha de verão", featured: false },
-  { title: "Especial de Viagens em cada de maio", featured: false },
-  { title: "Rotina de cuidados com a pele", featured: false },
+  {
+    title: "Vlog: Um dia comigo — dicas de looks",
+    thumbnail: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80",
+    link: "#",
+  },
+  {
+    title: "Maquiagem com linha de verão",
+    thumbnail: "https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=800&q=80",
+    link: "#",
+  },
+  {
+    title: "Especial de Viagens em cada de maio",
+    thumbnail: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80",
+    link: "#",
+  },
 ];
 
 const YouTube = () => {
   return (
-    <section className="py-14 md:py-17 lg:py-20 bg-primary text-primary-foreground">
+    <section className="pt-8 pb-12 md:pt-12 md:pb-20 lg:pt-16 lg:pb-24 bg-secondary/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8 md:mb-9 lg:mb-12">
-          <div className="flex items-center justify-center gap-8 mb-4">
-            <div className="h-px bg-primary-foreground/30 w-32"></div>
-            <h2 className="text-4xl font-bold uppercase">YouTube</h2>
-            <div className="h-px bg-primary-foreground/30 w-32"></div>
+        <FadeIn>
+          {/* Cabeçalho da seção */}
+          <div className="flex justify-between items-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary">
+              Últimos Vídeos
+            </h2>
+            <a
+              href="/video"
+              className="text-sm md:text-base text-primary hover:underline flex items-center gap-2 transition-all"
+            >
+              Ver todos os vídeos
+              <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
-          <p className="text-lg opacity-90 max-w-2xl mx-auto">
-            Vídeos semanais com dicas, tutoriais e bastidores da minha rotina.
-          </p>
+        </FadeIn>
+
+        {/* Mobile: Carousel */}
+        <div className="md:hidden">
+          <Carousel opts={{ align: "start", loop: false }} className="w-full">
+            <CarouselContent className="-ml-4">
+              {videos.map((video, index) => (
+                <CarouselItem key={index} className="pl-4">
+                  <VideoCard
+                    title={video.title}
+                    thumbnail={video.thumbnail}
+                    link={video.link}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+          <CarouselIndicators totalItems={videos.length} />
         </div>
 
-        <Carousel opts={{ align: "start", loop: false }} className="w-full">
-          <CarouselContent className="-ml-2 md:-ml-4">
-            {videos.map((video, index) => (
-              <CarouselItem
-                key={index}
-                className={`pl-2 md:pl-4 basis-full ${index === 0 ? 'sm:basis-2/3 md:basis-3/5' : 'sm:basis-1/3 md:basis-1/5'}`}
-              >
-                <div className={`group cursor-pointer ${index === 0 ? '' : 'h-full'}`}>
-                  <div className={`aspect-video bg-primary-foreground/10 rounded-lg overflow-hidden flex items-center justify-center border-2 border-primary-foreground/20 group-hover:border-primary-foreground/40 transition-all ${index === 0 ? '' : 'h-32'}`}>
-                    <button className={`${index === 0 ? 'w-20 h-20' : 'w-12 h-12'} rounded-full bg-primary-foreground/20 border-2 border-primary-foreground flex items-center justify-center hover:bg-primary-foreground/40 hover:scale-110 transition-all shadow-lg`}>
-                      <Play className={`${index === 0 ? 'h-8 w-8' : 'h-4 w-4'} ml-1`} fill="currentColor" />
-                    </button>
-                  </div>
-                  <p className={`mt-4 font-semibold group-hover:text-accent transition-colors ${index === 0 ? 'text-base' : 'text-sm'}`}>{video.title}</p>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="hidden md:flex border-primary-foreground/30 hover:border-primary-foreground hover:bg-primary-foreground/20" />
-          <CarouselNext className="hidden md:flex border-primary-foreground/30 hover:border-primary-foreground hover:bg-primary-foreground/20" />
-        </Carousel>
-
-        <CarouselIndicators totalItems={videos.length} className="opacity-80" />
+        {/* Desktop: Grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
+          {videos.map((video, index) => (
+            <FadeIn key={index} delay={index * 0.1}>
+              <VideoCard
+                title={video.title}
+                thumbnail={video.thumbnail}
+                link={video.link}
+              />
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   );
