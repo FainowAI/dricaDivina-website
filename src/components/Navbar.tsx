@@ -20,14 +20,15 @@ const Navbar = () => {
     { name: "Beleza", path: "/beleza" },
     { name: "Viagem", path: "/viagem" },
     { name: "Vídeo", path: "/video" },
-    { name: "Saúde", path: "/sobre" },
+    { name: "Saúde", path: "/saude" },
+    { name: "Sobre", path: "/sobre" },
   ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-background z-50 shadow-sm border-b border-border">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         {/* Main Nav Row */}
-        <div className="h-20 flex items-center justify-between">
+        <div className="h-16 md:h-20 flex items-center justify-between">
           {/* Left: Mobile Menu */}
           <div className="flex items-center lg:w-1/3">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
@@ -44,7 +45,7 @@ const Navbar = () => {
                 <nav className="flex flex-col gap-6 mt-8">
                   <NavLink
                     to="/"
-                    className="text-lg py-3 px-2 hover:text-primary hover:bg-accent/5 rounded-md transition-all"
+                    className="text-xl py-3 px-2 hover:text-primary hover:bg-accent/5 rounded-md transition-all"
                     activeClassName="text-primary bg-accent/10"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -54,7 +55,7 @@ const Navbar = () => {
                     <NavLink
                       key={category.path}
                       to={category.path}
-                      className="text-lg py-3 px-2 hover:text-primary hover:bg-accent/5 rounded-md transition-all"
+                      className="text-xl py-3 px-2 hover:text-primary hover:bg-accent/5 rounded-md transition-all"
                       activeClassName="text-primary bg-accent/10"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
@@ -69,7 +70,7 @@ const Navbar = () => {
           {/* Center: Logo */}
           <div className="flex-1 flex justify-center lg:w-1/3">
             <NavLink to="/" className="inline-block">
-              <h1 className="text-2xl md:text-3xl font-bold tracking-wide hover:text-primary transition-colors cursor-pointer">
+              <h1 className="text-xl md:text-2xl lg:text-3xl font-bold tracking-wide hover:text-primary transition-colors cursor-pointer">
                 DRICA DIVINA
               </h1>
             </NavLink>
@@ -86,7 +87,7 @@ const Navbar = () => {
               className="h-11 w-11 p-0 hover:bg-accent/10 hover:text-primary transition-all"
               aria-label="Buscar"
             >
-              <Search className="h-5 w-5" />
+              <Search className="h-4 w-4 md:h-5 md:w-5" />
             </Button>
           </div>
         </div>

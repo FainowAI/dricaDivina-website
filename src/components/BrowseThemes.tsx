@@ -38,6 +38,12 @@ const BrowseThemes = () => {
       image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=400&fit=crop",
       link: "/viagem?subcategoria=destinos",
     },
+    {
+      name: "Saúde",
+      count: 11,
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop",
+      link: "/saude",
+    },
   ];
 
   const handleThemeClick = (link: string) => {

@@ -5,9 +5,24 @@ export default {
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
+    screens: {
+      'xs': '600px',    // Breakpoint 600px para tipografia fina (Camila pattern)
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1400px',
+    },
     container: {
       center: true,
-      padding: "2rem",
+      padding: {
+        DEFAULT: '1rem',    // 16px mobile (reduzido de 2rem/32px - Camila pattern)
+        xs: '1rem',         // 16px at 600px
+        sm: '1.5rem',       // 24px at 640px
+        md: '2rem',         // 32px at 768px
+        lg: '3rem',         // 48px at 1024px
+        xl: '4rem',         // 64px at 1280px
+      },
       screens: {
         "2xl": "1400px",
       },
