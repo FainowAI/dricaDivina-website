@@ -1,209 +1,156 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import StoriesMenu from "@/components/StoriesMenu";
+import Footer from "@/components/Footer";
 import CategoryHeader from "@/components/CategoryHeader";
 import SubcategoryBar from "@/components/SubcategoryBar";
 import PostCardLarge from "@/components/PostCardLarge";
-import Newsletter from "@/components/Newsletter";
-import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
-import { Badge } from "@/components/ui/badge";
-import postSkincare from "@/assets/post-skincare.jpg";
-import postTravel from "@/assets/post-travel.jpg";
-import postDecor from "@/assets/post-decor.jpg";
+import AdPlaceholder from "@/components/AdPlaceholder";
+import { Button } from "@/components/ui/button";
 
-// Dados de posts de saúde
-const healthPosts = [
+const subcategories = ["Tudo", "Saúde", "Fitness", "Nutrição", "Bem-estar"];
+
+const featuredPost = {
+  title: "5 dicas para manter a saúde mental em dia",
+  category: "BEM-ESTAR",
+  image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80",
+  link: "#",
+  summary: "Dicas de saúde, fitness, nutrição e bem-estar para uma vida equilibrada. Pequenos hábitos que transformam sua rotina diária.",
+};
+
+const posts = [
   {
-    id: 1,
-    title: "5 dicas para manter a saúde mental em dia",
-    category: "Bem-estar",
-    subcategory: "Saúde",
-    image: postSkincare,
-    link: "/artigo/saude-mental",
-    featured: true,
-  },
-  {
-    id: 2,
     title: "Rotina de exercícios para iniciantes",
-    category: "Fitness",
-    subcategory: "Fitness",
-    image: postTravel,
-    link: "/artigo/exercicios-iniciantes",
+    category: "FITNESS",
+    image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80",
+    link: "#",
   },
   {
-    id: 3,
     title: "Alimentação balanceada: guia completo",
-    category: "Nutrição",
-    subcategory: "Nutrição",
-    image: postDecor,
-    link: "/artigo/alimentacao-balanceada",
+    category: "NUTRIÇÃO",
+    image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80",
+    link: "#",
   },
   {
-    id: 4,
     title: "Yoga para iniciantes: primeiros passos",
-    category: "Bem-estar",
-    subcategory: "Fitness",
-    image: postSkincare,
-    link: "/artigo/yoga-iniciantes",
+    category: "FITNESS",
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80",
+    link: "#",
   },
   {
-    id: 5,
     title: "Como melhorar a qualidade do sono",
-    category: "Bem-estar",
-    subcategory: "Saúde",
-    image: postTravel,
-    link: "/artigo/qualidade-sono",
+    category: "SAÚDE",
+    image: "https://images.unsplash.com/photo-1541480551145-2370a440d585?w=800&q=80",
+    link: "#",
   },
   {
-    id: 6,
     title: "Meditação: benefícios e como começar",
-    category: "Bem-estar",
-    subcategory: "Saúde",
-    image: postDecor,
-    link: "/artigo/meditacao-beneficios",
+    category: "BEM-ESTAR",
+    image: "https://images.unsplash.com/photo-1545389336-cf090694435e?w=800&q=80",
+    link: "#",
   },
   {
-    id: 7,
     title: "Treino funcional em casa: guia prático",
-    category: "Fitness",
-    subcategory: "Fitness",
-    image: postSkincare,
-    link: "/artigo/treino-funcional",
+    category: "FITNESS",
+    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80",
+    link: "#",
   },
   {
-    id: 8,
     title: "Suplementos: o que você precisa saber",
-    category: "Nutrição",
-    subcategory: "Nutrição",
-    image: postTravel,
-    link: "/artigo/suplementos-guia",
+    category: "NUTRIÇÃO",
+    image: "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=800&q=80",
+    link: "#",
   },
   {
-    id: 9,
     title: "Hidratação: muito além da água",
-    category: "Nutrição",
-    subcategory: "Saúde",
-    image: postDecor,
-    link: "/artigo/hidratacao",
+    category: "SAÚDE",
+    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80",
+    link: "#",
   },
   {
-    id: 10,
     title: "Pilates: transformando corpo e mente",
-    category: "Fitness",
-    subcategory: "Fitness",
-    image: postSkincare,
-    link: "/artigo/pilates-beneficios",
-  },
-  {
-    id: 11,
-    title: "Skincare e saúde da pele: rotina completa",
-    category: "Bem-estar",
-    subcategory: "Saúde",
-    image: postTravel,
-    link: "/artigo/skincare-saude-pele",
+    category: "FITNESS",
+    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80",
+    link: "#",
   },
 ];
 
 const Saude = () => {
-  const navigate = useNavigate();
-  const [activeCategory, setActiveCategory] = useState("Tudo");
-
-  const categories = ["Tudo", "Saúde", "Fitness", "Nutrição", "Bem-estar"];
-
-  const filteredPosts = activeCategory === "Tudo"
-    ? healthPosts
-    : healthPosts.filter(post => post.subcategory === activeCategory);
-
-  const featuredPost = healthPosts.find(post => post.featured);
-  const regularPosts = filteredPosts.filter(post => !post.featured);
+  const [activeSubcategory, setActiveSubcategory] = useState("Tudo");
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       <StoriesMenu />
 
-      {/* Hero Section - Category Title */}
-      <section className="pt-32 xs:pt-36 md:pt-32 lg:pt-36 pb-8 xs:pb-12 md:pb-16 bg-secondary/30">
-        <div className="container mx-auto">
+      {/* Category Header */}
+      <div className="pt-32 md:pt-24">
+        <CategoryHeader categoryName="SAÚDE" postCount={89} />
+      </div>
+
+      {/* Subcategory Bar */}
+      <SubcategoryBar
+        subcategories={subcategories}
+        onSubcategoryChange={setActiveSubcategory}
+      />
+
+      {/* Ad Space */}
+      <div className="container mx-auto px-4">
+        <AdPlaceholder variant="horizontal" size="large" />
+      </div>
+
+      {/* Featured Post */}
+      <section className="pt-8 pb-12 md:pt-12 md:pb-16 lg:pt-16 lg:pb-20 bg-background">
+        <div className="container mx-auto px-4">
           <FadeIn>
-            <CategoryHeader categoryName="Saúde" postCount={healthPosts.length} />
-            <p className="text-base md:text-lg lg:text-xl text-foreground leading-relaxed mt-4">
-              Dicas de saúde, fitness, nutrição e bem-estar para uma vida equilibrada.
-            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+              {/* Image */}
+              <div className="order-2 md:order-1">
+                <div className="aspect-[4/3] rounded-lg overflow-hidden">
+                  <img
+                    src={featuredPost.image}
+                    alt={featuredPost.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+
+              {/* Text */}
+              <div className="order-1 md:order-2 flex flex-col justify-center">
+                <p className="text-xs md:text-sm uppercase font-semibold text-primary mb-3 md:mb-4 tracking-wider">
+                  {featuredPost.category}
+                </p>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 md:mb-6">
+                  {featuredPost.title}
+                </h2>
+                <p className="text-base md:text-lg leading-relaxed text-foreground/80 mb-6 md:mb-8">
+                  {featuredPost.summary}
+                </p>
+                <div className="w-20 border-b-2 border-primary mb-6 md:mb-8"></div>
+                <a
+                  href={featuredPost.link}
+                  className="text-sm md:text-base text-primary hover:underline flex items-center gap-2 font-semibold"
+                >
+                  Ler mais →
+                </a>
+              </div>
+            </div>
           </FadeIn>
         </div>
       </section>
 
-      {/* Subcategory Bar */}
-      <SubcategoryBar
-        subcategories={categories}
-        onSubcategoryChange={setActiveCategory}
-      />
-
-      {/* Featured Post (Hero Style) */}
-      {featuredPost && activeCategory === "Tudo" && (
-        <section className="py-12 md:py-16 lg:py-20 bg-background">
-          <div className="container mx-auto">
-            <FadeIn>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
-                {/* Image - Full width mobile, left on desktop */}
-                <div className="relative w-full -mx-4 md:mx-0 order-1 md:order-1">
-                  <div className="aspect-[4/3] md:rounded-lg overflow-hidden shadow-lg">
-                    <img
-                      src={featuredPost.image}
-                      alt={featuredPost.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                </div>
-
-                {/* Text - Below image mobile, right on desktop */}
-                <div className="space-y-4 md:space-y-6 order-2 md:order-2">
-                  <Badge className="bg-primary text-white text-[10px] md:text-xs uppercase px-3 py-1.5">
-                    {featuredPost.category}
-                  </Badge>
-                  <h2 className="text-[26px] xs:text-[32px] md:text-4xl lg:text-5xl font-bold leading-tight uppercase">
-                    {featuredPost.title}
-                  </h2>
-                  <button
-                    onClick={() => navigate(featuredPost.link)}
-                    className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-medium"
-                  >
-                    <span>Ler mais</span>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
-      )}
+      {/* Ad Space */}
+      <div className="container mx-auto px-4 flex justify-end">
+        <AdPlaceholder variant="square" size="medium" />
+      </div>
 
       {/* Posts Grid */}
-      <section className="py-12 md:py-16 lg:py-20 bg-background">
-        <div className="container mx-auto">
-          {/* Mobile: Vertical stack with 48px spacing */}
-          <div className="flex flex-col gap-12 sm:hidden">
-            {regularPosts.map((post, index) => (
-              <FadeIn key={post.id} delay={index * 0.1}>
-                <PostCardLarge
-                  title={post.title}
-                  category={post.category}
-                  image={post.image}
-                  link={post.link}
-                />
-              </FadeIn>
-            ))}
-          </div>
-
-          {/* Tablet/Desktop: Grid layout */}
-          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-            {regularPosts.map((post, index) => (
-              <FadeIn key={post.id} delay={index * 0.1}>
+      <section className="pt-8 pb-12 md:pt-12 md:pb-20 lg:pt-16 lg:pb-24 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
+            {posts.map((post, index) => (
+              <FadeIn key={index} delay={index * 0.1}>
                 <PostCardLarge
                   title={post.title}
                   category={post.category}
@@ -215,18 +162,24 @@ const Saude = () => {
           </div>
 
           {/* Load More Button */}
-          <div className="mt-12 md:mt-16 lg:mt-20 text-center">
-            <button className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-medium text-sm md:text-base uppercase tracking-wider">
-              <span>Carregar Mais</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-          </div>
+          <FadeIn delay={0.3}>
+            <div className="flex justify-center mt-12 md:mt-16 lg:mt-20">
+              <Button
+                variant="outline"
+                className="border-2 border-primary text-primary px-8 py-6 text-base font-semibold hover:bg-primary hover:text-white transition-all duration-200"
+              >
+                Carregar Mais
+              </Button>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
-      <Newsletter />
+      {/* Ad Space */}
+      <div className="container mx-auto px-4">
+        <AdPlaceholder variant="horizontal" size="medium" />
+      </div>
+
       <Footer />
     </div>
   );

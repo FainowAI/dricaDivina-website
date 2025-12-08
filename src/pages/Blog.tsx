@@ -2,143 +2,90 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import StoriesMenu from "@/components/StoriesMenu";
 import Footer from "@/components/Footer";
-import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
-import { Search } from "lucide-react";
+import CategoryHeader from "@/components/CategoryHeader";
+import SubcategoryBar from "@/components/SubcategoryBar";
+import PostCardLarge from "@/components/PostCardLarge";
 import FadeIn from "@/components/FadeIn";
 import AdPlaceholder from "@/components/AdPlaceholder";
-import postDecor from "@/assets/post-decor.jpg";
-import postSkincare from "@/assets/post-skincare.jpg";
-import postTravel from "@/assets/post-travel.jpg";
-import articleCoffee from "@/assets/article-coffee.jpg";
-import heroImage from "@/assets/hero-image.jpg";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
 
-const categories = ["Todos", "MODA", "VIAGEM", "LIFESTYLE", "DICAS", "AUTOCUIDADO"];
+const subcategories = ["Tudo", "Moda", "Viagem", "Lifestyle", "Dicas", "Autocuidado"];
 
-const blogPosts = [
+const featuredPost = {
+  title: "Rotina matinal que transforma o dia",
+  category: "LIFESTYLE",
+  image: "https://images.unsplash.com/photo-1495364141860-b0d03eccd065?w=1200&q=80",
+  link: "#",
+  summary: "Pequenos hábitos que fazem toda diferença no bem-estar e produtividade diária. Descubra como começar o dia com mais energia e propósito.",
+};
+
+const posts = [
   {
-    id: 1,
     title: "3 looks de inverno-estação para usar já",
-    description: "Descubra as tendências de moda para a estação mais fria do ano com peças versáteis e estilosas.",
-    image: postDecor,
     category: "MODA",
-    tags: ["moda", "inverno", "tendências"],
-    date: "15 Nov 2024",
+    image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80",
+    link: "#",
   },
   {
-    id: 2,
     title: "Guia de fim de semana em Trancoso",
-    description: "Roteiro completo para aproveitar o melhor da Bahia em apenas dois dias.",
-    image: postTravel,
     category: "VIAGEM",
-    tags: ["viagem", "trancoso", "bahia"],
-    date: "12 Nov 2024",
+    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80",
+    link: "#",
   },
   {
-    id: 3,
-    title: "Rotina matinal que transforma o dia",
-    description: "Pequenos hábitos que fazem toda diferença no bem-estar e produtividade diária.",
-    image: articleCoffee,
-    category: "LIFESTYLE",
-    tags: ["lifestyle", "rotina", "bem-estar"],
-    date: "10 Nov 2024",
-  },
-  {
-    id: 4,
     title: "Como montar uma mala de viagem inteligente",
-    description: "Dicas práticas para não esquecer nada e viajar com leveza e organização.",
-    image: postTravel,
     category: "DICAS",
-    tags: ["viagem", "organização", "dicas"],
-    date: "8 Nov 2024",
+    image: "https://images.unsplash.com/photo-1565026057447-bc90a3dceb87?w=800&q=80",
+    link: "#",
   },
   {
-    id: 5,
     title: "Autocuidado: além da aparência física",
-    description: "A importância de cuidar da saúde mental e emocional com carinho e consistência.",
-    image: heroImage,
     category: "AUTOCUIDADO",
-    tags: ["autocuidado", "saúde mental", "bem-estar"],
-    date: "5 Nov 2024",
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80",
+    link: "#",
   },
   {
-    id: 6,
     title: "Tendências de moda primavera/verão 2025",
-    description: "O que vem por aí nas passarelas e como adaptar para o seu guarda-roupa.",
-    image: postDecor,
     category: "MODA",
-    tags: ["moda", "tendências", "verão"],
-    date: "3 Nov 2024",
+    image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80",
+    link: "#",
   },
   {
-    id: 7,
     title: "Destinos acessíveis para viajar sozinha",
-    description: "Lugares seguros e encantadores para quem quer se aventurar em uma viagem solo.",
-    image: postTravel,
     category: "VIAGEM",
-    tags: ["viagem", "solo travel", "destinos"],
-    date: "1 Nov 2024",
+    image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80",
+    link: "#",
   },
   {
-    id: 8,
     title: "Minimalismo no dia a dia: por onde começar",
-    description: "Como simplificar sua vida e focar no que realmente importa.",
-    image: articleCoffee,
     category: "LIFESTYLE",
-    tags: ["minimalismo", "lifestyle", "organização"],
-    date: "28 Out 2024",
+    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
+    link: "#",
   },
   {
-    id: 9,
     title: "5 apps que mudaram minha rotina de autocuidado",
-    description: "Ferramentas digitais que ajudam a manter hábitos saudáveis e consistentes.",
-    image: postSkincare,
     category: "DICAS",
-    tags: ["tecnologia", "apps", "autocuidado"],
-    date: "25 Out 2024",
+    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&q=80",
+    link: "#",
   },
   {
-    id: 10,
     title: "Meditação para iniciantes: guia prático",
-    description: "Como começar a meditar sem complicação e colher os benefícios desde o primeiro dia.",
-    image: heroImage,
     category: "AUTOCUIDADO",
-    tags: ["meditação", "mindfulness", "bem-estar"],
-    date: "22 Out 2024",
-  },
-  {
-    id: 11,
-    title: "Peças-chave para um guarda-roupa versátil",
-    description: "Investimentos certeiros que combinam com tudo e nunca saem de moda.",
-    image: postDecor,
-    category: "MODA",
-    tags: ["moda", "guarda-roupa", "básicos"],
-    date: "20 Out 2024",
-  },
-  {
-    id: 12,
-    title: "Roteiro de 7 dias pela Europa",
-    description: "Como aproveitar ao máximo uma semana viajando por cidades icônicas.",
-    image: postTravel,
-    category: "VIAGEM",
-    tags: ["europa", "roteiro", "viagem"],
-    date: "18 Out 2024",
+    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80",
+    link: "#",
   },
 ];
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [activeCategory, setActiveCategory] = useState("Todos");
+  const [activeSubcategory, setActiveSubcategory] = useState("Tudo");
 
-  const filteredPosts = blogPosts.filter((post) => {
-    const matchesSearch =
-      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-
-    const matchesCategory =
-      activeCategory === "Todos" || post.category === activeCategory;
-
+  // Filtrar posts baseado na busca e subcategoria
+  const filteredPosts = posts.filter((post) => {
+    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = activeSubcategory === "Tudo" || post.category === activeSubcategory.toUpperCase();
     return matchesSearch && matchesCategory;
   });
 
@@ -147,122 +94,124 @@ const Blog = () => {
       <Navbar />
       <StoriesMenu />
 
-      {/* Hero Section */}
-      <section className="pt-36 pb-16 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <FadeIn>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">Conhecimento</h1>
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <p className="text-xl text-foreground leading-relaxed mb-8">
-                Artigos sobre moda, viagem, lifestyle, dicas e autocuidado.
-                Inspiração e informação para transformar seu dia a dia.
-              </p>
-            </FadeIn>
+      {/* Category Header */}
+      <div className="pt-32 md:pt-24">
+        <CategoryHeader categoryName="CONHECIMENTO" postCount={127} />
+      </div>
 
-            {/* Search Bar */}
-            <FadeIn delay={0.3}>
-              <div className="relative max-w-2xl mx-auto">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                <Input
-                  type="text"
-                  placeholder="Buscar posts por título, descrição ou tags..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-12 pr-4 py-6 text-base rounded-full border-2 border-border focus:border-accent transition-colors"
-                />
-              </div>
-            </FadeIn>
+      {/* Search Bar - Mantido como funcionalidade exclusiva */}
+      <section className="py-6 bg-background border-b border-border">
+        <div className="container mx-auto px-4">
+          <div className="relative max-w-2xl mx-auto">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+            <Input
+              type="text"
+              placeholder="Buscar posts por título..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="pl-12 pr-4 py-6 text-base rounded-full border-2 border-border focus:border-accent transition-colors"
+            />
           </div>
         </div>
       </section>
 
-      {/* Category Filters */}
-      <section className="py-6 border-b-2 border-border bg-background sticky top-20 z-40 shadow-sm">
-        <div className="container mx-auto px-4">
-          <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`text-sm font-medium whitespace-nowrap py-2.5 px-5 rounded-full transition-all ${
-                  activeCategory === category
-                    ? "bg-accent text-white shadow-md"
-                    : "bg-secondary/50 text-foreground hover:bg-secondary hover:shadow-sm"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Subcategory Bar */}
+      <SubcategoryBar
+        subcategories={subcategories}
+        onSubcategoryChange={setActiveSubcategory}
+      />
 
       {/* Ad Space */}
       <div className="container mx-auto px-4">
         <AdPlaceholder variant="horizontal" size="large" />
       </div>
 
-      {/* Posts Grid */}
-      <section className="py-20 bg-background">
+      {/* Featured Post */}
+      <section className="pt-8 pb-12 md:pt-12 md:pb-16 lg:pt-16 lg:pb-20 bg-background">
         <div className="container mx-auto px-4">
-          {/* Results Count */}
           <FadeIn>
-            <div className="mb-8 text-center">
-              <p className="text-lg text-foreground">
-                {filteredPosts.length === 0
-                  ? "Nenhum post encontrado"
-                  : `${filteredPosts.length} ${
-                      filteredPosts.length === 1 ? "post encontrado" : "posts encontrados"
-                    }`}
-              </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+              {/* Image */}
+              <div className="order-2 md:order-1">
+                <div className="aspect-[4/3] rounded-lg overflow-hidden">
+                  <img
+                    src={featuredPost.image}
+                    alt={featuredPost.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+
+              {/* Text */}
+              <div className="order-1 md:order-2 flex flex-col justify-center">
+                <p className="text-xs md:text-sm uppercase font-semibold text-primary mb-3 md:mb-4 tracking-wider">
+                  {featuredPost.category}
+                </p>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 md:mb-6">
+                  {featuredPost.title}
+                </h2>
+                <p className="text-base md:text-lg leading-relaxed text-foreground/80 mb-6 md:mb-8">
+                  {featuredPost.summary}
+                </p>
+                <div className="w-20 border-b-2 border-primary mb-6 md:mb-8"></div>
+                <a
+                  href={featuredPost.link}
+                  className="text-sm md:text-base text-primary hover:underline flex items-center gap-2 font-semibold"
+                >
+                  Ler mais →
+                </a>
+              </div>
             </div>
           </FadeIn>
+        </div>
+      </section>
 
-          {/* Posts Grid */}
+      {/* Ad Space */}
+      <div className="container mx-auto px-4 flex justify-end">
+        <AdPlaceholder variant="square" size="medium" />
+      </div>
+
+      {/* Posts Grid */}
+      <section className="pt-8 pb-12 md:pt-12 md:pb-20 lg:pt-16 lg:pb-24 bg-secondary/30">
+        <div className="container mx-auto px-4">
           {filteredPosts.length > 0 ? (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {filteredPosts.map((post, index) => (
-                <FadeIn key={post.id} delay={index * 0.05}>
-                  <article className="group cursor-pointer bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-                    <div className="relative aspect-[4/3] overflow-hidden">
-                      <img
-                        src={post.image}
-                        alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <Badge className="absolute top-3 left-3 bg-accent/90 text-white text-xs py-1.5 px-3">
-                        {post.category}
-                      </Badge>
-                    </div>
-                    <div className="p-6">
-                      <p className="text-xs text-muted-foreground mb-2">{post.date}</p>
-                      <h3 className="text-lg font-bold mb-3 line-clamp-2 group-hover:text-accent transition-colors leading-tight">
-                        {post.title}
-                      </h3>
-                      <p className="text-sm text-foreground line-clamp-2 leading-relaxed">
-                        {post.description}
-                      </p>
-                    </div>
-                  </article>
-                </FadeIn>
-              ))}
-            </div>
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
+                {filteredPosts.map((post, index) => (
+                  <FadeIn key={index} delay={index * 0.1}>
+                    <PostCardLarge
+                      title={post.title}
+                      category={post.category}
+                      image={post.image}
+                      link={post.link}
+                    />
+                  </FadeIn>
+                ))}
+              </div>
+
+              {/* Load More Button */}
+              <FadeIn delay={0.3}>
+                <div className="flex justify-center mt-12 md:mt-16 lg:mt-20">
+                  <Button
+                    variant="outline"
+                    className="border-2 border-primary text-primary px-8 py-6 text-base font-semibold hover:bg-primary hover:text-white transition-all duration-200"
+                  >
+                    Carregar Mais
+                  </Button>
+                </div>
+              </FadeIn>
+            </>
           ) : (
             <FadeIn>
               <div className="text-center py-16">
                 <p className="text-lg text-muted-foreground mb-4">
-                  Tente buscar com outras palavras ou ajuste os filtros.
+                  Nenhum post encontrado com "{searchTerm}".
                 </p>
                 <button
-                  onClick={() => {
-                    setSearchTerm("");
-                    setActiveCategory("Todos");
-                  }}
+                  onClick={() => setSearchTerm("")}
                   className="text-accent hover:underline font-semibold"
                 >
-                  Limpar filtros
+                  Limpar busca
                 </button>
               </div>
             </FadeIn>
@@ -281,4 +230,3 @@ const Blog = () => {
 };
 
 export default Blog;
-

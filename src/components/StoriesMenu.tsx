@@ -48,7 +48,7 @@ const StoriesMenu = () => {
   };
 
   return (
-    <div className="fixed top-16 left-0 right-0 bg-background/95 backdrop-blur-sm z-40 border-b border-border/40 py-2">
+    <div className="fixed top-16 left-0 right-0 bg-background/95 backdrop-blur-sm z-[45] border-b border-border/40 py-2 shadow-sm will-change-transform">
       <ScrollArea className="w-full">
         <div className="flex justify-center gap-5 px-4">
           {stories.map((story) => (
