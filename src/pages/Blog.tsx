@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
+import StoriesMenu from "@/components/StoriesMenu";
 import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -144,6 +145,7 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <StoriesMenu />
 
       {/* Hero Section */}
       <section className="pt-36 pb-16 bg-secondary/30">

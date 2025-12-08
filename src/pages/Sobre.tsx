@@ -1,5 +1,6 @@
 import { Sparkles, Users, BookOpen } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import StoriesMenu from "@/components/StoriesMenu";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
@@ -8,6 +9,7 @@ const Sobre = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
+      <StoriesMenu />
 
       {/* Hero Section */}
       <section className="pt-36 pb-24 bg-background">

@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import StoriesMenu from "@/components/StoriesMenu";
 import HeroPost from "@/components/HeroPost";
 import LatestPosts from "@/components/LatestPosts";
 import Favorites from "@/components/Favorites";
@@ -15,6 +16,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
+      <StoriesMenu />
       <HeroPost
         category="BELEZA"
         title="Rotina de skincare: produtos essenciais para uma pele radiante"

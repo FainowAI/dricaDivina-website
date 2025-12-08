@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
+import StoriesMenu from "@/components/StoriesMenu";
 import CategoryHeader from "@/components/CategoryHeader";
 import SubcategoryBar from "@/components/SubcategoryBar";
 import PostCardLarge from "@/components/PostCardLarge";
@@ -121,9 +122,10 @@ const Saude = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <StoriesMenu />
 
       {/* Hero Section - Category Title */}
-      <section className="pt-24 xs:pt-28 md:pt-32 lg:pt-36 pb-8 xs:pb-12 md:pb-16 bg-secondary/30">
+      <section className="pt-32 xs:pt-36 md:pt-32 lg:pt-36 pb-8 xs:pb-12 md:pb-16 bg-secondary/30">
         <div className="container mx-auto">
           <FadeIn>
             <CategoryHeader categoryName="Saúde" postCount={healthPosts.length} />
