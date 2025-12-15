@@ -12,7 +12,7 @@ const Sobre = () => {
       <StoriesMenu />
 
       {/* Hero Section */}
-      <section className="pt-36 pb-24 bg-background">
+      <section className="pt-44 pb-12 bg-background">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <FadeIn>
             <h1 className="text-5xl md:text-6xl font-bold mb-8">Quem é DRICA DIVINA?</h1>
