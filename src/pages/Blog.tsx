@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 
-const subcategories = ["Tudo", "Moda", "Viagem", "Lifestyle", "Dicas", "Autocuidado"];
+const subcategories = ["Tudo", "Moda", "Viagem", "Lifestyle", "Dica Divina da Drica", "Autocuidado"];
 
 const featuredPost = {
   title: "Rotina matinal que transforma o dia",
