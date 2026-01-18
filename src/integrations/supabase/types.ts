@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      articles: {
+        Row: {
+          created_at: string
+          description: string | null
+          display_order: number | null
+          id: string
+          image: string | null
+          is_active: boolean | null
+          link: string | null
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          display_order?: number | null
+          id?: string
+          image?: string | null
+          is_active?: boolean | null
+          link?: string | null
+          title: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          display_order?: number | null
+          id?: string
+          image?: string | null
+          is_active?: boolean | null
+          link?: string | null
+          title?: string
+        }
+        Relationships: []
+      }
       categories: {
         Row: {
           created_at: string
@@ -23,6 +56,7 @@ export type Database = {
           is_active: boolean | null
           name: string
           order_index: number | null
+          post_count: number | null
           slug: string
           updated_at: string
         }
@@ -34,6 +68,7 @@ export type Database = {
           is_active?: boolean | null
           name: string
           order_index?: number | null
+          post_count?: number | null
           slug: string
           updated_at?: string
         }
@@ -45,6 +80,7 @@ export type Database = {
           is_active?: boolean | null
           name?: string
           order_index?: number | null
+          post_count?: number | null
           slug?: string
           updated_at?: string
         }
@@ -94,20 +130,53 @@ export type Database = {
           },
         ]
       }
+      podcasts: {
+        Row: {
+          audio_url: string | null
+          created_at: string
+          display_order: number | null
+          episode_number: string | null
+          id: string
+          is_active: boolean | null
+          title: string
+        }
+        Insert: {
+          audio_url?: string | null
+          created_at?: string
+          display_order?: number | null
+          episode_number?: string | null
+          id?: string
+          is_active?: boolean | null
+          title: string
+        }
+        Update: {
+          audio_url?: string | null
+          created_at?: string
+          display_order?: number | null
+          episode_number?: string | null
+          id?: string
+          is_active?: boolean | null
+          title?: string
+        }
+        Relationships: []
+      }
       posts: {
         Row: {
           author_id: string | null
           category_id: string | null
           content: string
           created_at: string
-          excerpt: string | null
           featured_image: string | null
           id: string
+          is_featured: boolean | null
+          is_published: boolean | null
           meta_description: string | null
           meta_title: string | null
           published_at: string | null
           slug: string
           status: string | null
+          subcategory_id: string | null
+          summary: string | null
           tags: string[] | null
           title: string
           updated_at: string
@@ -118,14 +187,17 @@ export type Database = {
           category_id?: string | null
           content: string
           created_at?: string
-          excerpt?: string | null
           featured_image?: string | null
           id?: string
+          is_featured?: boolean | null
+          is_published?: boolean | null
           meta_description?: string | null
           meta_title?: string | null
           published_at?: string | null
           slug: string
           status?: string | null
+          subcategory_id?: string | null
+          summary?: string | null
           tags?: string[] | null
           title: string
           updated_at?: string
@@ -136,14 +208,17 @@ export type Database = {
           category_id?: string | null
           content?: string
           created_at?: string
-          excerpt?: string | null
           featured_image?: string | null
           id?: string
+          is_featured?: boolean | null
+          is_published?: boolean | null
           meta_description?: string | null
           meta_title?: string | null
           published_at?: string | null
           slug?: string
           status?: string | null
+          subcategory_id?: string | null
+          summary?: string | null
           tags?: string[] | null
           title?: string
           updated_at?: string
@@ -159,6 +234,69 @@ export type Database = {
           },
           {
             foreignKeyName: "posts_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "categories"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "posts_subcategory_id_fkey"
+            columns: ["subcategory_id"]
+            isOneToOne: false
+            referencedRelation: "subcategories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      products: {
+        Row: {
+          buy_link: string | null
+          category_id: string | null
+          created_at: string
+          discount: string | null
+          display_order: number | null
+          id: string
+          image: string | null
+          is_active: boolean | null
+          name: string
+          price: string | null
+          product_type: string
+          tag: string | null
+          updated_at: string
+        }
+        Insert: {
+          buy_link?: string | null
+          category_id?: string | null
+          created_at?: string
+          discount?: string | null
+          display_order?: number | null
+          id?: string
+          image?: string | null
+          is_active?: boolean | null
+          name: string
+          price?: string | null
+          product_type: string
+          tag?: string | null
+          updated_at?: string
+        }
+        Update: {
+          buy_link?: string | null
+          category_id?: string | null
+          created_at?: string
+          discount?: string | null
+          display_order?: number | null
+          id?: string
+          image?: string | null
+          is_active?: boolean | null
+          name?: string
+          price?: string | null
+          product_type?: string
+          tag?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "products_category_id_fkey"
             columns: ["category_id"]
             isOneToOne: false
             referencedRelation: "categories"
@@ -193,6 +331,125 @@ export type Database = {
           id?: string
           role?: string | null
           updated_at?: string
+        }
+        Relationships: []
+      }
+      site_settings: {
+        Row: {
+          id: string
+          key: string
+          updated_at: string
+          value: Json | null
+        }
+        Insert: {
+          id?: string
+          key: string
+          updated_at?: string
+          value?: Json | null
+        }
+        Update: {
+          id?: string
+          key?: string
+          updated_at?: string
+          value?: Json | null
+        }
+        Relationships: []
+      }
+      stories: {
+        Row: {
+          created_at: string
+          display_order: number | null
+          id: string
+          image: string | null
+          is_active: boolean | null
+          label: string
+          path: string
+        }
+        Insert: {
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          image?: string | null
+          is_active?: boolean | null
+          label: string
+          path: string
+        }
+        Update: {
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          image?: string | null
+          is_active?: boolean | null
+          label?: string
+          path?: string
+        }
+        Relationships: []
+      }
+      subcategories: {
+        Row: {
+          category_id: string
+          created_at: string
+          id: string
+          name: string
+          slug: string
+        }
+        Insert: {
+          category_id: string
+          created_at?: string
+          id?: string
+          name: string
+          slug: string
+        }
+        Update: {
+          category_id?: string
+          created_at?: string
+          id?: string
+          name?: string
+          slug?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "subcategories_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      videos: {
+        Row: {
+          category: string | null
+          created_at: string
+          display_order: number | null
+          id: string
+          is_active: boolean | null
+          is_featured: boolean | null
+          thumbnail: string | null
+          title: string
+          video_url: string | null
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          thumbnail?: string | null
+          title: string
+          video_url?: string | null
+        }
+        Update: {
+          category?: string | null
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          thumbnail?: string | null
+          title?: string
+          video_url?: string | null
         }
         Relationships: []
       }
