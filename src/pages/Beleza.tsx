@@ -9,7 +9,7 @@ import FadeIn from "@/components/FadeIn";
 import AdPlaceholder from "@/components/AdPlaceholder";
 import { Button } from "@/components/ui/button";
 
-const subcategories = ["Tudo", "Maquiagem", "Skincare", "Cabelos", "Dicas"];
+const subcategories = ["Tudo", "Maquiagem", "Skincare", "Cabelos", "Dica Divina da Drica"];
 
 const featuredPost = {
   title: "Rotina minimalista: 4 passos que realmente funcionam",

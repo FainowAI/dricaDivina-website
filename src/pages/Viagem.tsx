@@ -9,7 +9,7 @@ import FadeIn from "@/components/FadeIn";
 import AdPlaceholder from "@/components/AdPlaceholder";
 import { Button } from "@/components/ui/button";
 
-const subcategories = ["Tudo", "Brasil", "Internacional", "Destinos", "Dicas", "Roteiros"];
+const subcategories = ["Tudo", "Brasil", "Internacional", "Destinos", "Dica Divina da Drica", "Roteiros"];
 
 const featuredPost = {
   title: "Guia de fim de semana em Trancoso",

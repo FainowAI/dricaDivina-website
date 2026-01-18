@@ -18,6 +18,12 @@ const StoriesMenu = () => {
 
   const stories: StoryItem[] = [
     {
+      id: "sobre",
+      label: "Quem é Drica Divina",
+      image: "/placeholder.svg", // TODO: Substituir pela imagem de Drica
+      path: "/sobre",
+    },
+    {
       id: "viagem",
       label: "Viagem",
       image: "/placeholder.svg", // TODO: Substituir pela imagem de Viagem
