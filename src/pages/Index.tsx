@@ -11,19 +11,41 @@ import BrowseThemes from "@/components/BrowseThemes";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 import AdPlaceholder from "@/components/AdPlaceholder";
+import { HeroPostSkeleton } from "@/components/skeletons";
+import { useFeaturedPost } from "@/hooks/usePosts";
 
 const Index = () => {
+  const { data: featuredPost, isLoading: isLoadingFeatured } = useFeaturedPost();
+
   return (
     <div className="min-h-screen">
       <Navbar />
       <StoriesMenu />
-      <HeroPost
-        category="BELEZA"
-        title="Rotina de skincare: produtos essenciais para uma pele radiante"
-        summary="Descubra os segredos de uma rotina de cuidados com a pele eficaz e transformadora. Produtos testados e aprovados para todos os tipos de pele."
-        image="https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=1200&q=80"
-        link="/beleza"
-      />
+
+      {isLoadingFeatured ? (
+        <section className="pt-32 pb-16 md:pt-20 md:pb-24 lg:pt-28 lg:pb-32 bg-background">
+          <div className="container mx-auto px-4">
+            <HeroPostSkeleton />
+          </div>
+        </section>
+      ) : featuredPost ? (
+        <HeroPost
+          category={featuredPost.categories?.name?.toUpperCase() || ""}
+          title={featuredPost.title}
+          summary={featuredPost.summary || ""}
+          image={featuredPost.featured_image || "/placeholder.svg"}
+          link={`/artigo/${featuredPost.slug}`}
+        />
+      ) : (
+        <HeroPost
+          category="BLOG"
+          title="Bem-vinda ao Drica Divina"
+          summary="Descubra conteúdos sobre beleza, moda, viagem, saúde e muito mais."
+          image="/placeholder.svg"
+          link="/blog"
+        />
+      )}
+
       <div className="container mx-auto px-4">
         <AdPlaceholder variant="horizontal" size="large" />
       </div>

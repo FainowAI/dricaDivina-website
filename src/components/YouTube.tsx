@@ -2,31 +2,28 @@ import { ArrowRight } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 import VideoCard from "@/components/VideoCard";
 import CarouselIndicators from "@/components/CarouselIndicators";
+import { VideoCardSkeletonGrid } from "@/components/skeletons";
+import { useVideos } from "@/hooks/useVideos";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
 
-const videos = [
-  {
-    title: "Vlog: Um dia comigo — dicas de looks",
-    thumbnail: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80",
-    link: "#",
-  },
-  {
-    title: "Maquiagem com linha de verão",
-    thumbnail: "https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=800&q=80",
-    link: "#",
-  },
-  {
-    title: "Especial de Viagens em cada de maio",
-    thumbnail: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80",
-    link: "#",
-  },
-];
-
 const YouTube = () => {
+  const { data, isLoading, error } = useVideos({ limit: 3 });
+  const videos = data?.videos || [];
+
+  if (error) {
+    return (
+      <section className="pt-8 pb-12 md:pt-12 md:pb-20 lg:pt-16 lg:pb-24 bg-secondary/30">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-muted-foreground">Não foi possível carregar os vídeos.</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="pt-8 pb-12 md:pt-12 md:pb-20 lg:pt-16 lg:pb-24 bg-secondary/30">
       <div className="container mx-auto px-4">
@@ -46,36 +43,46 @@ const YouTube = () => {
           </div>
         </FadeIn>
 
-        {/* Mobile: Carousel */}
-        <div className="md:hidden">
-          <Carousel opts={{ align: "start", loop: false }} className="w-full">
-            <CarouselContent className="-ml-4">
+        {isLoading ? (
+          <VideoCardSkeletonGrid count={3} />
+        ) : videos.length > 0 ? (
+          <>
+            {/* Mobile: Carousel */}
+            <div className="md:hidden">
+              <Carousel opts={{ align: "start", loop: false }} className="w-full">
+                <CarouselContent className="-ml-4">
+                  {videos.map((video) => (
+                    <CarouselItem key={video.id} className="pl-4">
+                      <VideoCard
+                        title={video.title}
+                        thumbnail={video.thumbnail || "/placeholder.svg"}
+                        link={video.video_url || "#"}
+                      />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+              <CarouselIndicators totalItems={videos.length} />
+            </div>
+
+            {/* Desktop: Grid */}
+            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
               {videos.map((video, index) => (
-                <CarouselItem key={index} className="pl-4">
+                <FadeIn key={video.id} delay={index * 0.1}>
                   <VideoCard
                     title={video.title}
-                    thumbnail={video.thumbnail}
-                    link={video.link}
+                    thumbnail={video.thumbnail || "/placeholder.svg"}
+                    link={video.video_url || "#"}
                   />
-                </CarouselItem>
+                </FadeIn>
               ))}
-            </CarouselContent>
-          </Carousel>
-          <CarouselIndicators totalItems={videos.length} />
-        </div>
-
-        {/* Desktop: Grid */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
-          {videos.map((video, index) => (
-            <FadeIn key={index} delay={index * 0.1}>
-              <VideoCard
-                title={video.title}
-                thumbnail={video.thumbnail}
-                link={video.link}
-              />
-            </FadeIn>
-          ))}
-        </div>
+            </div>
+          </>
+        ) : (
+          <div className="text-center py-8">
+            <p className="text-muted-foreground">Nenhum vídeo encontrado.</p>
+          </div>
+        )}
       </div>
     </section>
   );

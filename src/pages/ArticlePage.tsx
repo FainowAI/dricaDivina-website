@@ -1,3 +1,4 @@
+import { useParams, useNavigate } from "react-router-dom";
 import { Share2, Facebook, Twitter, Link2, Pin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -6,69 +7,22 @@ import PostCardLarge from "@/components/PostCardLarge";
 import FadeIn from "@/components/FadeIn";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/hooks/use-toast";
-
-// Mock article data
-const article = {
-  title: "Rotina de skincare: produtos essenciais para uma pele radiante",
-  date: "15 de Janeiro, 2025",
-  categories: ["BELEZA", "SKINCARE"],
-  heroImage: "https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=1600&q=80",
-  content: [
-    {
-      type: "paragraph",
-      text: "Uma rotina de skincare eficaz não precisa ser complicada. Com os produtos certos e consistência, você pode alcançar uma pele saudável e radiante. Vou compartilhar com você os passos essenciais que transformaram minha pele.",
-    },
-    {
-      type: "heading",
-      text: "Limpeza: O primeiro passo essencial",
-    },
-    {
-      type: "paragraph",
-      text: "A limpeza é a base de qualquer rotina de skincare. Ela remove impurezas, excesso de oleosidade e resíduos de maquiagem, preparando a pele para absorver melhor os produtos seguintes. Use um limpador suave pela manhã e um mais profundo à noite.",
-    },
-    {
-      type: "paragraph",
-      text: "Minha dica é escolher produtos que respeitem o pH natural da pele e não causem ressecamento. Prefira texturas em gel para peles oleosas e cremosas para peles secas.",
-    },
-    {
-      type: "heading",
-      text: "Hidratação: nunca pule este passo",
-    },
-    {
-      type: "paragraph",
-      text: "Independente do seu tipo de pele, a hidratação é fundamental. Até peles oleosas precisam de hidratação adequada. Um bom hidratante mantém a barreira cutânea saudável e previne o envelhecimento precoce.",
-    },
-    {
-      type: "paragraph",
-      text: "Escolha fórmulas leves para o dia e mais nutritivas para a noite. E lembre-se: o protetor solar é parte essencial da hidratação diurna!",
-    },
-  ],
-};
-
-const relatedPosts = [
-  {
-    title: "Guia de séruns: vitamina C, niacinamida e quando usar",
-    category: "SKINCARE",
-    image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=800&q=80",
-    link: "#",
-  },
-  {
-    title: "Protetor solar: como escolher o ideal para seu tipo de pele",
-    category: "SKINCARE",
-    image: "https://images.unsplash.com/photo-1556228852-80a9e1e18846?w=800&q=80",
-    link: "#",
-  },
-  {
-    title: "Rotina noturna: produtos que fazem diferença",
-    category: "BELEZA",
-    image: "https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=800&q=80",
-    link: "#",
-  },
-];
+import { usePost, useRelatedPosts } from "@/hooks/usePosts";
+import { PostCardSkeletonGrid } from "@/components/skeletons";
 
 const ArticlePage = () => {
+  const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
   const { toast } = useToast();
+
+  const { data: post, isLoading, error } = usePost(slug || "");
+  const { data: relatedPosts, isLoading: isLoadingRelated } = useRelatedPosts(
+    post?.id || "",
+    post?.category_id || "",
+    3
+  );
 
   const handleShare = (platform: string) => {
     if (platform === "copy") {
@@ -85,6 +39,96 @@ const ArticlePage = () => {
     }
   };
 
+  // Format date
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("pt-BR", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+  };
+
+  // Render content (can be plain text or structured)
+  const renderContent = (content: string) => {
+    // If content looks like markdown or HTML, render accordingly
+    // For now, we'll split by double newlines to create paragraphs
+    const paragraphs = content.split(/\n\n+/);
+
+    return paragraphs.map((paragraph, index) => {
+      // Check if it's a heading (starts with ##)
+      if (paragraph.startsWith("## ")) {
+        return (
+          <FadeIn key={index} delay={0.1 * index}>
+            <h2 className="text-2xl md:text-3xl font-bold mt-10 mb-4 leading-tight">
+              {paragraph.replace("## ", "")}
+            </h2>
+          </FadeIn>
+        );
+      }
+
+      // Regular paragraph
+      return (
+        <FadeIn key={index} delay={0.1 * index}>
+          <p className="text-lg md:text-xl leading-relaxed mb-6 text-foreground/90">
+            {paragraph}
+          </p>
+        </FadeIn>
+      );
+    });
+  };
+
+  // Error state - Post not found
+  if (error || (!isLoading && !post)) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <div className="container mx-auto px-4 pt-32 pb-16 text-center">
+          <h1 className="text-4xl font-bold mb-4">Post não encontrado</h1>
+          <p className="text-muted-foreground mb-8">
+            O post que você está procurando não existe ou foi removido.
+          </p>
+          <Button onClick={() => navigate("/blog")}>Voltar para o Blog</Button>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <article className="pt-24 pb-12 md:pt-28 md:pb-16 lg:pt-32 lg:pb-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex gap-3 mb-6">
+                <Skeleton className="h-6 w-20" />
+                <Skeleton className="h-6 w-32" />
+              </div>
+              <Skeleton className="h-16 w-full mb-4" />
+              <Skeleton className="h-16 w-3/4 mb-8" />
+              <div className="flex gap-3 mb-10">
+                <Skeleton className="h-10 w-20" />
+                <Skeleton className="h-10 w-28" />
+                <Skeleton className="h-10 w-20" />
+                <Skeleton className="h-10 w-20" />
+              </div>
+              <Skeleton className="aspect-video w-full rounded-lg mb-12" />
+              <div className="max-w-prose mx-auto space-y-4">
+                <Skeleton className="h-6 w-full" />
+                <Skeleton className="h-6 w-full" />
+                <Skeleton className="h-6 w-3/4" />
+              </div>
+            </div>
+          </div>
+        </article>
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -96,20 +140,31 @@ const ArticlePage = () => {
             <FadeIn>
               {/* Categories and Date */}
               <div className="flex flex-wrap items-center gap-3 mb-6 md:mb-8">
-                {article.categories.map((category, index) => (
-                  <Badge
-                    key={index}
-                    className="bg-primary text-white text-xs px-3 py-1"
-                  >
-                    {category}
+                {post.categories && (
+                  <Badge className="bg-primary text-white text-xs px-3 py-1">
+                    {post.categories.name?.toUpperCase()}
                   </Badge>
-                ))}
-                <span className="text-sm text-foreground/60">{article.date}</span>
+                )}
+                {post.tags &&
+                  post.tags.slice(0, 2).map((tag: string, index: number) => (
+                    <Badge
+                      key={index}
+                      variant="outline"
+                      className="text-xs px-3 py-1"
+                    >
+                      {tag.toUpperCase()}
+                    </Badge>
+                  ))}
+                <span className="text-sm text-foreground/60">
+                  {post.published_at
+                    ? formatDate(post.published_at)
+                    : formatDate(post.created_at)}
+                </span>
               </div>
 
               {/* Title */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 md:mb-10">
-                {article.title}
+                {post.title}
               </h1>
 
               {/* Share Buttons */}
@@ -154,39 +209,37 @@ const ArticlePage = () => {
             </FadeIn>
 
             {/* Hero Image */}
-            <FadeIn delay={0.2}>
-              <div className="relative aspect-video md:aspect-[21/9] rounded-lg overflow-hidden mb-12 md:mb-16 group">
-                <img
-                  src={article.heroImage}
-                  alt={article.title}
-                  className="w-full h-full object-cover"
-                />
-                <button
-                  onClick={() => handleShare("Pinterest")}
-                  className="absolute top-4 right-4 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
-                  aria-label="Pin this image"
-                >
-                  <Pin className="h-5 w-5 text-primary" />
-                </button>
-              </div>
-            </FadeIn>
+            {post.featured_image && (
+              <FadeIn delay={0.2}>
+                <div className="relative aspect-video md:aspect-[21/9] rounded-lg overflow-hidden mb-12 md:mb-16 group">
+                  <img
+                    src={post.featured_image}
+                    alt={post.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <button
+                    onClick={() => handleShare("Pinterest")}
+                    className="absolute top-4 right-4 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                    aria-label="Pin this image"
+                  >
+                    <Pin className="h-5 w-5 text-primary" />
+                  </button>
+                </div>
+              </FadeIn>
+            )}
+
+            {/* Summary */}
+            {post.summary && (
+              <FadeIn delay={0.3}>
+                <p className="text-xl md:text-2xl leading-relaxed mb-8 text-foreground/80 font-medium max-w-prose mx-auto">
+                  {post.summary}
+                </p>
+              </FadeIn>
+            )}
 
             {/* Article Content */}
             <div className="max-w-prose mx-auto">
-              {article.content.map((block, index) => (
-                <FadeIn key={index} delay={0.1 * index}>
-                  {block.type === "paragraph" && (
-                    <p className="text-lg md:text-xl leading-relaxed mb-6 text-foreground/90">
-                      {block.text}
-                    </p>
-                  )}
-                  {block.type === "heading" && (
-                    <h2 className="text-2xl md:text-3xl font-bold mt-10 mb-4 leading-tight">
-                      {block.text}
-                    </h2>
-                  )}
-                </FadeIn>
-              ))}
+              {post.content && renderContent(post.content)}
             </div>
           </div>
         </div>
@@ -201,18 +254,30 @@ const ArticlePage = () => {
             </h2>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
-            {relatedPosts.map((post, index) => (
-              <FadeIn key={index} delay={index * 0.1}>
-                <PostCardLarge
-                  title={post.title}
-                  category={post.category}
-                  image={post.image}
-                  link={post.link}
-                />
-              </FadeIn>
-            ))}
-          </div>
+          {isLoadingRelated ? (
+            <div className="max-w-6xl mx-auto">
+              <PostCardSkeletonGrid count={3} />
+            </div>
+          ) : relatedPosts && relatedPosts.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+              {relatedPosts.map((relatedPost, index) => (
+                <FadeIn key={relatedPost.id} delay={index * 0.1}>
+                  <PostCardLarge
+                    title={relatedPost.title}
+                    category={relatedPost.categories?.name?.toUpperCase() || ""}
+                    image={relatedPost.featured_image || "/placeholder.svg"}
+                    link={`/artigo/${relatedPost.slug}`}
+                  />
+                </FadeIn>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-8">
+              <p className="text-muted-foreground">
+                Nenhum post relacionado encontrado.
+              </p>
+            </div>
+          )}
         </div>
       </section>
 
