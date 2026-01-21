@@ -3,7 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
 
 type Post = Tables<"posts">;
-
+type PostWithCategories = Post & { categories: { id: string; name: string; slug: string } };
 interface UsePostsOptions {
   categorySlug?: string;
   subcategoryId?: string;
@@ -14,7 +14,7 @@ interface UsePostsOptions {
 }
 
 interface PostsResult {
-  posts: Post[];
+  posts: PostWithCategories[];
   totalCount: number;
   hasMore: boolean;
 }
@@ -27,7 +27,7 @@ export function usePosts(options: UsePostsOptions = {}) {
     queryFn: async (): Promise<PostsResult> => {
       let query = supabase
         .from("posts")
-        .select("*, categories!inner(slug)", { count: "exact" });
+        .select("*, categories!inner(id, name, slug)", { count: "exact" });
 
       if (isPublished) {
         query = query.eq("is_published", true);
@@ -52,7 +52,7 @@ export function usePosts(options: UsePostsOptions = {}) {
       if (error) throw error;
 
       return {
-        posts: data as Post[],
+        posts: data as (Post & { categories: { id: string; name: string; slug: string } })[],
         totalCount: count || 0,
         hasMore: (count || 0) > offset + limit,
       };
