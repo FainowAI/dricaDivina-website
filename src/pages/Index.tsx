@@ -23,7 +23,7 @@ const Index = () => {
       <StoriesMenu />
 
       {isLoadingFeatured ? (
-        <section className="pt-32 pb-16 md:pt-20 md:pb-24 lg:pt-28 lg:pb-32 bg-background">
+        <section className="pt-40 pb-16 md:pt-32 md:pb-24 lg:pt-40 lg:pb-32 bg-background">
           <div className="container mx-auto px-4">
             <HeroPostSkeleton />
           </div>
