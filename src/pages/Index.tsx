@@ -21,7 +21,7 @@ const Index = () => {
       <Navbar />
 
       {isLoadingFeatured ? (
-        <section className="pt-40 pb-16 md:pt-44 md:pb-24 lg:pt-56 lg:pb-32 bg-background">
+        <section className="pt-52 pb-16 md:pt-60 md:pb-24 lg:pt-80 lg:pb-32 bg-background">
           <div className="container mx-auto px-4">
             <HeroPostSkeleton />
           </div>

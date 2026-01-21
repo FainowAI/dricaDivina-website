@@ -10,7 +10,7 @@ const Sobre = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-44 lg:pt-56 pb-12 bg-background">
+      <section className="pt-52 md:pt-60 lg:pt-80 pb-12 bg-background">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <FadeIn>
             <h1 className="text-5xl md:text-6xl font-bold mb-8">Quem é DRICA DIVINA?</h1>

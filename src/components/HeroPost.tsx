@@ -11,7 +11,7 @@ interface HeroPostProps {
 
 const HeroPost = ({ title, summary, image, category, link }: HeroPostProps) => {
   return (
-    <section className="pt-40 pb-16 md:pt-32 md:pb-24 lg:pt-40 lg:pb-32 bg-background">
+    <section className="pt-52 pb-16 md:pt-60 md:pb-24 lg:pt-80 lg:pb-32 bg-background">
       <div className="container mx-auto px-4">
         <FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
