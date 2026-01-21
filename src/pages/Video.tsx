@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
-import StoriesMenu from "@/components/StoriesMenu";
 import Footer from "@/components/Footer";
 import CategoryHeader from "@/components/CategoryHeader";
 import SubcategoryBar from "@/components/SubcategoryBar";
@@ -40,10 +39,9 @@ const Video = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <StoriesMenu />
 
       {/* Category Header */}
-      <div className="pt-32 md:pt-24">
+      <div className="pt-40 md:pt-44 lg:pt-56">
         <CategoryHeader categoryName="VÍDEO" postCount={totalCount} />
       </div>
 

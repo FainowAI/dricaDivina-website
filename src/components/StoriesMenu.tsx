@@ -1,16 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { useIsMobile } from "@/hooks/use-mobile";
+
 import { useStories } from "@/hooks/useStories";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { StorySkeletonList } from "@/components/skeletons";
 
 const StoriesMenu = () => {
   const navigate = useNavigate();
-  const isMobile = useIsMobile();
   const { data: stories, isLoading, error } = useStories();
-
-  // Só mostra em mobile
-  if (!isMobile) return null;
 
   const handleStoryClick = (path: string) => {
     navigate(path);
@@ -19,7 +15,7 @@ const StoriesMenu = () => {
   if (error) return null;
 
   return (
-    <div className="fixed top-16 left-0 right-0 bg-background/95 backdrop-blur-sm z-[45] border-b border-border/40 py-2 shadow-sm will-change-transform">
+    <div className="w-full bg-background/95 backdrop-blur-sm z-[45] border-b border-border/40 py-2 shadow-sm will-change-transform">
       <ScrollArea className="w-full">
         {isLoading ? (
           <StorySkeletonList count={5} />

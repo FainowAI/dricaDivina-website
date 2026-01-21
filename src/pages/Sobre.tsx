@@ -1,6 +1,5 @@
 import { Sparkles, Users, BookOpen } from "lucide-react";
 import Navbar from "@/components/Navbar";
-import StoriesMenu from "@/components/StoriesMenu";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
@@ -9,10 +8,9 @@ const Sobre = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <StoriesMenu />
 
       {/* Hero Section */}
-      <section className="pt-44 pb-12 bg-background">
+      <section className="pt-44 lg:pt-56 pb-12 bg-background">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <FadeIn>
             <h1 className="text-5xl md:text-6xl font-bold mb-8">Quem é DRICA DIVINA?</h1>
@@ -48,8 +46,8 @@ const Sobre = () => {
                   <div className="text-center">
                     <div className="text-2xl font-bold text-accent mb-6">2019</div>
                     <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-muted">
-                      <img 
-                        src="/placeholder.svg" 
+                      <img
+                        src="/placeholder.svg"
                         alt="Início na beleza madura"
                         className="w-full h-full object-cover"
                       />
@@ -65,8 +63,8 @@ const Sobre = () => {
                   <div className="text-center">
                     <div className="text-2xl font-bold text-accent mb-6">2020</div>
                     <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-muted">
-                      <img 
-                        src="/placeholder.svg" 
+                      <img
+                        src="/placeholder.svg"
                         alt="Formação nos EUA"
                         className="w-full h-full object-cover"
                       />
@@ -82,8 +80,8 @@ const Sobre = () => {
                   <div className="text-center">
                     <div className="text-2xl font-bold text-accent mb-6">2021</div>
                     <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-muted">
-                      <img 
-                        src="/placeholder.svg" 
+                      <img
+                        src="/placeholder.svg"
                         alt="Voz contra o etarismo"
                         className="w-full h-full object-cover"
                       />
@@ -99,8 +97,8 @@ const Sobre = () => {
                   <div className="text-center">
                     <div className="text-2xl font-bold text-accent mb-6">2023</div>
                     <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-muted">
-                      <img 
-                        src="/placeholder.svg" 
+                      <img
+                        src="/placeholder.svg"
                         alt="Expansão do conteúdo"
                         className="w-full h-full object-cover"
                       />
@@ -146,8 +144,8 @@ const Sobre = () => {
                     </div>
                     <div className="flex-1 pb-8">
                       <div className="w-24 h-24 mb-3 rounded-full overflow-hidden bg-muted">
-                        <img 
-                          src="/placeholder.svg" 
+                        <img
+                          src="/placeholder.svg"
                           alt={item.title}
                           className="w-full h-full object-cover"
                         />
@@ -173,13 +171,13 @@ const Sobre = () => {
           <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
             <FadeIn delay={0.1}>
               <div className="bg-card p-10 rounded-lg border border-border shadow-sm hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
-                <Sparkles className="w-8 h-8 text-accent" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Expertise em cuidados com a pele</h3>
-              <p className="text-base text-foreground leading-relaxed">
-                Protocolos claros, embasados e adaptáveis à rotina: do essencial ao avançado, sem promessas milagrosas.
-              </p>
+                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                  <Sparkles className="w-8 h-8 text-accent" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Expertise em cuidados com a pele</h3>
+                <p className="text-base text-foreground leading-relaxed">
+                  Protocolos claros, embasados e adaptáveis à rotina: do essencial ao avançado, sem promessas milagrosas.
+                </p>
               </div>
             </FadeIn>
 
@@ -216,22 +214,22 @@ const Sobre = () => {
           <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 text-center">
             <FadeIn delay={0.1}>
               <div className="bg-card p-10 rounded-lg border border-border shadow-sm">
-              <div className="text-6xl font-bold text-accent mb-4">420K</div>
-              <div className="text-xl text-foreground font-semibold">Instagram</div>
+                <div className="text-6xl font-bold text-accent mb-4">420K</div>
+                <div className="text-xl text-foreground font-semibold">Instagram</div>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.2}>
               <div className="bg-card p-10 rounded-lg border border-border shadow-sm">
-              <div className="text-6xl font-bold text-accent mb-4">310K</div>
-              <div className="text-xl text-foreground font-semibold">TikTok</div>
+                <div className="text-6xl font-bold text-accent mb-4">310K</div>
+                <div className="text-xl text-foreground font-semibold">TikTok</div>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.3}>
               <div className="bg-card p-10 rounded-lg border border-border shadow-sm">
-              <div className="text-6xl font-bold text-accent mb-4">150K</div>
-              <div className="text-xl text-foreground font-semibold">YouTube</div>
+                <div className="text-6xl font-bold text-accent mb-4">150K</div>
+                <div className="text-xl text-foreground font-semibold">YouTube</div>
               </div>
             </FadeIn>
           </div>
@@ -248,19 +246,19 @@ const Sobre = () => {
           <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
             <FadeIn delay={0.1}>
               <div className="bg-card rounded-lg overflow-hidden border border-border hover:shadow-xl transition-all duration-300 group">
-              <div className="aspect-video bg-muted overflow-hidden">
-                <img
-                  src="/placeholder.svg"
-                  alt="Manhã eficiente"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-8">
-                <h3 className="text-2xl font-bold mb-4 leading-tight">Manhã eficiente: limpeza suave e proteção inteligente</h3>
-                <p className="text-base text-foreground leading-relaxed">
-                  Como montar uma rotina leve que respeita a barreira cutânea e prepara a pele para o dia.
-                </p>
-              </div>
+                <div className="aspect-video bg-muted overflow-hidden">
+                  <img
+                    src="/placeholder.svg"
+                    alt="Manhã eficiente"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold mb-4 leading-tight">Manhã eficiente: limpeza suave e proteção inteligente</h3>
+                  <p className="text-base text-foreground leading-relaxed">
+                    Como montar uma rotina leve que respeita a barreira cutânea e prepara a pele para o dia.
+                  </p>
+                </div>
               </div>
             </FadeIn>
 

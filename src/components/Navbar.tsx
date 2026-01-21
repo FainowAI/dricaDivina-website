@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/sheet";
 import FollowButton from "@/components/FollowButton";
 import LanguageSelector from "@/components/LanguageSelector";
+import StoriesMenu from "@/components/StoriesMenu";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -106,6 +107,7 @@ const Navbar = () => {
           ))}
         </div>
       </div>
+      <StoriesMenu />
     </nav>
   );
 };
