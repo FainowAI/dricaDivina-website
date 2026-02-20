@@ -26,14 +26,15 @@ const AdPlaceholder = ({
   return (
     <div
       className={cn(
-        "border-2 border-dashed border-muted bg-muted/30 rounded-lg flex items-center justify-center my-6 md:my-7 lg:my-8",
+        "bg-muted/10 rounded-lg my-6 md:my-7 lg:my-8",
         sizeClasses[size],
         variantClasses[variant],
         className
       )}
       aria-label="Espaço reservado para publicidade"
     >
-      <p className="text-muted-foreground text-sm font-medium">Espaço Publicitário</p>
+      {/* Texto oculto visualmente mas acessível para screen readers */}
+      <span className="sr-only">Espaço Publicitário</span>
     </div>
   );
 };

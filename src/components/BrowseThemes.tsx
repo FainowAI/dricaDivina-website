@@ -1,7 +1,17 @@
 import { useNavigate } from "react-router-dom";
+import { Plane, Heart, BookOpen, Shirt, Sparkles, LucideIcon } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useCategories } from "@/hooks/useCategories";
+
+// Mapeamento de nomes de ícones para componentes Lucide
+const iconMap: Record<string, LucideIcon> = {
+  'Plane': Plane,
+  'Heart': Heart,
+  'BookOpen': BookOpen,
+  'Shirt': Shirt,
+  'Sparkles': Sparkles
+};
 
 const BrowseThemes = () => {
   const navigate = useNavigate();
@@ -44,12 +54,23 @@ const BrowseThemes = () => {
                   onClick={() => handleThemeClick(`/${category.slug}`)}
                   className="group cursor-pointer relative aspect-square rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
                 >
-                  {/* Imagem de fundo */}
-                  <img
-                    src={category.icon || `https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&h=400&fit=crop`}
-                    alt={category.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+                  {/* Verificar se icon é um nome de ícone ou URL */}
+                  {category.icon && iconMap[category.icon] ? (
+                    // Renderizar ícone Lucide React
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/5">
+                      {(() => {
+                        const IconComponent = iconMap[category.icon];
+                        return <IconComponent className="w-20 h-20 md:w-24 md:h-24 text-primary" />;
+                      })()}
+                    </div>
+                  ) : (
+                    // Renderizar imagem (URL válida ou fallback)
+                    <img
+                      src={category.icon || `https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&h=400&fit=crop`}
+                      alt={category.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  )}
 
                   {/* Overlay escuro sutil */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 group-hover:via-black/50 transition-all duration-300"></div>

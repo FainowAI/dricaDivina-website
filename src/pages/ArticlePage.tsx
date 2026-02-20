@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { Share2, Facebook, Twitter, Link2, Pin } from "lucide-react";
+import DOMPurify from "dompurify";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Newsletter from "@/components/Newsletter";
@@ -49,10 +50,40 @@ const ArticlePage = () => {
     });
   };
 
-  // Render content (can be plain text or structured)
-  const renderContent = (content: string) => {
-    // If content looks like markdown or HTML, render accordingly
-    // For now, we'll split by double newlines to create paragraphs
+  // Detect if content is HTML
+  const isHTMLContent = (content: string): boolean => {
+    // Check if content contains HTML tags
+    return /<\/?[a-z][\s\S]*>/i.test(content);
+  };
+
+  // Sanitize and render HTML content safely with DOMPurify
+  const renderHTMLContent = (content: string) => {
+    // DOMPurify sanitizes the HTML to prevent XSS attacks
+    const cleanHTML = DOMPurify.sanitize(content, {
+      ALLOWED_TAGS: [
+        'p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+        'ul', 'ol', 'li', 'blockquote', 'a', 'img', 'figure', 'figcaption',
+        'div', 'span', 'table', 'thead', 'tbody', 'tr', 'th', 'td'
+      ],
+      ALLOWED_ATTR: [
+        'href', 'src', 'alt', 'title', 'class', 'style', 'target', 'rel'
+      ],
+      ALLOWED_URI_REGEXP: /^(?:(?:(?:f|ht)tps?|mailto|tel|callto|sms|cid|xmpp):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i,
+    });
+
+    return (
+      <FadeIn>
+        <div
+          className="article-content prose prose-lg max-w-none"
+          dangerouslySetInnerHTML={{ __html: cleanHTML }}
+        />
+      </FadeIn>
+    );
+  };
+
+  // Render content (plain text with markdown-like formatting)
+  const renderPlainContent = (content: string) => {
+    // Split by double newlines to create paragraphs
     const paragraphs = content.split(/\n\n+/);
 
     return paragraphs.map((paragraph, index) => {
@@ -76,6 +107,14 @@ const ArticlePage = () => {
         </FadeIn>
       );
     });
+  };
+
+  // Main render function that decides which renderer to use
+  const renderContent = (content: string) => {
+    if (isHTMLContent(content)) {
+      return renderHTMLContent(content);
+    }
+    return renderPlainContent(content);
   };
 
   // Error state - Post not found
