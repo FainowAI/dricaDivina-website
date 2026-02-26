@@ -6,7 +6,6 @@ type Post = Tables<"posts">;
 type PostWithCategories = Post & { categories: { id: string; name: string; slug: string } };
 interface UsePostsOptions {
   categorySlug?: string;
-  subcategoryId?: string;
   limit?: number;
   offset?: number;
   isPublished?: boolean;
@@ -20,25 +19,24 @@ interface PostsResult {
 }
 
 export function usePosts(options: UsePostsOptions = {}) {
-  const { categorySlug, subcategoryId, limit = 9, offset = 0, isPublished = true, search } = options;
+  const { categorySlug, limit = 9, offset = 0, isPublished = true, search } = options;
 
   return useQuery({
-    queryKey: ["posts", { categorySlug, subcategoryId, limit, offset, isPublished, search }],
+    queryKey: ["posts", { categorySlug, limit, offset, isPublished, search }],
     queryFn: async (): Promise<PostsResult> => {
       let query = supabase
         .from("posts")
-        .select("*, categories!inner(id, name, slug)", { count: "exact" });
+        .select("*, categories!inner(id, name, slug, is_active)", { count: "exact" });
 
       if (isPublished) {
         query = query.eq("is_published", true);
       }
 
+      // Sempre filtrar por categorias ativas
+      query = query.eq("categories.is_active", true);
+
       if (categorySlug) {
         query = query.eq("categories.slug", categorySlug);
-      }
-
-      if (subcategoryId) {
-        query = query.eq("subcategory_id", subcategoryId);
       }
 
       if (search) {
@@ -66,7 +64,7 @@ export function usePost(slug: string) {
     queryFn: async () => {
       const { data, error } = await supabase
         .from("posts")
-        .select("*, categories(*), subcategories(*)")
+        .select("*, categories(*)")
         .eq("slug", slug)
         .eq("is_published", true)
         .single();
@@ -84,21 +82,15 @@ export function useFeaturedPost(categorySlug?: string) {
     queryFn: async () => {
       let query = supabase
         .from("posts")
-        .select("*, categories(*)")
+        .select("*, categories!inner(*)")
         .eq("is_published", true)
         .eq("is_featured", true)
+        .eq("categories.is_active", true)
         .order("published_at", { ascending: false })
         .limit(1);
 
       if (categorySlug) {
-        query = supabase
-          .from("posts")
-          .select("*, categories!inner(*)")
-          .eq("is_published", true)
-          .eq("is_featured", true)
-          .eq("categories.slug", categorySlug)
-          .order("published_at", { ascending: false })
-          .limit(1);
+        query = query.eq("categories.slug", categorySlug);
       }
 
       const { data, error } = await query.single();
@@ -115,8 +107,9 @@ export function useLatestPosts(limit: number = 3) {
     queryFn: async () => {
       const { data, error } = await supabase
         .from("posts")
-        .select("*, categories(*)")
+        .select("*, categories!inner(*)")
         .eq("is_published", true)
+        .eq("categories.is_active", true)
         .order("published_at", { ascending: false })
         .limit(limit);
 
@@ -132,9 +125,10 @@ export function useRelatedPosts(postId: string, categoryId: string, limit: numbe
     queryFn: async () => {
       const { data, error } = await supabase
         .from("posts")
-        .select("*, categories(*)")
+        .select("*, categories!inner(*)")
         .eq("is_published", true)
         .eq("category_id", categoryId)
+        .eq("categories.is_active", true)
         .neq("id", postId)
         .order("published_at", { ascending: false })
         .limit(limit);

@@ -2,7 +2,6 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CategoryHeader from "@/components/CategoryHeader";
-import SubcategoryBar from "@/components/SubcategoryBar";
 import VideoCard from "@/components/VideoCard";
 import FadeIn from "@/components/FadeIn";
 import AdPlaceholder from "@/components/AdPlaceholder";
@@ -13,7 +12,6 @@ import { useVideos, useFeaturedVideo } from "@/hooks/useVideos";
 const PAGE_SIZE = 9;
 
 const Video = () => {
-  const [activeSubcategory, setActiveSubcategory] = useState("Tudo");
   const [offset, setOffset] = useState(0);
 
   // Fetch featured video
@@ -33,9 +31,6 @@ const Video = () => {
     setOffset(prev => prev + PAGE_SIZE);
   };
 
-  // Subcategories from videos table category field
-  const subcategories = ["Tudo", "Tutoriais", "Vlog", "Reviews", "Bastidores"];
-
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -44,12 +39,6 @@ const Video = () => {
       <div className="pt-40 md:pt-44 lg:pt-56">
         <CategoryHeader categoryName="VÍDEO" postCount={totalCount} />
       </div>
-
-      {/* Subcategory Bar */}
-      <SubcategoryBar
-        subcategories={subcategories}
-        onSubcategoryChange={setActiveSubcategory}
-      />
 
       {/* Ad Space */}
       <div className="container mx-auto px-4">

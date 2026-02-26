@@ -3,8 +3,7 @@ import CategoryPage from "@/components/CategoryPage";
 const Blog = () => {
   return (
     <CategoryPage
-      categorySlug="blog"
-      categoryDisplayName="CONHECIMENTO"
+      categoryDisplayName="BLOG"
       showSearch={true}
     />
   );

@@ -175,7 +175,6 @@ export type Database = {
           published_at: string | null
           slug: string
           status: string | null
-          subcategory_id: string | null
           summary: string | null
           tags: string[] | null
           title: string
@@ -196,7 +195,6 @@ export type Database = {
           published_at?: string | null
           slug: string
           status?: string | null
-          subcategory_id?: string | null
           summary?: string | null
           tags?: string[] | null
           title: string
@@ -217,7 +215,6 @@ export type Database = {
           published_at?: string | null
           slug?: string
           status?: string | null
-          subcategory_id?: string | null
           summary?: string | null
           tags?: string[] | null
           title?: string
@@ -237,13 +234,6 @@ export type Database = {
             columns: ["category_id"]
             isOneToOne: false
             referencedRelation: "categories"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "posts_subcategory_id_fkey"
-            columns: ["subcategory_id"]
-            isOneToOne: false
-            referencedRelation: "subcategories"
             referencedColumns: ["id"]
           },
         ]
@@ -384,38 +374,6 @@ export type Database = {
           path?: string
         }
         Relationships: []
-      }
-      subcategories: {
-        Row: {
-          category_id: string
-          created_at: string
-          id: string
-          name: string
-          slug: string
-        }
-        Insert: {
-          category_id: string
-          created_at?: string
-          id?: string
-          name: string
-          slug: string
-        }
-        Update: {
-          category_id?: string
-          created_at?: string
-          id?: string
-          name?: string
-          slug?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "subcategories_category_id_fkey"
-            columns: ["category_id"]
-            isOneToOne: false
-            referencedRelation: "categories"
-            referencedColumns: ["id"]
-          },
-        ]
       }
       videos: {
         Row: {

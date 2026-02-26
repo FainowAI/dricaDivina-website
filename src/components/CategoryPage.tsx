@@ -2,7 +2,6 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CategoryHeader from "@/components/CategoryHeader";
-import SubcategoryBar from "@/components/SubcategoryBar";
 import PostCardLarge from "@/components/PostCardLarge";
 import FadeIn from "@/components/FadeIn";
 import AdPlaceholder from "@/components/AdPlaceholder";
@@ -11,10 +10,10 @@ import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import { HeroPostSkeleton, PostCardSkeletonGrid } from "@/components/skeletons";
 import { usePosts, useFeaturedPost } from "@/hooks/usePosts";
-import { useCategory, useSubcategoriesByCategory } from "@/hooks/useCategories";
+import { useCategory } from "@/hooks/useCategories";
 
 interface CategoryPageProps {
-  categorySlug: string;
+  categorySlug?: string;
   categoryDisplayName: string;
   showSearch?: boolean;
 }
@@ -23,20 +22,10 @@ const PAGE_SIZE = 9;
 
 const CategoryPage = ({ categorySlug, categoryDisplayName, showSearch = false }: CategoryPageProps) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [activeSubcategory, setActiveSubcategory] = useState("Tudo");
   const [offset, setOffset] = useState(0);
 
   // Fetch category info
   const { data: category } = useCategory(categorySlug);
-
-  // Fetch subcategories
-  const { data: subcategoriesData } = useSubcategoriesByCategory(categorySlug);
-  const subcategories = ["Tudo", ...(subcategoriesData?.map(s => s.name) || [])];
-
-  // Get active subcategory ID
-  const activeSubcategoryId = activeSubcategory === "Tudo"
-    ? undefined
-    : subcategoriesData?.find(s => s.name === activeSubcategory)?.id;
 
   // Fetch featured post
   const { data: featuredPost, isLoading: isLoadingFeatured } = useFeaturedPost(categorySlug);
@@ -44,7 +33,6 @@ const CategoryPage = ({ categorySlug, categoryDisplayName, showSearch = false }:
   // Fetch posts with pagination
   const { data: postsData, isLoading: isLoadingPosts } = usePosts({
     categorySlug,
-    subcategoryId: activeSubcategoryId,
     limit: PAGE_SIZE,
     offset,
     search: searchTerm || undefined,
@@ -56,11 +44,6 @@ const CategoryPage = ({ categorySlug, categoryDisplayName, showSearch = false }:
 
   const handleLoadMore = () => {
     setOffset(prev => prev + PAGE_SIZE);
-  };
-
-  const handleSubcategoryChange = (subcategory: string) => {
-    setActiveSubcategory(subcategory);
-    setOffset(0);
   };
 
   const handleSearchChange = (value: string) => {
@@ -97,12 +80,6 @@ const CategoryPage = ({ categorySlug, categoryDisplayName, showSearch = false }:
           </div>
         </section>
       )}
-
-      {/* Subcategory Bar */}
-      <SubcategoryBar
-        subcategories={subcategories}
-        onSubcategoryChange={handleSubcategoryChange}
-      />
 
       {/* Ad Space */}
       <div className="container mx-auto px-4">

@@ -9,7 +9,7 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold mb-4">DRICA DIVINA</h3>
             <p className="text-sm text-gray-200 leading-relaxed">
-              Moda, Beleza & Lifestyle. Inspiração para uma vida mais leve e autêntica.
+              Skincare, Cabelo, Maquiagem & Saúde. Inspiração para uma vida mais leve e autêntica.
             </p>
           </div>
 
@@ -23,23 +23,23 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/moda" className="text-gray-200 hover:text-gray-300 transition-colors">
-                  Moda
+                <a href="/skincare" className="text-gray-200 hover:text-gray-300 transition-colors">
+                  Skincare
                 </a>
               </li>
               <li>
-                <a href="/beleza" className="text-gray-200 hover:text-gray-300 transition-colors">
-                  Beleza
+                <a href="/cabelo" className="text-gray-200 hover:text-gray-300 transition-colors">
+                  Cabelo
                 </a>
               </li>
               <li>
-                <a href="/viagem" className="text-gray-200 hover:text-gray-300 transition-colors">
-                  Viagem
+                <a href="/maquiagem" className="text-gray-200 hover:text-gray-300 transition-colors">
+                  Maquiagem
                 </a>
               </li>
               <li>
-                <a href="/video" className="text-gray-200 hover:text-gray-300 transition-colors">
-                  Vídeo
+                <a href="/saude" className="text-gray-200 hover:text-gray-300 transition-colors">
+                  Saúde
                 </a>
               </li>
               <li>

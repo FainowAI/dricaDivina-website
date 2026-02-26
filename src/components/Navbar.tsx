@@ -12,6 +12,7 @@ import {
 import FollowButton from "@/components/FollowButton";
 import LanguageSelector from "@/components/LanguageSelector";
 import StoriesMenu from "@/components/StoriesMenu";
+import { NavbarSearch } from "@/components/NavbarSearch";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -28,10 +29,9 @@ const Navbar = () => {
   };
 
   const categories = [
-    { name: "Moda", path: "/moda" },
-    { name: "Beleza", path: "/beleza" },
-    { name: "Viagem", path: "/viagem" },
-    { name: "Vídeo", path: "/video" },
+    { name: "Skincare", path: "/skincare" },
+    { name: "Cabelo", path: "/cabelo" },
+    { name: "Maquiagem", path: "/maquiagem" },
     { name: "Saúde", path: "/saude" },
     { name: "Sobre", path: "/sobre" },
   ];
@@ -94,13 +94,7 @@ const Navbar = () => {
               <FollowButton />
               <LanguageSelector />
             </div>
-            <Button
-              variant="ghost"
-              className="h-11 w-11 p-0 hover:bg-accent/10 hover:text-primary transition-all"
-              aria-label="Buscar"
-            >
-              <Search className="h-4 w-4 md:h-5 md:w-5" />
-            </Button>
+            <NavbarSearch />
           </div>
         </div>
 

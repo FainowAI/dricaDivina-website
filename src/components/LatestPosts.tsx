@@ -1,17 +1,11 @@
 import { ArrowRight } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
-import PostCardLarge from "@/components/PostCardLarge";
-import CarouselIndicators from "@/components/CarouselIndicators";
+import MasonryGrid from "@/components/MasonryGrid";
 import { PostCardSkeletonGrid } from "@/components/skeletons";
 import { useLatestPosts } from "@/hooks/usePosts";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 
 const LatestPosts = () => {
-  const { data: posts, isLoading, error } = useLatestPosts(3);
+  const { data: posts, isLoading, error } = useLatestPosts(9);
 
   if (error) {
     return (
@@ -43,42 +37,14 @@ const LatestPosts = () => {
         </FadeIn>
 
         {isLoading ? (
-          <PostCardSkeletonGrid count={3} />
+          <PostCardSkeletonGrid count={9} />
         ) : posts && posts.length > 0 ? (
-          <>
-            {/* Mobile: Carousel */}
-            <div className="md:hidden">
-              <Carousel opts={{ align: "start", loop: false }} className="w-full">
-                <CarouselContent className="-ml-4">
-                  {posts.map((post) => (
-                    <CarouselItem key={post.id} className="pl-4">
-                      <PostCardLarge
-                        title={post.title}
-                        category={post.categories?.name?.toUpperCase() || ""}
-                        image={post.featured_image || "/placeholder.svg"}
-                        link={`/artigo/${post.slug}`}
-                      />
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-              </Carousel>
-              <CarouselIndicators totalItems={posts.length} />
-            </div>
-
-            {/* Desktop: Grid */}
-            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
-              {posts.map((post, index) => (
-                <FadeIn key={post.id} delay={index * 0.1}>
-                  <PostCardLarge
-                    title={post.title}
-                    category={post.categories?.name?.toUpperCase() || ""}
-                    image={post.featured_image || "/placeholder.svg"}
-                    link={`/artigo/${post.slug}`}
-                  />
-                </FadeIn>
-              ))}
-            </div>
-          </>
+          <MasonryGrid
+            posts={posts}
+            columnsCountBreakPoints={{ 350: 1, 768: 2, 1024: 3 }}
+            gutter="1.5rem"
+            sizePattern={["large", "medium", "small", "medium", "large", "small", "medium", "small", "large"]}
+          />
         ) : (
           <div className="text-center py-8">
             <p className="text-muted-foreground">Nenhum post encontrado.</p>

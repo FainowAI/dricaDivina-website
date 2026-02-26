@@ -8,7 +8,14 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Nova paleta de cores - Drica Divina Redesign */
+    /* Nova paleta de cores - Drica Divina Redesign 2.0 */
+    /* Cores Vibrantes Laranja (#FF6B35 base) */
+    --orange-vibrant: 14 100% 60%; /* #FF6B35 */
+    --orange-medium: 16 100% 70%; /* #FF8C69 */
+    --orange-soft: 14 100% 97%; /* #FFF0EB */
+    --orange-dark: 8 77% 49%; /* #D93F21 */
+
+    /* Cores Base */
     --background: 0 0% 99%;
     --foreground: 0 0% 10%;
 
@@ -18,7 +25,8 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
 
-    --primary: 0 65% 40%;
+    /* Primary agora é Laranja Vibrante */
+    --primary: 14 100% 60%; /* #FF6B35 */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 33 39% 95%;
@@ -27,19 +35,24 @@ All colors MUST be HSL.
     --muted: 0 0% 40%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 0 65% 40%;
+    /* Accent também é Laranja Vibrante */
+    --accent: 14 100% 60%; /* #FF6B35 */
     --accent-foreground: 0 0% 100%;
 
     --beige: 20 40% 94%;
 
-    --footer-bg: 0 65% 30%;
+    /* Complementares */
+    --coral: 12 100% 75%; /* #FF9F80 */
+    --peach: 20 100% 93%; /* #FFE5D9 */
+
+    --footer-bg: 8 77% 49%; /* Laranja escuro #D93F21 */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 33 39% 85%;
     --input: 33 39% 85%;
-    --ring: 0 65% 40%;
+    --ring: 14 100% 60%; /* Laranja vibrante */
 
     --radius: 0.5rem;
 
@@ -377,5 +390,48 @@ All colors MUST be HSL.
     .article-content img {
       @apply my-6;
     }
+  }
+}
+
+/* Gradient Utilities - Drica Divina Redesign */
+@layer utilities {
+  .bg-gradient-orange-primary {
+    background: linear-gradient(135deg, hsl(14, 100%, 60%) 0%, hsl(16, 100%, 70%) 100%);
+  }
+
+  .bg-gradient-orange-soft {
+    background: linear-gradient(135deg, hsl(14, 100%, 97%) 0%, hsl(0, 0%, 100%) 100%);
+  }
+
+  .bg-gradient-overlay {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.9) 0%, rgba(255, 140, 105, 0.7) 100%);
+  }
+
+  .text-orange-vibrant {
+    color: hsl(14, 100%, 60%);
+  }
+
+  .text-orange-medium {
+    color: hsl(16, 100%, 70%);
+  }
+
+  .bg-orange-vibrant {
+    background-color: hsl(14, 100%, 60%);
+  }
+
+  .bg-orange-medium {
+    background-color: hsl(16, 100%, 70%);
+  }
+
+  .bg-orange-soft {
+    background-color: hsl(14, 100%, 97%);
+  }
+
+  .border-orange-vibrant {
+    border-color: hsl(14, 100%, 60%);
+  }
+
+  .hover\:bg-orange-vibrant:hover {
+    background-color: hsl(14, 100%, 60%);
   }
 }

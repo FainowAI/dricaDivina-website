@@ -2,10 +2,6 @@ import Navbar from "@/components/Navbar";
 import HeroPost from "@/components/HeroPost";
 import LatestPosts from "@/components/LatestPosts";
 import Favorites from "@/components/Favorites";
-import Articles from "@/components/Articles";
-import SkinCare from "@/components/SkinCare";
-import Podcast from "@/components/Podcast";
-import YouTube from "@/components/YouTube";
 import BrowseThemes from "@/components/BrowseThemes";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
@@ -21,7 +17,7 @@ const Index = () => {
       <Navbar />
 
       {isLoadingFeatured ? (
-        <section className="pt-52 pb-16 md:pt-60 md:pb-24 lg:pt-80 lg:pb-32 bg-background">
+        <section className="pt-32 pb-16 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24 bg-background">
           <div className="container mx-auto px-4">
             <HeroPostSkeleton />
           </div>
@@ -38,7 +34,7 @@ const Index = () => {
         <HeroPost
           category="BLOG"
           title="Bem-vinda ao Drica Divina"
-          summary="Descubra conteúdos sobre beleza, moda, viagem, saúde e muito mais."
+          summary="Descubra conteúdos sobre Skincare, Cabelo, Maquiagem e Saúde."
           image="/placeholder.svg"
           link="/blog"
         />
@@ -51,21 +47,8 @@ const Index = () => {
       <div className="container mx-auto px-4">
         <AdPlaceholder variant="horizontal" size="medium" />
       </div>
-      <Favorites />
-      <div className="container mx-auto px-4 flex justify-end">
-        <AdPlaceholder variant="square" size="medium" />
-      </div>
-      <Articles />
-      <div className="container mx-auto px-4">
-        <AdPlaceholder variant="horizontal" size="medium" />
-      </div>
-      <SkinCare />
-      <Podcast />
-      <div className="container mx-auto px-4">
-        <AdPlaceholder variant="horizontal" size="small" />
-      </div>
-      <YouTube />
       <BrowseThemes />
+      <Favorites />
       <div className="container mx-auto px-4">
         <AdPlaceholder variant="horizontal" size="medium" />
       </div>
