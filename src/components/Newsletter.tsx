@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import FadeIn from "@/components/FadeIn";
+import { AnimatedScribble } from "@/components/AnimatedScribble";
 
 const Newsletter = () => {
   const { toast } = useToast();
@@ -37,6 +38,8 @@ const Newsletter = () => {
         <div className="absolute top-10 left-10 w-32 h-32 md:w-48 md:h-48 rounded-full bg-white blur-3xl"></div>
         <div className="absolute bottom-10 right-10 w-40 h-40 md:w-56 md:h-56 rounded-full bg-white blur-3xl"></div>
       </div>
+
+      <AnimatedScribble pathName="newsletter" className="opacity-20 text-white" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">

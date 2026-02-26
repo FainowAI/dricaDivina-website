@@ -5,6 +5,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useCategories } from "@/hooks/useCategories";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { AnimatedScribble } from "@/components/AnimatedScribble";
 
 // Mapeamento de nomes de ícones para componentes Lucide
 const iconMap: Record<string, LucideIcon> = {
@@ -68,8 +69,9 @@ const BrowseThemes = () => {
   }
 
   return (
-    <section className="pt-8 pb-12 md:pt-12 md:pb-20 lg:pt-16 lg:pb-24 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="pt-8 pb-12 md:pt-12 md:pb-20 lg:pt-16 lg:pb-24 bg-background relative overflow-hidden">
+      <AnimatedScribble pathName="themes" className="opacity-[0.05]" />
+      <div className="container mx-auto px-4 relative z-10">
         <FadeIn>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 md:mb-12 text-center">
             Navegar

@@ -3,6 +3,7 @@ import FadeIn from "@/components/FadeIn";
 import MasonryGrid from "@/components/MasonryGrid";
 import { PostCardSkeletonGrid } from "@/components/skeletons";
 import { useLatestPosts } from "@/hooks/usePosts";
+import { AnimatedScribble } from "@/components/AnimatedScribble";
 
 const LatestPosts = () => {
   const { data: posts, isLoading, error } = useLatestPosts(9);
@@ -18,8 +19,9 @@ const LatestPosts = () => {
   }
 
   return (
-    <section className="pt-8 pb-12 md:pt-12 md:pb-20 lg:pt-16 lg:pb-24 bg-secondary/30">
-      <div className="container mx-auto px-4">
+    <section className="pt-8 pb-12 md:pt-12 md:pb-20 lg:pt-16 lg:pb-24 bg-secondary/30 relative overflow-hidden">
+      <AnimatedScribble pathName="latest" className="opacity-10 text-primary" />
+      <div className="container mx-auto px-4 relative z-10">
         <FadeIn>
           {/* Cabeçalho da seção */}
           <div className="flex justify-between items-center mb-8 md:mb-12">

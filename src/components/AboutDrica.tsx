@@ -1,40 +1,13 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import FadeIn from "@/components/FadeIn";
+import { AnimatedScribble } from "@/components/AnimatedScribble";
 
 const AboutDrica = () => {
     return (
         <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-orange-soft/30 via-background to-background relative overflow-hidden">
-            {/* Animated decorative elements */}
-            <div className="absolute top-10 right-10 w-32 h-32 md:w-48 md:h-48 opacity-20 animate-pulse">
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                    <path fill="hsl(14, 100%, 60%)" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,88.5,-0.9C87,14.6,81.4,29.2,73.1,42.8C64.8,56.4,53.8,69,40.1,76.4C26.4,83.8,10,86,-5.8,85.8C-21.6,85.6,-36.8,83,-49.9,75.6C-63,68.2,-74,56,-80.8,42.1C-87.6,28.2,-90.2,12.6,-88.7,-2.4C-87.2,-17.4,-81.6,-31.8,-73.4,-44.6C-65.2,-57.4,-54.4,-68.6,-41.2,-76.2C-28,-83.8,-12.4,-87.8,2.4,-91.8C17.2,-95.8,30.6,-83.6,44.7,-76.4Z" transform="translate(100 100)">
-                        <animateTransform
-                            attributeName="transform"
-                            type="rotate"
-                            from="0 100 100"
-                            to="360 100 100"
-                            dur="30s"
-                            repeatCount="indefinite"
-                        />
-                    </path>
-                </svg>
-            </div>
-
-            <div className="absolute bottom-10 left-10 w-24 h-24 md:w-40 md:h-40 opacity-15 animate-pulse" style={{ animationDelay: '1s' }}>
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                    <path fill="hsl(16, 100%, 70%)" d="M39.5,-65.5C51.4,-58.2,61.3,-47.5,67.8,-35.1C74.3,-22.7,77.4,-8.6,76.8,5.3C76.2,19.2,71.9,32.9,64.3,44.8C56.7,56.7,45.8,66.8,33.1,72.4C20.4,78,5.9,79.1,-8.3,76.8C-22.5,74.5,-36.4,68.8,-48.1,60.5C-59.8,52.2,-69.3,41.3,-74.4,28.5C-79.5,15.7,-80.2,1,-76.7,-12.4C-73.2,-25.8,-65.5,-37.9,-55.1,-45.8C-44.7,-53.7,-31.6,-57.4,-18.9,-64.2C-6.2,-71,-3.1,-81,2.4,-85.1C7.9,-89.2,27.6,-72.8,39.5,-65.5Z" transform="translate(100 100)">
-                        <animateTransform
-                            attributeName="transform"
-                            type="rotate"
-                            from="360 100 100"
-                            to="0 100 100"
-                            dur="25s"
-                            repeatCount="indefinite"
-                        />
-                    </path>
-                </svg>
-            </div>
+            {/* Animated decorative scribbled line */}
+            <AnimatedScribble pathName="about" className="opacity-10" strokeColor="hsl(14, 100%, 60%)" />
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16 lg:gap-24">
