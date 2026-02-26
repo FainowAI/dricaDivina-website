@@ -107,7 +107,10 @@ const Navbar = () => {
           ))}
         </div>
       </div>
-      <StoriesMenu />
+      {/* Stories Menu - Mobile only, replaces desktop categories */}
+      <div className="lg:hidden">
+        <StoriesMenu />
+      </div>
     </nav>
   );
 };
