@@ -56,7 +56,7 @@ const AboutDrica = () => {
                                 <div className="absolute inset-0 bg-gradient-to-t from-orange-vibrant/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                                 {/* Animated badge */}
-                                <div className="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur-xl p-5 md:p-6 rounded-2xl shadow-2xl border border-orange-vibrant/20 transform translate-y-0 opacity-100 transition-all duration-500 group-hover:translate-y-[-8px]">
+                                <div className="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8 bg-white/95 backdrop-blur-xl p-3 md:p-6 rounded-2xl shadow-2xl border border-orange-vibrant/20 transform translate-y-0 opacity-100 transition-all duration-500 group-hover:translate-y-[-8px]">
                                     <div className="flex items-center gap-4">
                                         {/* Animated sparkle icon */}
                                         <div className="relative w-10 h-10">

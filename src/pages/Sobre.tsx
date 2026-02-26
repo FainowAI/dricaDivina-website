@@ -10,13 +10,13 @@ const Sobre = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-52 md:pt-60 lg:pt-80 pb-12 bg-background">
+      <section className="pt-40 md:pt-60 lg:pt-80 pb-12 bg-background">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <FadeIn>
-            <h1 className="text-5xl md:text-6xl font-bold mb-8">Quem é DRICA DIVINA?</h1>
+            <h1 className="text-3xl md:text-6xl font-bold mb-5 md:mb-8">Quem é DRICA DIVINA?</h1>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-xl text-foreground leading-relaxed">
+            <p className="text-base md:text-xl text-foreground leading-relaxed">
               A missão da DRICA DIVINA é inspirar o autocuidado como expressão de amor-próprio. Acredita que rotinas simples,
               consistentes e prazerosas transformam a relação com o espelho e com o tempo. Aqui, beleza é bem-estar, informação
               acessível e liberdade para envelhecer com dignidade, estilo e alegria.
@@ -162,15 +162,15 @@ const Sobre = () => {
       </section>
 
       {/* Por que seguir a Drica */}
-      <section className="py-24 bg-background">
+      <section className="py-12 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <FadeIn>
-            <h2 className="text-4xl font-bold text-center mb-20">Por que seguir a Drica?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-20">Por que seguir a Drica?</h2>
           </FadeIn>
 
-          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
+          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 md:gap-8">
             <FadeIn delay={0.1}>
-              <div className="bg-card p-10 rounded-lg border border-border shadow-sm hover:shadow-lg transition-shadow">
+              <div className="bg-card p-6 md:p-10 rounded-lg border border-border shadow-sm hover:shadow-lg transition-shadow">
                 <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
                   <Sparkles className="w-8 h-8 text-accent" />
                 </div>
@@ -182,7 +182,7 @@ const Sobre = () => {
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <div className="bg-card p-10 rounded-lg border border-border shadow-sm hover:shadow-lg transition-shadow">
+              <div className="bg-card p-6 md:p-10 rounded-lg border border-border shadow-sm hover:shadow-lg transition-shadow">
                 <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
                   <Users className="w-8 h-8 text-accent" />
                 </div>
@@ -194,7 +194,7 @@ const Sobre = () => {
             </FadeIn>
 
             <FadeIn delay={0.3}>
-              <div className="bg-card p-10 rounded-lg border border-border shadow-sm hover:shadow-lg transition-shadow">
+              <div className="bg-card p-6 md:p-10 rounded-lg border border-border shadow-sm hover:shadow-lg transition-shadow">
                 <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
                   <BookOpen className="w-8 h-8 text-accent" />
                 </div>
@@ -209,26 +209,26 @@ const Sobre = () => {
       </section>
 
       {/* Social Stats */}
-      <section className="py-24 bg-secondary/30">
+      <section className="py-12 md:py-24 bg-secondary/30">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+          <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-4 md:gap-8 text-center">
             <FadeIn delay={0.1}>
-              <div className="bg-card p-10 rounded-lg border border-border shadow-sm">
-                <div className="text-6xl font-bold text-accent mb-4">420K</div>
+              <div className="bg-card p-6 md:p-10 rounded-lg border border-border shadow-sm">
+                <div className="text-4xl md:text-6xl font-bold text-accent mb-4">420K</div>
                 <div className="text-xl text-foreground font-semibold">Instagram</div>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <div className="bg-card p-10 rounded-lg border border-border shadow-sm">
-                <div className="text-6xl font-bold text-accent mb-4">310K</div>
+              <div className="bg-card p-6 md:p-10 rounded-lg border border-border shadow-sm">
+                <div className="text-4xl md:text-6xl font-bold text-accent mb-4">310K</div>
                 <div className="text-xl text-foreground font-semibold">TikTok</div>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.3}>
-              <div className="bg-card p-10 rounded-lg border border-border shadow-sm">
-                <div className="text-6xl font-bold text-accent mb-4">150K</div>
+              <div className="bg-card p-6 md:p-10 rounded-lg border border-border shadow-sm">
+                <div className="text-4xl md:text-6xl font-bold text-accent mb-4">150K</div>
                 <div className="text-xl text-foreground font-semibold">YouTube</div>
               </div>
             </FadeIn>
@@ -237,13 +237,13 @@ const Sobre = () => {
       </section>
 
       {/* Artigos da Drica */}
-      <section className="py-24 bg-background">
+      <section className="py-12 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <FadeIn>
-            <h2 className="text-4xl font-bold text-center mb-20">Artigos da Drica</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-20">Artigos da Drica</h2>
           </FadeIn>
 
-          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-4 md:gap-8">
             <FadeIn delay={0.1}>
               <div className="bg-card rounded-lg overflow-hidden border border-border hover:shadow-xl transition-all duration-300 group">
                 <div className="aspect-video bg-muted overflow-hidden">
@@ -253,8 +253,8 @@ const Sobre = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold mb-4 leading-tight">Manhã eficiente: limpeza suave e proteção inteligente</h3>
+                <div className="p-5 md:p-8">
+                  <h3 className="text-xl md:text-2xl font-bold mb-4 leading-tight">Manhã eficiente: limpeza suave e proteção inteligente</h3>
                   <p className="text-base text-foreground leading-relaxed">
                     Como montar uma rotina leve que respeita a barreira cutânea e prepara a pele para o dia.
                   </p>
@@ -271,8 +271,8 @@ const Sobre = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold mb-4 leading-tight">Maquiagem que valoriza: luz, textura e conforto</h3>
+                <div className="p-5 md:p-8">
+                  <h3 className="text-xl md:text-2xl font-bold mb-4 leading-tight">Maquiagem que valoriza: luz, textura e conforto</h3>
                   <p className="text-base text-foreground leading-relaxed">
                     Técnicas simples para realçar traços, sem pesar e com acabamento sofisticado.
                   </p>
@@ -289,8 +289,8 @@ const Sobre = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold mb-4 leading-tight">Autocuidado como ritual: pequenos compromissos diários</h3>
+                <div className="p-5 md:p-8">
+                  <h3 className="text-xl md:text-2xl font-bold mb-4 leading-tight">Autocuidado como ritual: pequenos compromissos diários</h3>
                   <p className="text-base text-foreground leading-relaxed">
                     Como transformar o cuidado pessoal em prática de amor-próprio e consistência.
                   </p>

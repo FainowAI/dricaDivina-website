@@ -11,7 +11,7 @@ interface HeroPostProps {
 
 const HeroPost = ({ title, summary, image, category, link }: HeroPostProps) => {
   return (
-    <section className="pt-32 pb-16 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24 bg-background">
+    <section className="pt-36 pb-12 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24 bg-background">
       <div className="container mx-auto px-4">
         <FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
@@ -20,7 +20,7 @@ const HeroPost = ({ title, summary, image, category, link }: HeroPostProps) => {
               <p className="text-xs md:text-sm uppercase font-semibold text-primary tracking-wider">
                 {category}
               </p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 {title}
               </h1>
               <p className="text-base md:text-lg leading-relaxed text-foreground/80">
