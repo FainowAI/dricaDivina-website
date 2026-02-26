@@ -78,9 +78,9 @@ const CategoryShowcase = ({
                     {/* Orange overlay on hover */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-orange-vibrant/40 via-orange-medium/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                    {/* Category badge */}
+                    {/* Category badge with glassmorphism */}
                     <div className="absolute top-4 left-4">
-                      <span className="inline-block px-4 py-2 text-xs md:text-sm uppercase font-semibold tracking-wider bg-orange-vibrant text-white rounded-full shadow-md">
+                      <span className="inline-block px-4 py-2 text-xs md:text-sm uppercase font-semibold tracking-wider bg-orange-vibrant/90 backdrop-blur-md text-white rounded-full shadow-lg border border-white/20">
                         {categoryName}
                       </span>
                     </div>

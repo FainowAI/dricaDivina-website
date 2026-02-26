@@ -109,13 +109,13 @@ const EnhancedPostCard = ({
         {/* Orange overlay on hover */}
         <div className="absolute inset-0 bg-gradient-to-t from-orange-vibrant/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-        {/* Category badge */}
+        {/* Category badge with glassmorphism */}
         <div className="absolute top-3 left-3 md:top-4 md:left-4">
           <span
             className={cn(
               "inline-block px-3 py-1 md:px-4 md:py-1.5 uppercase font-semibold tracking-wider",
-              "bg-orange-vibrant text-white rounded-full shadow-md",
-              "group-hover:bg-orange-dark transition-colors duration-300",
+              "bg-orange-vibrant/90 backdrop-blur-md text-white rounded-full shadow-lg border border-white/20",
+              "group-hover:bg-orange-dark/90 group-hover:backdrop-blur-xl transition-all duration-300",
               config.category
             )}
           >

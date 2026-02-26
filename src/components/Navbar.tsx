@@ -10,7 +10,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import FollowButton from "@/components/FollowButton";
-import LanguageSelector from "@/components/LanguageSelector";
 import StoriesMenu from "@/components/StoriesMenu";
 import { NavbarSearch } from "@/components/NavbarSearch";
 
@@ -92,7 +91,6 @@ const Navbar = () => {
           <div className="flex items-center gap-2 justify-end lg:w-1/3">
             <div className="hidden sm:flex items-center gap-2">
               <FollowButton />
-              <LanguageSelector />
             </div>
             <NavbarSearch />
           </div>

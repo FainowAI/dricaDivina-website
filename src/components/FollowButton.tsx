@@ -1,4 +1,4 @@
-import { Instagram, Youtube, Facebook, Twitter } from "lucide-react";
+import { Instagram, Youtube, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Popover,
@@ -26,12 +26,6 @@ const FollowButton = () => {
       url: "https://facebook.com/dricadivina",
       color: "hover:text-blue-600",
     },
-    {
-      name: "Twitter",
-      icon: Twitter,
-      url: "https://twitter.com/dricadivina",
-      color: "hover:text-sky-500",
-    },
   ];
 
   return (
@@ -41,7 +35,7 @@ const FollowButton = () => {
           variant="ghost"
           className="text-sm uppercase font-semibold hover:text-primary transition-colors duration-200"
         >
-          Follow
+          Seguir
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-56 p-3">
@@ -64,7 +58,7 @@ const FollowButton = () => {
           })}
         </div>
       </PopoverContent>
-    </Popover>
+    </Popover >
   );
 };
 

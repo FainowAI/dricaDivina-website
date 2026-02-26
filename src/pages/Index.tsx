@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroPost from "@/components/HeroPost";
+import AboutDrica from "@/components/AboutDrica";
 import LatestPosts from "@/components/LatestPosts";
-import Favorites from "@/components/Favorites";
 import BrowseThemes from "@/components/BrowseThemes";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
@@ -40,6 +40,8 @@ const Index = () => {
         />
       )}
 
+      <AboutDrica />
+
       <div className="container mx-auto px-4">
         <AdPlaceholder variant="horizontal" size="large" />
       </div>
@@ -48,7 +50,6 @@ const Index = () => {
         <AdPlaceholder variant="horizontal" size="medium" />
       </div>
       <BrowseThemes />
-      <Favorites />
       <div className="container mx-auto px-4">
         <AdPlaceholder variant="horizontal" size="medium" />
       </div>
