@@ -1,7 +1,7 @@
-import { Menu, Search } from "lucide-react";
+import { Menu, Search, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/NavLink";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import {
   Sheet,
   SheetContent,
@@ -15,6 +15,17 @@ import StoriesMenu from "@/components/StoriesMenu";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setIsDesktopMenuOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setIsDesktopMenuOpen(false), 200);
+  };
 
   const categories = [
     { name: "Moda", path: "/moda" },
@@ -93,8 +104,26 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Desktop Navigation - Categories */}
-        <div className="hidden lg:flex items-center justify-center gap-8 pb-4 border-t border-border/40 pt-3">
+        {/* Desktop Navigation - Hover Trigger */}
+        <div
+          className="hidden lg:flex items-center justify-center pb-2 pt-1"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <button className="flex items-center gap-1 text-xs uppercase font-semibold tracking-wider py-2 px-3 hover:text-primary transition-all text-foreground">
+            Categorias
+            <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${isDesktopMenuOpen ? 'rotate-180' : ''}`} />
+          </button>
+        </div>
+      </div>
+
+      {/* Desktop Dropdown Menu */}
+      <div
+        className={`hidden lg:block absolute left-0 right-0 bg-background border-b border-border shadow-md transition-all duration-200 z-50 ${isDesktopMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="container mx-auto flex items-center justify-center gap-8 py-4">
           {categories.map((category) => (
             <NavLink
               key={category.path}
@@ -107,7 +136,8 @@ const Navbar = () => {
           ))}
         </div>
       </div>
-      {/* Stories Menu - Mobile only, replaces desktop categories */}
+
+      {/* Stories Menu - Mobile only */}
       <div className="lg:hidden">
         <StoriesMenu />
       </div>
