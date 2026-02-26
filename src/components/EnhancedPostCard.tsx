@@ -65,8 +65,8 @@ const EnhancedPostCard = ({
       showDate: true,
     },
     large: {
-      container: "h-[480px] md:h-[540px]",
-      image: "h-[280px] md:h-[320px]",
+      container: "h-[380px] md:h-[540px]",
+      image: "h-[200px] md:h-[320px]",
       padding: "p-5 md:p-6 lg:p-8",
       title: "text-xl md:text-2xl lg:text-3xl",
       category: "text-xs md:text-sm",

@@ -55,7 +55,7 @@ const Newsletter = () => {
           </FadeIn>
 
           <FadeIn delay={0.4}>
-            <form onSubmit={handleSubmit} className="flex items-center gap-4 max-w-md mx-auto">
+            <form onSubmit={handleSubmit} className="flex items-center gap-3 md:gap-4 max-w-md mx-auto">
               <Input
                 type="email"
                 placeholder="Digite seu e-mail"

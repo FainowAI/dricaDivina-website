@@ -79,13 +79,13 @@ const BrowseThemes = () => {
         </FadeIn>
 
         {isLoading ? (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-8">
             {Array.from({ length: 5 }).map((_, i) => (
               <Skeleton key={i} className="aspect-square rounded-lg" />
             ))}
           </div>
         ) : categories && categories.length > 0 ? (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-8">
             {categories.map((category, index) => (
               <FadeIn key={category.id} delay={index * 0.1}>
                 <article

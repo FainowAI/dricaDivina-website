@@ -10,17 +10,17 @@ const Contato = () => {
       <Navbar />
 
       {/* Contact Section */}
-      <section className="py-20 md:py-28 lg:py-32">
+      <section className="pt-40 pb-12 md:py-28 lg:py-32">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <FadeIn>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-12">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-12">
                 Contato
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <p className="text-lg md:text-xl leading-relaxed text-foreground/80 mb-12 md:mb-16">
+              <p className="text-base md:text-xl leading-relaxed text-foreground/80 mb-10 md:mb-16">
                 Adoraria ouvir de você! Se você tem interesse em parcerias,
                 colaborações ou é da imprensa, entre em contato pelos e-mails
                 abaixo.
@@ -28,9 +28,9 @@ const Contato = () => {
             </FadeIn>
 
             {/* Email Cards */}
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-16">
+            <div className="grid md:grid-cols-2 gap-4 md:gap-8 mb-10 md:mb-16">
               <FadeIn delay={0.3}>
-                <div className="bg-secondary/30 rounded-lg p-8 md:p-10 hover:shadow-lg transition-shadow">
+                <div className="bg-secondary/30 rounded-lg p-5 md:p-10 hover:shadow-lg transition-shadow">
                   <Mail className="h-10 w-10 md:h-12 md:w-12 text-primary mx-auto mb-4" />
                   <h2 className="text-xl md:text-2xl font-bold mb-3">
                     Parcerias
@@ -48,7 +48,7 @@ const Contato = () => {
               </FadeIn>
 
               <FadeIn delay={0.4}>
-                <div className="bg-secondary/30 rounded-lg p-8 md:p-10 hover:shadow-lg transition-shadow">
+                <div className="bg-secondary/30 rounded-lg p-5 md:p-10 hover:shadow-lg transition-shadow">
                   <Mail className="h-10 w-10 md:h-12 md:w-12 text-primary mx-auto mb-4" />
                   <h2 className="text-xl md:text-2xl font-bold mb-3">
                     Imprensa
