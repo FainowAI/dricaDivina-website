@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import FadeIn from "@/components/FadeIn";
+import dricaImage from "@/assets/drica-divina.png";
 
 const AboutDrica = () => {
     return (
@@ -47,7 +48,7 @@ const AboutDrica = () => {
 
                             <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white/50">
                                 <img
-                                    src="/placeholder.svg"
+                                    src={dricaImage}
                                     alt="Drica Divina"
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
