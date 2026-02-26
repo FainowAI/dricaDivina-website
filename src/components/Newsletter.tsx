@@ -41,7 +41,7 @@ const Newsletter = () => {
 
       <AnimatedScribble pathName="newsletter" className="opacity-20 text-white" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="w-full px-4 md:px-8 lg:px-12 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <FadeIn>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-5 lg:mb-6">

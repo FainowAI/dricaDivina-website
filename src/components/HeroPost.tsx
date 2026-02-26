@@ -14,7 +14,7 @@ const HeroPost = ({ title, summary, image, category, link }: HeroPostProps) => {
   return (
     <section className="pt-36 pb-12 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24 bg-background relative overflow-hidden">
       <AnimatedScribble pathName="hero" className="opacity-10" />
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="w-full px-4 md:px-8 lg:px-12 relative z-10">
         <FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
             {/* Texto à esquerda */}

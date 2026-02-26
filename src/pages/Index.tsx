@@ -18,7 +18,7 @@ const Index = () => {
 
       {isLoadingFeatured ? (
         <section className="pt-36 pb-12 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24 bg-background">
-          <div className="container mx-auto px-4">
+          <div className="w-full px-4 md:px-8 lg:px-12">
             <HeroPostSkeleton />
           </div>
         </section>
@@ -42,15 +42,15 @@ const Index = () => {
 
       <AboutDrica />
 
-      <div className="container mx-auto px-4">
+      <div className="w-full px-4 md:px-8 lg:px-12">
         <AdPlaceholder variant="horizontal" size="large" />
       </div>
       <LatestPosts />
-      <div className="container mx-auto px-4">
+      <div className="w-full px-4 md:px-8 lg:px-12">
         <AdPlaceholder variant="horizontal" size="medium" />
       </div>
       <BrowseThemes />
-      <div className="container mx-auto px-4">
+      <div className="w-full px-4 md:px-8 lg:px-12">
         <AdPlaceholder variant="horizontal" size="medium" />
       </div>
       <Newsletter />

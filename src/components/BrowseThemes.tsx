@@ -71,7 +71,7 @@ const BrowseThemes = () => {
   return (
     <section className="pt-8 pb-12 md:pt-12 md:pb-20 lg:pt-16 lg:pb-24 bg-background relative overflow-hidden">
       <AnimatedScribble pathName="themes" className="opacity-[0.05]" />
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="w-full px-4 md:px-8 lg:px-12 relative z-10">
         <FadeIn>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 md:mb-12 text-center">
             Navegar
