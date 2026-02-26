@@ -10,8 +10,8 @@ const AboutDrica = () => {
             {/* Animated decorative scribbled line */}
             <AnimatedScribble pathName="about" className="opacity-10" strokeColor="hsl(14, 100%, 60%)" />
 
-            <div className="w-full px-4 md:px-8 lg:px-12 relative z-10">
-                <div className="w-full flex flex-col md:flex-row items-center gap-10 md:gap-16 lg:gap-24">
+            <div className="container mx-auto px-4 relative z-10">
+                <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16 lg:gap-24">
 
                     {/* Imagem */}
                     <FadeIn className="w-full md:w-1/2">
