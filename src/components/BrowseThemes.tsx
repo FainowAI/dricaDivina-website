@@ -6,6 +6,7 @@ import { useCategories } from "@/hooks/useCategories";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { AnimatedScribble } from "@/components/AnimatedScribble";
+import saudeBg from "@/assets/saude-bg.png";
 
 // Mapeamento de nomes de ícones para componentes Lucide
 const iconMap: Record<string, LucideIcon> = {
@@ -24,7 +25,7 @@ const categoryImages: Record<string, string> = {
   'skincare': 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop&q=80',
   'cabelo': 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=400&fit=crop&q=80',
   'maquiagem': 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&h=400&fit=crop&q=80',
-  'saude': 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=400&fit=crop&q=80'
+  'saude': saudeBg
 };
 
 const BrowseThemes = () => {
