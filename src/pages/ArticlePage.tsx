@@ -139,7 +139,7 @@ const ArticlePage = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
-        <article className="pt-24 pb-12 md:pt-28 md:pb-16 lg:pt-32 lg:pb-20">
+        <article className="pt-36 pb-12 md:pt-28 md:pb-16 lg:pt-32 lg:pb-20">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="flex gap-3 mb-6">
@@ -173,7 +173,7 @@ const ArticlePage = () => {
       <Navbar />
 
       {/* Article Header */}
-      <article className="pt-24 pb-12 md:pt-28 md:pb-16 lg:pt-32 lg:pb-20">
+      <article className="pt-36 pb-12 md:pt-28 md:pb-16 lg:pt-32 lg:pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <FadeIn>
@@ -202,12 +202,12 @@ const ArticlePage = () => {
               </div>
 
               {/* Title */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 md:mb-10">
+              <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 md:mb-10">
                 {post.title}
               </h1>
 
               {/* Share Buttons */}
-              <div className="flex gap-3 mb-10 md:mb-12">
+              <div className="flex flex-wrap gap-2 md:gap-3 mb-8 md:mb-12">
                 <Button
                   variant="outline"
                   size="sm"
@@ -270,7 +270,7 @@ const ArticlePage = () => {
             {/* Summary */}
             {post.summary && (
               <FadeIn delay={0.3}>
-                <p className="text-xl md:text-2xl leading-relaxed mb-8 text-foreground/80 font-medium max-w-prose mx-auto">
+                <p className="text-base md:text-2xl leading-relaxed mb-8 text-foreground/80 font-medium max-w-prose mx-auto">
                   {post.summary}
                 </p>
               </FadeIn>

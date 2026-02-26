@@ -85,7 +85,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/20 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm">
-          <div className="flex flex-wrap gap-6 justify-center sm:justify-start text-gray-200">
+          <div className="flex flex-wrap gap-4 md:gap-6 justify-center sm:justify-start text-gray-200">
             <a href="/contato" className="hover:text-gray-300 transition-colors">
               Contato
             </a>

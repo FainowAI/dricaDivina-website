@@ -98,7 +98,7 @@ const Video = () => {
             <VideoCardSkeletonGrid count={9} />
           ) : videos.length > 0 ? (
             <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 lg:gap-12">
                 {videos.map((video, index) => (
                   <FadeIn key={video.id} delay={index * 0.05}>
                     <VideoCard
@@ -118,7 +118,7 @@ const Video = () => {
                       variant="outline"
                       onClick={handleLoadMore}
                       disabled={isLoadingVideos}
-                      className="border-2 border-primary text-primary px-8 py-6 text-base font-semibold hover:bg-primary hover:text-white transition-all duration-200"
+                      className="border-2 border-primary text-primary px-6 py-4 md:px-8 md:py-6 text-base font-semibold hover:bg-primary hover:text-white transition-all duration-200"
                     >
                       {isLoadingVideos ? "Carregando..." : "Carregar Mais"}
                     </Button>

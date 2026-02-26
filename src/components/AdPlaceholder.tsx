@@ -14,7 +14,7 @@ const AdPlaceholder = ({
   const sizeClasses = {
     small: "h-17 md:h-20 lg:h-24",
     medium: "h-34 md:h-40 lg:h-48",
-    large: "h-45 md:h-52 lg:h-64",
+    large: "h-32 md:h-52 lg:h-64",
   };
 
   const variantClasses = {
