@@ -44,7 +44,7 @@ export function usePosts(options: UsePostsOptions = {}) {
       }
 
       const { data, error, count } = await query
-        .order("published_at", { ascending: false })
+        .order("created_at", { ascending: false })
         .range(offset, offset + limit - 1);
 
       if (error) throw error;
@@ -86,7 +86,7 @@ export function useFeaturedPost(categorySlug?: string) {
         .eq("is_published", true)
         .eq("is_featured", true)
         .eq("categories.is_active", true)
-        .order("published_at", { ascending: false })
+        .order("created_at", { ascending: false })
         .limit(1);
 
       if (categorySlug) {
@@ -110,7 +110,7 @@ export function useLatestPosts(limit: number = 3) {
         .select("*, categories!inner(*)")
         .eq("is_published", true)
         .eq("categories.is_active", true)
-        .order("published_at", { ascending: false })
+        .order("created_at", { ascending: false })
         .limit(limit);
 
       if (error) throw error;
@@ -130,7 +130,7 @@ export function useRelatedPosts(postId: string, categoryId: string, limit: numbe
         .eq("category_id", categoryId)
         .eq("categories.is_active", true)
         .neq("id", postId)
-        .order("published_at", { ascending: false })
+        .order("created_at", { ascending: false })
         .limit(limit);
 
       if (error) throw error;
