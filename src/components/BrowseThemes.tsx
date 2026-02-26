@@ -105,7 +105,7 @@ const BrowseThemes = () => {
                   ) : (
                     // Renderizar imagem (URL válida ou fallback baseado no slug)
                     <img
-                      src={category.icon || categoryImages[category.slug] || categoryImages['maquiagem']}
+                      src={categoryImages[category.slug] || category.icon || categoryImages['maquiagem']}
                       alt={category.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
