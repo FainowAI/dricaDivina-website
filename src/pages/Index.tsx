@@ -5,7 +5,7 @@ import LatestPosts from "@/components/LatestPosts";
 import BrowseThemes from "@/components/BrowseThemes";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
-import AdPlaceholder from "@/components/AdPlaceholder";
+
 import { HeroPostSkeleton } from "@/components/skeletons";
 import { useFeaturedPost } from "@/hooks/usePosts";
 
@@ -42,17 +42,8 @@ const Index = () => {
 
       <AboutDrica />
 
-      <div className="container mx-auto px-4">
-        <AdPlaceholder variant="horizontal" size="large" />
-      </div>
       <LatestPosts />
-      <div className="container mx-auto px-4">
-        <AdPlaceholder variant="horizontal" size="medium" />
-      </div>
       <BrowseThemes />
-      <div className="container mx-auto px-4">
-        <AdPlaceholder variant="horizontal" size="medium" />
-      </div>
       <Newsletter />
       <Footer />
     </div>

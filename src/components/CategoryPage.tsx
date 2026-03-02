@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import CategoryHeader from "@/components/CategoryHeader";
 import PostCardLarge from "@/components/PostCardLarge";
 import FadeIn from "@/components/FadeIn";
-import AdPlaceholder from "@/components/AdPlaceholder";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
@@ -81,10 +81,6 @@ const CategoryPage = ({ categorySlug, categoryDisplayName, showSearch = false }:
         </section>
       )}
 
-      {/* Ad Space */}
-      <div className="container mx-auto px-4">
-        <AdPlaceholder variant="horizontal" size="large" />
-      </div>
 
       {/* Featured Post */}
       <section className="pt-8 pb-12 md:pt-12 md:pb-16 lg:pt-16 lg:pb-20 bg-background">
@@ -130,10 +126,6 @@ const CategoryPage = ({ categorySlug, categoryDisplayName, showSearch = false }:
         </div>
       </section>
 
-      {/* Ad Space */}
-      <div className="container mx-auto px-4 flex justify-end">
-        <AdPlaceholder variant="square" size="medium" />
-      </div>
 
       {/* Posts Grid */}
       <section className="pt-8 pb-12 md:pt-12 md:pb-20 lg:pt-16 lg:pb-24 bg-secondary/30">
@@ -193,10 +185,6 @@ const CategoryPage = ({ categorySlug, categoryDisplayName, showSearch = false }:
         </div>
       </section>
 
-      {/* Ad Space */}
-      <div className="container mx-auto px-4">
-        <AdPlaceholder variant="horizontal" size="medium" />
-      </div>
 
       <Footer />
     </div>
