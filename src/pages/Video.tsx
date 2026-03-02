@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import CategoryHeader from "@/components/CategoryHeader";
 import VideoCard from "@/components/VideoCard";
 import FadeIn from "@/components/FadeIn";
-import AdPlaceholder from "@/components/AdPlaceholder";
+
 import { Button } from "@/components/ui/button";
 import { VideoCardSkeletonGrid, HeroPostSkeleton } from "@/components/skeletons";
 import { useVideos, useFeaturedVideo } from "@/hooks/useVideos";
@@ -40,10 +40,6 @@ const Video = () => {
         <CategoryHeader categoryName="VÍDEO" postCount={totalCount} />
       </div>
 
-      {/* Ad Space */}
-      <div className="container mx-auto px-4">
-        <AdPlaceholder variant="horizontal" size="large" />
-      </div>
 
       {/* Featured Video */}
       <section className="pt-8 pb-12 md:pt-12 md:pb-16 lg:pt-16 lg:pb-20 bg-background">
@@ -86,10 +82,6 @@ const Video = () => {
         </div>
       </section>
 
-      {/* Ad Space */}
-      <div className="container mx-auto px-4 flex justify-end">
-        <AdPlaceholder variant="square" size="medium" />
-      </div>
 
       {/* Videos Grid */}
       <section className="pt-8 pb-12 md:pt-12 md:pb-20 lg:pt-16 lg:pb-24 bg-secondary/30">
@@ -138,10 +130,6 @@ const Video = () => {
         </div>
       </section>
 
-      {/* Ad Space */}
-      <div className="container mx-auto px-4">
-        <AdPlaceholder variant="horizontal" size="medium" />
-      </div>
 
       <Footer />
     </div>
