@@ -122,21 +122,25 @@ const Sobre = () => {
                   {
                     year: "2019",
                     title: "Início na beleza madura",
+                    image: timeline2019,
                     description: "Drica começa a compartilhar dicas práticas de skincare e maquiagem para pele madura, quebrando regras complicadas e focando no que funciona no dia a dia."
                   },
                   {
                     year: "2020",
                     title: "Formação nos EUA",
+                    image: timeline2020,
                     description: "Aprofunda estudos em cosmetologia e formulações, trazendo metodologia simples, segura e embasada para a comunidade de língua portuguesa."
                   },
                   {
                     year: "2021",
                     title: "Voz contra o etarismo",
+                    image: timeline2021,
                     description: "Passa a defender ativamente a diversidade de idades na beleza, criando campanhas e conteúdos que celebram linhas, histórias e experiências."
                   },
                   {
                     year: "2023",
                     title: "Expansão do conteúdo",
+                    image: timeline2023,
                     description: "Amplia formatos com vídeos, newsletters e guias práticos, alcançando novas plataformas sem perder a proximidade com o público."
                   }
                 ].map((item, index) => (
@@ -149,7 +153,7 @@ const Sobre = () => {
                     <div className="flex-1 pb-8">
                       <div className="w-24 h-24 mb-3 rounded-full overflow-hidden bg-muted">
                         <img
-                          src="/placeholder.svg"
+                          src={item.image}
                           alt={item.title}
                           className="w-full h-full object-cover"
                         />
