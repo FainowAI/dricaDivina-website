@@ -244,9 +244,6 @@ const Sobre = () => {
         </div>
       </section>
 
-      {/* Artigos da Drica */}
-      <section className="py-12 md:py-24 bg-background">
-        <div className="container mx-auto px-4">
 
       {/* Newsletter */}
       <Newsletter />
