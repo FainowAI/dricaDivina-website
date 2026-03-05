@@ -102,7 +102,7 @@ const Sobre = () => {
                     <div className="text-2xl font-bold text-accent mb-6">2023</div>
                     <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-muted">
                       <img
-                        src="/placeholder.svg"
+                        src={timeline2023}
                         alt="Expansão do conteúdo"
                         className="w-full h-full object-cover"
                       />
