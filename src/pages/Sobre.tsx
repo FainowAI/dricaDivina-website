@@ -3,6 +3,10 @@ import Navbar from "@/components/Navbar";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
+import timeline2019 from "@/assets/timeline-2019.jpeg";
+import timeline2020 from "@/assets/timeline-2020.jpeg";
+import timeline2021 from "@/assets/timeline-2021.jpeg";
+import timeline2023 from "@/assets/timeline-2023.jpeg";
 
 const Sobre = () => {
   return (
