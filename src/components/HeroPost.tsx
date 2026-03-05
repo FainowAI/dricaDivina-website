@@ -12,7 +12,7 @@ interface HeroPostProps {
 
 const HeroPost = ({ title, summary, image, category, link }: HeroPostProps) => {
   return (
-    <section className="pt-36 pb-12 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24 bg-background relative overflow-hidden">
+    <section className="py-12 md:py-20 lg:py-24 bg-background relative overflow-hidden">
       <AnimatedScribble pathName="hero" className="opacity-10" />
       <div className="container mx-auto px-4 relative z-10">
         <FadeIn>
