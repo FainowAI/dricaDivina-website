@@ -16,8 +16,10 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar />
 
+      <AboutDrica />
+
       {isLoadingFeatured ? (
-        <section className="pt-36 pb-12 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24 bg-background">
+        <section className="py-12 md:py-20 lg:py-24 bg-background">
           <div className="container mx-auto px-4">
             <HeroPostSkeleton />
           </div>
@@ -39,8 +41,6 @@ const Index = () => {
           link="/blog"
         />
       )}
-
-      <AboutDrica />
 
       <LatestPosts />
       <BrowseThemes />

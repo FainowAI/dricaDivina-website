@@ -6,7 +6,7 @@ import dricaImage from "@/assets/drica-divina.png";
 
 const AboutDrica = () => {
     return (
-        <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-orange-soft/30 via-background to-background relative overflow-hidden">
+        <section className="pt-36 pb-16 md:pt-40 md:pb-24 lg:pt-48 lg:pb-32 bg-gradient-to-b from-orange-soft/30 via-background to-background relative overflow-hidden">
             {/* Animated decorative scribbled line */}
             <AnimatedScribble pathName="about" className="opacity-10" strokeColor="hsl(14, 100%, 60%)" />
 
