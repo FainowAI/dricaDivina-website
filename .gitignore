@@ -29,3 +29,6 @@ nul
 .mcp.json
 .playwright-mcp
 .env
+.env.*
+.tmp/
+build/
