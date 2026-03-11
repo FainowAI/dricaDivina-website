@@ -26,7 +26,18 @@ dist-ssr
 # Windows special files
 nul
 
-.claude
+# MCP and env files
 .mcp.json
 .playwright-mcp
 .env
+.env.*
+
+# Claude worktrees and local settings
+.claude/worktrees/
+.claude/settings.local.json
+
+# Temporary files
+.tmp/
+
+# Build output
+build/
