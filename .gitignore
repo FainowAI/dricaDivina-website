@@ -26,7 +26,6 @@ dist-ssr
 # Windows special files
 nul
 
-.claude
 .mcp.json
 .playwright-mcp
 .env
