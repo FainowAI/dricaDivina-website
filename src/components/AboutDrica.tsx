@@ -2,80 +2,17 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import FadeIn from "@/components/FadeIn";
 import { AnimatedScribble } from "@/components/AnimatedScribble";
-import dricaImage from "@/assets/drica-divina.png";
 
 const AboutDrica = () => {
     return (
-        <section className="pt-36 pb-16 md:pt-40 md:pb-24 lg:pt-48 lg:pb-32 bg-gradient-to-b from-orange-soft/30 via-background to-background relative overflow-hidden">
-            {/* Animated decorative scribbled line */}
+        <section className="pt-16 pb-16 md:pt-24 md:pb-24 lg:pt-32 lg:pb-32 bg-gradient-to-b from-orange-soft/30 via-background to-background relative overflow-hidden">
+            {/* Animated decorative scribbled line - PRESERVED */}
             <AnimatedScribble pathName="about" className="opacity-10" strokeColor="hsl(14, 100%, 60%)" />
 
             <div className="container mx-auto px-4 relative z-10">
-                <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16 lg:gap-24">
-
-                    {/* Imagem */}
-                    <FadeIn className="w-full md:w-1/2">
-                        <div className="relative group">
-                            {/* Background blob com gradiente laranja */}
-                            <div className="absolute -inset-6 bg-gradient-to-br from-orange-vibrant/20 via-orange-medium/15 to-transparent rounded-[3rem] transform -rotate-2 transition-all duration-700 group-hover:rotate-1 group-hover:scale-105" />
-
-                            <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white/50">
-                                <img
-                                    src={dricaImage}
-                                    alt="Drica Divina"
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                />
-
-                                {/* Orange gradient overlay on hover */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-orange-vibrant/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                                {/* Animated badge */}
-                                <div className="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8 bg-white/95 backdrop-blur-xl p-3 md:p-6 rounded-2xl shadow-2xl border border-orange-vibrant/20 transform translate-y-0 opacity-100 transition-all duration-500 group-hover:translate-y-[-8px]">
-                                    <div className="flex items-center gap-4">
-                                        {/* Animated sparkle icon */}
-                                        <div className="relative w-10 h-10">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-orange-vibrant">
-                                                <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" fill="currentColor" opacity="0.8">
-                                                    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
-                                                </path>
-                                                <path d="M19 3L19.5 5.5L22 6L19.5 6.5L19 9L18.5 6.5L16 6L18.5 5.5L19 3Z" fill="currentColor">
-                                                    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="1.5s" repeatCount="indefinite" begin="0.5s" />
-                                                </path>
-                                                <path d="M5 15L5.5 17L7 17.5L5.5 18L5 20L4.5 18L3 17.5L4.5 17L5 15Z" fill="currentColor">
-                                                    <animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" repeatCount="indefinite" begin="1s" />
-                                                </path>
-                                            </svg>
-                                        </div>
-                                        <div>
-                                            <p className="font-bold text-foreground text-sm md:text-base">Maturidade & Beleza Livre</p>
-                                            <p className="text-xs text-muted-foreground mt-0.5">Quebrando padrões desde 2020</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Floating stats */}
-                            <div className="hidden lg:block absolute -right-6 top-20 bg-white rounded-2xl shadow-xl p-4 border border-orange-vibrant/20 transform transition-all duration-500 hover:scale-110">
-                                <div className="flex items-center gap-3">
-                                    <div className="w-12 h-12 rounded-full bg-gradient-orange-primary flex items-center justify-center">
-                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white">
-                                            <path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35Z" fill="currentColor">
-                                                <animate attributeName="transform" type="scale" values="1;1.2;1" dur="1.5s" repeatCount="indefinite" additive="sum" />
-                                            </path>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <p className="font-bold text-orange-vibrant text-lg">2M+</p>
-                                        <p className="text-xs text-muted-foreground">Seguidoras</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </FadeIn>
-
-                    {/* Texto */}
-                    <FadeIn delay={0.2} className="w-full md:w-1/2 space-y-6 md:space-y-8">
-                        <div className="space-y-3">
+                <div className="max-w-4xl mx-auto">
+                    <FadeIn delay={0.2} className="w-full space-y-6 md:space-y-8">
+                        <div className="space-y-3 text-center">
                             <div className="inline-flex items-center gap-2 bg-orange-soft px-4 py-2 rounded-full">
                                 <div className="w-2 h-2 rounded-full bg-orange-vibrant animate-pulse" />
                                 <span className="text-orange-vibrant font-bold tracking-wider uppercase text-xs md:text-sm">
@@ -95,7 +32,7 @@ const AboutDrica = () => {
                             </h2>
                         </div>
 
-                        <div className="space-y-5 text-foreground/80 text-base md:text-lg leading-relaxed">
+                        <div className="space-y-5 text-foreground/80 text-base md:text-lg leading-relaxed text-center">
                             <p>
                                 Drica Divina é uma influenciadora apaixonada por beleza, skincare e maquiagem, <strong className="text-orange-vibrant">pioneira</strong> em focar nas reais necessidades da pele madura.
                             </p>
@@ -104,14 +41,14 @@ const AboutDrica = () => {
                             </p>
                         </div>
 
-                        {/* Stats */}
+                        {/* Stats - UPDATED VALUES */}
                         <div className="grid grid-cols-3 gap-4 py-6 border-t border-b border-border/50">
                             <div className="text-center">
-                                <p className="text-2xl md:text-3xl font-bold text-orange-vibrant">5+</p>
+                                <p className="text-2xl md:text-3xl font-bold text-orange-vibrant">6+</p>
                                 <p className="text-xs md:text-sm text-muted-foreground mt-1">Anos Ativos</p>
                             </div>
                             <div className="text-center border-l border-r border-border/50">
-                                <p className="text-2xl md:text-3xl font-bold text-orange-vibrant">1000+</p>
+                                <p className="text-2xl md:text-3xl font-bold text-orange-vibrant">3500+</p>
                                 <p className="text-xs md:text-sm text-muted-foreground mt-1">Conteúdos</p>
                             </div>
                             <div className="text-center">
@@ -120,7 +57,7 @@ const AboutDrica = () => {
                             </div>
                         </div>
 
-                        <div className="pt-2">
+                        <div className="pt-2 text-center">
                             <Link
                                 to="/sobre"
                                 className="inline-flex items-center justify-center gap-3 bg-gradient-orange-primary hover:shadow-2xl text-white px-8 py-4 rounded-full font-semibold transition-all duration-500 hover:scale-105 group"
@@ -130,7 +67,6 @@ const AboutDrica = () => {
                             </Link>
                         </div>
                     </FadeIn>
-
                 </div>
             </div>
         </section>

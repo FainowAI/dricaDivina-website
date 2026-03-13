@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import FullscreenHero from "@/components/FullscreenHero";
 import HeroPost from "@/components/HeroPost";
 import AboutDrica from "@/components/AboutDrica";
 import LatestPosts from "@/components/LatestPosts";
@@ -15,6 +16,8 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
+
+      <FullscreenHero />
 
       <AboutDrica />
 

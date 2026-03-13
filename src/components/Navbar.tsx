@@ -1,7 +1,9 @@
 import { Menu, Search, ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/NavLink";
 import { useState, useRef } from "react";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
 import {
   Sheet,
   SheetContent,
@@ -14,6 +16,7 @@ import StoriesMenu from "@/components/StoriesMenu";
 import { NavbarSearch } from "@/components/NavbarSearch";
 
 const Navbar = () => {
+  const isScrolled = useScrollPosition({ threshold: 100 });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -36,7 +39,15 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-background z-50 shadow-sm border-b border-border">
+    <motion.nav
+      initial={{ y: -100, opacity: 0 }}
+      animate={{
+        y: isScrolled ? 0 : -100,
+        opacity: isScrolled ? 1 : 0
+      }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="fixed top-0 left-0 right-0 bg-background z-50 shadow-sm border-b border-border"
+    >
       <div className="container mx-auto">
         {/* Main Nav Row */}
         <div className="h-16 md:h-20 flex items-center justify-between">
@@ -133,7 +144,7 @@ const Navbar = () => {
       <div className="lg:hidden">
         <StoriesMenu />
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
