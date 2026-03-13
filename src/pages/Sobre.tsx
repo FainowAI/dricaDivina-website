@@ -1,12 +1,19 @@
-import { Sparkles, Users, BookOpen } from "lucide-react";
+import { Heart, TrendingUp } from "lucide-react";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
-import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
-import timeline2019 from "@/assets/timeline-2019.jpeg";
-import timeline2020 from "@/assets/timeline-2020.jpeg";
-import timeline2021 from "@/assets/timeline-2021.jpeg";
-import timeline2023 from "@/assets/timeline-2023.jpeg";
+import BusinessContactForm from "@/components/BusinessContactForm";
+import VerticalTimeline from "@/components/VerticalTimeline";
+import { AnimatedScribble } from "@/components/AnimatedScribble";
+import {
+  SkincareIcon,
+  CommunityIcon,
+  ContentIcon,
+  YearsIcon,
+  VideosIcon,
+  FollowersIcon
+} from "@/components/AnimatedIcons";
 
 const Sobre = () => {
   return (
@@ -29,224 +36,225 @@ const Sobre = () => {
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <section className="py-20 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            {/* Timeline Line */}
-            <div className="relative">
-              {/* Desktop Timeline */}
-              <div className="hidden md:block">
-                <div className="relative h-2 bg-border mb-16">
-                  {/* Timeline Points */}
-                  <div className="absolute top-1/2 -translate-y-1/2 left-[12.5%] w-4 h-4 bg-accent rounded-full"></div>
-                  <div className="absolute top-1/2 -translate-y-1/2 left-[37.5%] w-4 h-4 bg-accent rounded-full"></div>
-                  <div className="absolute top-1/2 -translate-y-1/2 left-[62.5%] w-4 h-4 bg-accent rounded-full"></div>
-                  <div className="absolute top-1/2 -translate-y-1/2 left-[87.5%] w-4 h-4 bg-accent rounded-full"></div>
-                </div>
+      {/* Business Contact Form - Top */}
+      <BusinessContactForm variant="top" />
 
-                <div className="grid grid-cols-4 gap-8">
-                  {/* 2019 */}
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-accent mb-6">2019</div>
-                    <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-muted">
-                      <img
-                        src={timeline2019}
-                        alt="Início na beleza madura"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <h3 className="text-xl font-bold mb-3">Início na beleza madura</h3>
-                    <p className="text-base text-foreground leading-relaxed">
-                      Drica começa a compartilhar dicas práticas de skincare e maquiagem para pele madura, quebrando regras
-                      complicadas e focando no que funciona no dia a dia.
-                    </p>
-                  </div>
+      {/* Vertical Timeline Section */}
+      <VerticalTimeline />
 
-                  {/* 2020 */}
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-accent mb-6">2020</div>
-                    <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-muted">
-                      <img
-                        src={timeline2020}
-                        alt="Formação nos EUA"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <h3 className="text-xl font-bold mb-3">Formação nos EUA</h3>
-                    <p className="text-base text-foreground leading-relaxed">
-                      Aprofunda estudos em cosmetologia e formulações, trazendo metodologia simples, segura e embasada para a
-                      comunidade de língua portuguesa.
-                    </p>
-                  </div>
-
-                  {/* 2021 */}
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-accent mb-6">2021</div>
-                    <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-muted">
-                      <img
-                        src={timeline2021}
-                        alt="Voz contra o etarismo"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <h3 className="text-xl font-bold mb-3">Voz contra o etarismo</h3>
-                    <p className="text-base text-foreground leading-relaxed">
-                      Passa a defender ativamente a diversidade de idades na beleza, criando campanhas e conteúdos que
-                      celebram linhas, histórias e experiências.
-                    </p>
-                  </div>
-
-                  {/* 2023 */}
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-accent mb-6">2023</div>
-                    <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-muted">
-                      <img
-                        src={timeline2023}
-                        alt="Expansão do conteúdo"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <h3 className="text-xl font-bold mb-3">Expansão do conteúdo</h3>
-                    <p className="text-base text-foreground leading-relaxed">
-                      Amplia formatos com vídeos, newsletters e guias práticos, alcançando novas plataformas sem perder a
-                      proximidade com o público.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Mobile Timeline */}
-              <div className="md:hidden space-y-12">
-                {[
-                  {
-                    year: "2019",
-                    title: "Início na beleza madura",
-                    image: timeline2019,
-                    description: "Drica começa a compartilhar dicas práticas de skincare e maquiagem para pele madura, quebrando regras complicadas e focando no que funciona no dia a dia."
-                  },
-                  {
-                    year: "2020",
-                    title: "Formação nos EUA",
-                    image: timeline2020,
-                    description: "Aprofunda estudos em cosmetologia e formulações, trazendo metodologia simples, segura e embasada para a comunidade de língua portuguesa."
-                  },
-                  {
-                    year: "2021",
-                    title: "Voz contra o etarismo",
-                    image: timeline2021,
-                    description: "Passa a defender ativamente a diversidade de idades na beleza, criando campanhas e conteúdos que celebram linhas, histórias e experiências."
-                  },
-                  {
-                    year: "2023",
-                    title: "Expansão do conteúdo",
-                    image: timeline2023,
-                    description: "Amplia formatos com vídeos, newsletters e guias práticos, alcançando novas plataformas sem perder a proximidade com o público."
-                  }
-                ].map((item, index) => (
-                  <div key={index} className="flex gap-4">
-                    <div className="flex flex-col items-center">
-                      <div className="text-xl font-bold text-accent mb-2">{item.year}</div>
-                      <div className="w-3 h-3 bg-accent rounded-full"></div>
-                      <div className="w-0.5 h-full bg-border mt-2"></div>
-                    </div>
-                    <div className="flex-1 pb-8">
-                      <div className="w-24 h-24 mb-3 rounded-full overflow-hidden bg-muted">
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                      <p className="text-base text-foreground leading-relaxed">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+      {/* Por que seguir a Drica - Enhanced Design */}
+      <section className="py-16 md:py-28 bg-gradient-to-b from-background via-orange-soft/5 to-background relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-orange-soft/10 rounded-full blur-3xl" />
         </div>
-      </section>
 
-      {/* Por que seguir a Drica */}
-      <section className="py-12 md:py-24 bg-background">
-        <div className="container mx-auto px-4">
+        <AnimatedScribble pathName="themes" className="opacity-5" strokeColor="hsl(14, 100%, 60%)" />
+
+        <div className="container mx-auto px-4 relative z-10">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-20">Por que seguir a Drica?</h2>
+            <div className="text-center mb-12 md:mb-20">
+              <div className="inline-flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full mb-4">
+                <Heart className="w-4 h-4 text-accent" />
+                <span className="text-accent font-bold tracking-wider uppercase text-xs md:text-sm">
+                  Diferenciais
+                </span>
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+                Por que seguir a{" "}
+                <span className="text-accent italic relative inline-block">
+                  Drica?
+                  <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 100 12" xmlns="http://www.w3.org/2000/svg">
+                    <motion.path
+                      d="M2 6 Q50 2, 98 6"
+                      stroke="hsl(14, 100%, 60%)"
+                      strokeWidth="3"
+                      fill="none"
+                      opacity="0.5"
+                      initial={{ pathLength: 0 }}
+                      whileInView={{ pathLength: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.5, ease: "easeOut" }}
+                    />
+                  </svg>
+                </span>
+              </h2>
+            </div>
           </FadeIn>
 
-          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 md:gap-8">
-            <FadeIn delay={0.1}>
-              <div className="bg-card p-6 md:p-10 rounded-lg border border-border shadow-sm hover:shadow-lg transition-shadow">
-                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
-                  <Sparkles className="w-8 h-8 text-accent" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Expertise em cuidados com a pele</h3>
-                <p className="text-base text-foreground leading-relaxed">
-                  Protocolos claros, embasados e adaptáveis à rotina: do essencial ao avançado, sem promessas milagrosas.
-                </p>
-              </div>
-            </FadeIn>
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 md:gap-8">
+            {[
+              {
+                IconComponent: SkincareIcon,
+                title: "Expertise em cuidados com a pele",
+                description: "Protocolos claros, embasados e adaptáveis à rotina: do essencial ao avançado, sem promessas milagrosas.",
+                gradient: "from-orange-500/20 to-amber-500/20",
+                delay: 0.1
+              },
+              {
+                IconComponent: CommunityIcon,
+                title: "Comunidade engajada",
+                description: "Comentários, trocas e experiências reais que fortalecem o cuidado e a autoestima em todas as fases.",
+                gradient: "from-rose-500/20 to-pink-500/20",
+                delay: 0.2
+              },
+              {
+                IconComponent: ContentIcon,
+                title: "Conteúdos exclusivos",
+                description: "Aulas, guias e recomendações sob medida para diferentes objetivos, tipos de pele e estilos de vida.",
+                gradient: "from-violet-500/20 to-purple-500/20",
+                delay: 0.3
+              }
+            ].map((item, index) => (
+              <FadeIn key={index} delay={item.delay}>
+                <motion.div
+                  className="group relative bg-card p-8 md:p-10 rounded-2xl border border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 h-full"
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {/* Gradient overlay on hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
-            <FadeIn delay={0.2}>
-              <div className="bg-card p-6 md:p-10 rounded-lg border border-border shadow-sm hover:shadow-lg transition-shadow">
-                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
-                  <Users className="w-8 h-8 text-accent" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Comunidade engajada</h3>
-                <p className="text-base text-foreground leading-relaxed">
-                  Comentários, trocas e experiências reais que fortalecem o cuidado e a autoestima em todas as fases.
-                </p>
-              </div>
-            </FadeIn>
+                  <div className="relative z-10">
+                    {/* Custom SVG Icon */}
+                    <div className="relative w-20 h-20 mb-6">
+                      <div className="absolute inset-0 bg-accent/10 rounded-2xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-500" />
+                      <div className="absolute inset-0 flex items-center justify-center text-accent">
+                        <item.IconComponent size={40} />
+                      </div>
+                    </div>
 
-            <FadeIn delay={0.3}>
-              <div className="bg-card p-6 md:p-10 rounded-lg border border-border shadow-sm hover:shadow-lg transition-shadow">
-                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
-                  <BookOpen className="w-8 h-8 text-accent" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Conteúdos exclusivos e personalizados</h3>
-                <p className="text-base text-foreground leading-relaxed">
-                  Aulas, guias e recomendações sob medida para diferentes objetivos, tipos de pele e estilos de vida.
-                </p>
-              </div>
-            </FadeIn>
+                    <h3 className="text-xl md:text-2xl font-bold mb-4 group-hover:text-accent transition-colors duration-300">
+                      {item.title}
+                    </h3>
+                    <p className="text-base text-foreground/80 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  {/* Corner accent */}
+                  <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden rounded-tr-2xl">
+                    <div className="absolute -top-10 -right-10 w-20 h-20 bg-accent/5 rotate-45 group-hover:bg-accent/10 transition-colors duration-500" />
+                  </div>
+                </motion.div>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Social Stats */}
-      <section className="py-12 md:py-24 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-4 md:gap-8 text-center">
-            <FadeIn delay={0.1}>
-              <div className="bg-card p-6 md:p-10 rounded-lg border border-border shadow-sm">
-                <div className="text-4xl md:text-6xl font-bold text-accent mb-4">420K</div>
-                <div className="text-xl text-foreground font-semibold">Instagram</div>
-              </div>
-            </FadeIn>
+      {/* Social Stats - Enhanced with same values as homepage */}
+      <section className="py-16 md:py-28 bg-gradient-to-br from-accent/5 via-secondary/30 to-orange-soft/10 relative overflow-hidden">
+        {/* Animated Background Pattern */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <svg className="absolute w-full h-full opacity-5" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+              <circle cx="1" cy="1" r="0.5" fill="currentColor" className="text-accent" />
+            </pattern>
+            <rect width="100" height="100" fill="url(#grid)" />
+          </svg>
+        </div>
 
-            <FadeIn delay={0.2}>
-              <div className="bg-card p-6 md:p-10 rounded-lg border border-border shadow-sm">
-                <div className="text-4xl md:text-6xl font-bold text-accent mb-4">310K</div>
-                <div className="text-xl text-foreground font-semibold">TikTok</div>
-              </div>
-            </FadeIn>
+        <AnimatedScribble pathName="latest" className="opacity-5" strokeColor="hsl(14, 100%, 60%)" />
 
-            <FadeIn delay={0.3}>
-              <div className="bg-card p-6 md:p-10 rounded-lg border border-border shadow-sm">
-                <div className="text-4xl md:text-6xl font-bold text-accent mb-4">150K</div>
-                <div className="text-xl text-foreground font-semibold">YouTube</div>
+        <div className="container mx-auto px-4 relative z-10">
+          <FadeIn>
+            <div className="text-center mb-12 md:mb-16">
+              <div className="inline-flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full mb-4">
+                <TrendingUp className="w-4 h-4 text-accent" />
+                <span className="text-accent font-bold tracking-wider uppercase text-xs md:text-sm">
+                  Impacto
+                </span>
               </div>
-            </FadeIn>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+                Números que{" "}
+                <span className="text-accent italic">inspiram</span>
+              </h2>
+            </div>
+          </FadeIn>
+
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {[
+              {
+                value: "6+",
+                label: "Anos Ativos",
+                sublabel: "Dedicados à beleza madura",
+                IconComponent: YearsIcon,
+                color: "from-orange-500 to-amber-500",
+                delay: 0.1
+              },
+              {
+                value: "3500+",
+                label: "Conteúdos",
+                sublabel: "Vídeos, posts e tutoriais",
+                IconComponent: VideosIcon,
+                color: "from-rose-500 to-pink-500",
+                delay: 0.2
+              },
+              {
+                value: "2M+",
+                label: "Seguidoras",
+                sublabel: "Mulheres inspiradas",
+                IconComponent: FollowersIcon,
+                color: "from-violet-500 to-purple-500",
+                delay: 0.3
+              }
+            ].map((stat, index) => (
+              <FadeIn key={index} delay={stat.delay}>
+                <motion.div
+                  className="group relative bg-card/80 backdrop-blur-sm p-8 md:p-10 rounded-2xl border border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 text-center overflow-hidden"
+                  whileHover={{ y: -8 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {/* Gradient top border */}
+                  <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${stat.color}`} />
+
+                  {/* Animated background glow */}
+                  <motion.div
+                    className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
+                  />
+
+                  <div className="relative z-10">
+                    {/* Custom SVG Icon */}
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-accent/10 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 text-accent">
+                      <stat.IconComponent size={36} />
+                    </div>
+
+                    {/* Value with animated counter effect */}
+                    <motion.div
+                      className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-accent to-orange-vibrant bg-clip-text text-transparent mb-3"
+                      initial={{ scale: 0.5, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: stat.delay }}
+                    >
+                      {stat.value}
+                    </motion.div>
+
+                    <div className="text-xl md:text-2xl font-bold text-foreground mb-2">
+                      {stat.label}
+                    </div>
+
+                    <div className="text-sm text-foreground/60">
+                      {stat.sublabel}
+                    </div>
+                  </div>
+
+                  {/* Decorative corner elements */}
+                  <div className="absolute bottom-0 right-0 w-24 h-24 overflow-hidden rounded-br-2xl">
+                    <div className={`absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl ${stat.color} opacity-5 rounded-full translate-x-1/2 translate-y-1/2 group-hover:opacity-10 transition-opacity duration-500`} />
+                  </div>
+                </motion.div>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
 
 
-      {/* Newsletter */}
-      <Newsletter />
+      {/* Business Contact Form - Bottom */}
+      <BusinessContactForm variant="bottom" />
 
       {/* Footer */}
       <Footer />

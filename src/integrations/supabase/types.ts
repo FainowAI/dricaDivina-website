@@ -47,6 +47,39 @@ export type Database = {
         }
         Relationships: []
       }
+      business_contacts: {
+        Row: {
+          id: string
+          company_name: string
+          email: string
+          phone: string
+          cnpj: string
+          form_variant: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          company_name: string
+          email: string
+          phone: string
+          cnpj: string
+          form_variant?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          company_name?: string
+          email?: string
+          phone?: string
+          cnpj?: string
+          form_variant?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       categories: {
         Row: {
           created_at: string
