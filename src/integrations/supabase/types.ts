@@ -49,34 +49,34 @@ export type Database = {
       }
       business_contacts: {
         Row: {
-          id: string
-          company_name: string
-          email: string
-          phone: string
           cnpj: string
+          company_name: string
+          created_at: string | null
+          email: string
           form_variant: string | null
-          created_at: string
-          updated_at: string
+          id: string
+          phone: string
+          updated_at: string | null
         }
         Insert: {
-          id?: string
-          company_name: string
-          email: string
-          phone: string
           cnpj: string
+          company_name: string
+          created_at?: string | null
+          email: string
           form_variant?: string | null
-          created_at?: string
-          updated_at?: string
+          id?: string
+          phone: string
+          updated_at?: string | null
         }
         Update: {
-          id?: string
-          company_name?: string
-          email?: string
-          phone?: string
           cnpj?: string
+          company_name?: string
+          created_at?: string | null
+          email?: string
           form_variant?: string | null
-          created_at?: string
-          updated_at?: string
+          id?: string
+          phone?: string
+          updated_at?: string | null
         }
         Relationships: []
       }
