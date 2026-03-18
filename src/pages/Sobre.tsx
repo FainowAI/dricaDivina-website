@@ -1,4 +1,4 @@
-import { Heart, TrendingUp } from "lucide-react";
+import { Heart, TrendingUp, Instagram, Youtube, Facebook } from "lucide-react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -14,6 +14,12 @@ import {
   VideosIcon,
   FollowersIcon
 } from "@/components/AnimatedIcons";
+
+const TikTokIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.12 8.12 0 004.76 1.52V6.76a4.85 4.85 0 01-.99-.07z" />
+  </svg>
+);
 
 const Sobre = () => {
   return (
@@ -252,9 +258,56 @@ const Sobre = () => {
         </div>
       </section>
 
-
       {/* Business Contact Form - Bottom */}
       <BusinessContactForm variant="bottom" />
+
+      {/* Social Media Links Section */}
+      <section className="py-16 md:py-20 bg-background">
+        <div className="container mx-auto px-4 text-center">
+          <FadeIn>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">Me siga nas redes</h2>
+            <p className="text-foreground/60 mb-10">Conteúdo diário de beleza, autocuidado e inspiração</p>
+            <div className="flex items-center justify-center gap-4 flex-wrap">
+              <a
+                href="https://instagram.com/dricadivina"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200"
+              >
+                <Instagram className="h-5 w-5" />
+                <span>Instagram</span>
+              </a>
+              <a
+                href="https://www.youtube.com/dricadivina"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200"
+              >
+                <Youtube className="h-5 w-5" />
+                <span>YouTube</span>
+              </a>
+              <a
+                href="https://www.tiktok.com/@dricadivina"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-gray-800 to-black text-white font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200"
+              >
+                <TikTokIcon className="h-5 w-5" />
+                <span>TikTok</span>
+              </a>
+              <a
+                href="https://facebook.com/dricadivina"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200"
+              >
+                <Facebook className="h-5 w-5" />
+                <span>Facebook</span>
+              </a>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
 
       {/* Footer */}
       <Footer />
@@ -263,4 +316,3 @@ const Sobre = () => {
 };
 
 export default Sobre;
-
