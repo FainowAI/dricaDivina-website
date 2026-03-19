@@ -1,15 +1,13 @@
-import { Heart, TrendingUp, Instagram, Youtube, Facebook } from "lucide-react";
+import { TrendingUp, Instagram, Youtube, Facebook } from "lucide-react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
 import BusinessContactForm from "@/components/BusinessContactForm";
 import VerticalTimeline from "@/components/VerticalTimeline";
+import BrandPartners from "@/components/BrandPartners";
 import { AnimatedScribble } from "@/components/AnimatedScribble";
 import {
-  SkincareIcon,
-  CommunityIcon,
-  ContentIcon,
   YearsIcon,
   VideosIcon,
   FollowersIcon
@@ -48,107 +46,8 @@ const Sobre = () => {
       {/* Vertical Timeline Section */}
       <VerticalTimeline />
 
-      {/* Por que seguir a Drica - Enhanced Design */}
-      <section className="py-16 md:py-28 bg-gradient-to-b from-background via-orange-soft/5 to-background relative overflow-hidden">
-        {/* Decorative Background Elements */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 left-10 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-orange-soft/10 rounded-full blur-3xl" />
-        </div>
-
-        <AnimatedScribble pathName="themes" className="opacity-5" strokeColor="hsl(14, 100%, 60%)" />
-
-        <div className="container mx-auto px-4 relative z-10">
-          <FadeIn>
-            <div className="text-center mb-12 md:mb-20">
-              <div className="inline-flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full mb-4">
-                <Heart className="w-4 h-4 text-accent" />
-                <span className="text-accent font-bold tracking-wider uppercase text-xs md:text-sm">
-                  Diferenciais
-                </span>
-              </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-                Por que seguir a{" "}
-                <span className="text-accent italic relative inline-block">
-                  Drica?
-                  <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 100 12" xmlns="http://www.w3.org/2000/svg">
-                    <motion.path
-                      d="M2 6 Q50 2, 98 6"
-                      stroke="hsl(14, 100%, 60%)"
-                      strokeWidth="3"
-                      fill="none"
-                      opacity="0.5"
-                      initial={{ pathLength: 0 }}
-                      whileInView={{ pathLength: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.5, ease: "easeOut" }}
-                    />
-                  </svg>
-                </span>
-              </h2>
-            </div>
-          </FadeIn>
-
-          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 md:gap-8">
-            {[
-              {
-                IconComponent: SkincareIcon,
-                title: "Expertise em cuidados com a pele",
-                description: "Protocolos claros, embasados e adaptáveis à rotina: do essencial ao avançado, sem promessas milagrosas.",
-                gradient: "from-orange-500/20 to-amber-500/20",
-                delay: 0.1
-              },
-              {
-                IconComponent: CommunityIcon,
-                title: "Comunidade engajada",
-                description: "Comentários, trocas e experiências reais que fortalecem o cuidado e a autoestima em todas as fases.",
-                gradient: "from-rose-500/20 to-pink-500/20",
-                delay: 0.2
-              },
-              {
-                IconComponent: ContentIcon,
-                title: "Conteúdos exclusivos",
-                description: "Aulas, guias e recomendações sob medida para diferentes objetivos, tipos de pele e estilos de vida.",
-                gradient: "from-violet-500/20 to-purple-500/20",
-                delay: 0.3
-              }
-            ].map((item, index) => (
-              <FadeIn key={index} delay={item.delay}>
-                <motion.div
-                  className="group relative bg-card p-8 md:p-10 rounded-2xl border border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 h-full"
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {/* Gradient overlay on hover */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-
-                  <div className="relative z-10">
-                    {/* Custom SVG Icon */}
-                    <div className="relative w-20 h-20 mb-6">
-                      <div className="absolute inset-0 bg-accent/10 rounded-2xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-500" />
-                      <div className="absolute inset-0 flex items-center justify-center text-accent">
-                        <item.IconComponent size={40} />
-                      </div>
-                    </div>
-
-                    <h3 className="text-xl md:text-2xl font-bold mb-4 group-hover:text-accent transition-colors duration-300">
-                      {item.title}
-                    </h3>
-                    <p className="text-base text-foreground/80 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-
-                  {/* Corner accent */}
-                  <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden rounded-tr-2xl">
-                    <div className="absolute -top-10 -right-10 w-20 h-20 bg-accent/5 rotate-45 group-hover:bg-accent/10 transition-colors duration-500" />
-                  </div>
-                </motion.div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Brand Partners Section */}
+      <BrandPartners />
 
       {/* Social Stats - Enhanced with same values as homepage */}
       <section className="py-16 md:py-28 bg-gradient-to-br from-accent/5 via-secondary/30 to-orange-soft/10 relative overflow-hidden">
