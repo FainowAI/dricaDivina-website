@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
 import BusinessContactForm from "@/components/BusinessContactForm";
 import VerticalTimeline from "@/components/VerticalTimeline";
+import BrandPartners from "@/components/BrandPartners";
 import { AnimatedScribble } from "@/components/AnimatedScribble";
 import {
   SkincareIcon,
@@ -47,6 +48,9 @@ const Sobre = () => {
 
       {/* Vertical Timeline Section */}
       <VerticalTimeline />
+
+      {/* Brand Partners Section */}
+      <BrandPartners />
 
       {/* Por que seguir a Drica - Enhanced Design */}
       <section className="py-16 md:py-28 bg-gradient-to-b from-background via-orange-soft/5 to-background relative overflow-hidden">
