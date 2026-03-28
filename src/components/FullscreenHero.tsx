@@ -30,19 +30,43 @@ const FullscreenHero = () => {
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
-      {/* Background Image with fade-in and subtle zoom animation */}
+      {/* Background Video with fade-in and subtle zoom animation */}
       <motion.div
         className="absolute inset-0"
         initial={{ opacity: 0, scale: 1.1 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
-        <img
-          src="https://fonpnogwwrqjhzahcbge.supabase.co/storage/v1/object/public/drica-images/header-image.png"
-          alt="Drica Divina"
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="https://fonpnogwwrqjhzahcbge.supabase.co/storage/v1/object/public/drica-images/header-image.png"
           className="w-full h-full object-cover object-center"
-        />
+        >
+          <source
+            src="https://fonpnogwwrqjhzahcbge.supabase.co/storage/v1/object/public/drica-videos/hero-video.mp4"
+            type="video/mp4"
+          />
+          {/* Fallback: se o browser não suportar video, mostra a imagem */}
+          <img
+            src="https://fonpnogwwrqjhzahcbge.supabase.co/storage/v1/object/public/drica-images/header-image.png"
+            alt="Drica Divina"
+            className="w-full h-full object-cover object-center"
+          />
+        </video>
       </motion.div>
+
+      {/* Gradient overlay - escurece o lado direito para contraste com o texto */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to left, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 50%, transparent 100%)",
+        }}
+      />
 
       {/* Text Overlay - positioned on the right */}
       <div className="absolute inset-0 flex items-center justify-end">
@@ -52,7 +76,7 @@ const FullscreenHero = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-wide text-foreground relative"
+            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-wide text-white relative drop-shadow-lg"
             style={{ fontFamily: "'Cormorant Garamond', 'Playfair Display', Georgia, serif" }}
           >
             {title.split("").map((char, index) => (
@@ -97,7 +121,7 @@ const FullscreenHero = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 2.5, duration: 0.8 }}
       >
-        <span className="text-xs md:text-sm text-foreground/70 tracking-widest uppercase">
+        <span className="text-xs md:text-sm text-white/70 tracking-widest uppercase">
           Role
         </span>
         <motion.div
