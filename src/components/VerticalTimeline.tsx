@@ -16,53 +16,60 @@ interface TimelineItem {
 
 const timelineData: TimelineItem[] = [
   {
-    year: "2019",
-    title: "Nascimento da Beleza Madura",
+    year: "2018",
+    title: "Início da Beleza Madura",
     description:
-      "Aos 47 anos, Drica reposiciona o @dricadivina para mulheres 35+, tornando-se pioneira em conteúdo de beleza madura no Brasil. Abandona o posicionamento genérico e passa a ensinar técnicas adaptadas à pele com rugas e flacidez.",
+      "Aos 47 anos, Drica reposiciona o @dricadivina para falar exclusivamente com mulheres 35+, tornando-se pioneira em conteúdo de beleza madura no Brasil. \"Não me via representada. Eram sempre rostos jovens\" — com essa convicção, abandona o posicionamento genérico e passa a ensinar técnicas adaptadas à pele madura.",
+    image: timeline2019,
+  },
+  {
+    year: "2019",
+    title: "Formação nos EUA + Escola Blush",
+    description:
+      "Viaja para Nova York e se forma na Make Up For Ever Academy, acumulando mais de 20 cursos especializados em maquiagem e skincare. No mesmo ano, funda a Escola Blush — a primeira escola do Brasil focada em cursos de maquiagem para pele madura.",
     image: timeline2019,
   },
   {
     year: "2020",
-    title: "Escola Blush e Virada Digital",
+    title: "6 Dígitos em Curso Online",
     description:
-      "Cria a Escola Blush com cursos de automaquiagem para mulheres maduras. Com a pandemia, pivota para o digital e transforma o conhecimento em cursos online, passando a viver das redes.",
+      "Com a pandemia, pivota para o digital e lança a BLUSH e-school na Hotmart, com o curso de Automaquiagem para Pele Madura. A virada digital resulta em vendas de 6 dígitos, provando que existe um mercado enorme de mulheres maduras buscando se sentir bem.",
     image: timeline2020,
   },
   {
     year: "2021",
-    title: "Consolidação e Educação em Massa",
+    title: "Parcerias com Grandes Marcas",
     description:
-      "Fortalece quadros educativos como 'Drica na Farmácia', ensinando sobre dermocosmético em linguagem acessível. Consolida a filosofia de que 'pele é rainha' — maquiagem só funciona com skincare em dia.",
+      "A autoridade construída atrai as primeiras parcerias com grandes marcas do mercado de beleza. Fortalece quadros educativos como \"Drica na Farmácia\", ensinando sobre dermocosméticos em linguagem acessível, e consolida a filosofia de que \"pele é rainha\".",
     image: timeline2021,
   },
   {
     year: "2022",
     title: "Lançamento do DRICAPOD",
     description:
-      "Lança o DRICAPOD, primeiro videocast para a #mulhermadura no Spotify e YouTube. Amplia o escopo para maturidade, autocuidado, etarismo, relações e carreira para mulheres 40+.",
-    image: timeline2021, // Placeholder - mesmo de 2021
+      "Lança o DRICAPOD, o primeiro videocast para a #mulhermadura, com episódios às terças e quintas no Spotify e YouTube. Amplia o escopo para maturidade, autocuidado, etarismo, relações e carreira, dando voz e visibilidade às mulheres 40+.",
+    image: timeline2021,
   },
   {
     year: "2023",
-    title: "Reconhecimento Nacional",
+    title: "Capa + Indicação TikTok Awards",
     description:
-      "Alcança mais de 1 milhão de seguidores e é reconhecida pelo gshow como a maior criadora de conteúdo de beleza madura do Brasil. Indicada ao TikTok Awards 2023 na categoria 'Surra de Beleza'.",
+      "Ultrapassa 1 milhão de seguidores e é reconhecida pelo gshow como a maior criadora de beleza madura do Brasil. Torna-se a primeira creator de beleza madura indicada ao TikTok Awards na categoria \"Surra de Beleza\", consolidando seu nome no cenário nacional.",
     image: timeline2023,
   },
   {
     year: "2024",
-    title: "Talks e Presença Internacional",
+    title: "Grandes Emissoras e Palco Internacional",
     description:
-      "Participa do ELLE Talks – Beleza, discutindo menopausa e autoamor ao lado de Ana Paula Padrão. Marca presença na Times Square em Nova York, levando sua mensagem para o cenário internacional.",
-    image: timeline2023, // Placeholder - mesmo de 2023
+      "Participa do ELLE Talks – Beleza no Cubo JK em São Paulo, discutindo etarismo e envelhecimento ao lado de Ana Paula Padrão. Marca presença na Times Square em Nova York, levando a mensagem da beleza madura para o cenário internacional.",
+    image: timeline2023,
   },
   {
     year: "2025",
-    title: "Palestrante e Inovação com IA",
+    title: "Palestras + Podcasts",
     description:
-      "Consolida-se como palestrante em agências como CDPV, TalkLab e Visão Palestras. Protagoniza parceria com Natura Chronos Derma e lança o projeto Drica Divina IA, um clone digital com inteligência artificial.",
-    image: timeline2023, // Placeholder - mesmo de 2023
+      "Consolida-se como palestrante requisitada, presente em agências como CDPV, TalkLab e Visão Palestras. Amplia participações em podcasts e eventos pelo Brasil, levando temas como etarismo, empreendedorismo na beleza e empoderamento da mulher madura a novos públicos.",
+    image: timeline2023,
   },
 ];
 
