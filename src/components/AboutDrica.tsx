@@ -21,14 +21,14 @@ const AboutDrica = () => {
                             </div>
 
                             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-                                Empoderando a <span className="text-orange-vibrant italic relative inline-block">
+                                Celebrando a <span className="text-orange-vibrant italic relative inline-block">
                                     beleza madura
                                     <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 200 12" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M2 6 Q100 2, 198 6" stroke="hsl(14, 100%, 60%)" strokeWidth="3" fill="none" opacity="0.5">
                                             <animate attributeName="d" values="M2 6 Q100 2, 198 6;M2 6 Q100 10, 198 6;M2 6 Q100 2, 198 6" dur="3s" repeatCount="indefinite" />
                                         </path>
                                     </svg>
-                                </span> e combatendo o etarismo.
+                                </span> e redefinindo a maturidade.
                             </h2>
                         </div>
 

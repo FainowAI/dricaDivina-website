@@ -47,7 +47,7 @@ const timelineData: TimelineItem[] = [
     year: "2022",
     title: "Lançamento do DRICAPOD",
     description:
-      "Lança o DRICAPOD, o primeiro videocast para a #mulhermadura, com episódios às terças e quintas no Spotify e YouTube. Amplia o escopo para maturidade, autocuidado, etarismo, relações e carreira, dando voz e visibilidade às mulheres 40+.",
+      "Lança o DRICAPOD, o primeiro videocast para a #mulhermadura, com episódios às terças e quintas no Spotify e YouTube. Amplia o escopo para maturidade, autocuidado, longevidade, relações e carreira, dando voz e visibilidade às mulheres 40+.",
     image: timeline2021,
   },
   {
@@ -61,14 +61,14 @@ const timelineData: TimelineItem[] = [
     year: "2024",
     title: "Grandes Emissoras e Palco Internacional",
     description:
-      "Participa do ELLE Talks – Beleza no Cubo JK em São Paulo, discutindo etarismo e envelhecimento ao lado de Ana Paula Padrão. Marca presença na Times Square em Nova York, levando a mensagem da beleza madura para o cenário internacional.",
+      "Participa do ELLE Talks – Beleza no Cubo JK em São Paulo, discutindo longevidade e reinvenção ao lado de Ana Paula Padrão. Marca presença na Times Square em Nova York, levando a mensagem da beleza madura para o cenário internacional.",
     image: timeline2023,
   },
   {
     year: "2025",
     title: "Palestras + Podcasts",
     description:
-      "Consolida-se como palestrante requisitada, presente em agências como CDPV, TalkLab e Visão Palestras. Amplia participações em podcasts e eventos pelo Brasil, levando temas como etarismo, empreendedorismo na beleza e empoderamento da mulher madura a novos públicos.",
+      "Consolida-se como palestrante requisitada, presente em agências como CDPV, TalkLab e Visão Palestras. Amplia participações em podcasts e eventos pelo Brasil, levando temas como longevidade, empreendedorismo na beleza e protagonismo da mulher madura a novos públicos.",
     image: timeline2023,
   },
 ];
