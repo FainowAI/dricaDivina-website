@@ -69,7 +69,7 @@ const FullscreenHero = () => {
       />
 
       {/* Text Overlay - positioned on the right */}
-      <div className="absolute inset-0 flex items-center justify-end">
+      <div className="absolute inset-0 flex items-end justify-end pb-[45%] md:pb-[20%]">
         <div className="pr-8 md:pr-16 lg:pr-24 xl:pr-32">
           {/* Animated title with staggered letters */}
           <motion.h1
