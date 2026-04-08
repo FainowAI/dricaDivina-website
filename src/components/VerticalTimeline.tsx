@@ -10,6 +10,7 @@ import timeline2022 from "@/assets/timeline-2022.jpg";
 import timeline2023new from "@/assets/timeline-2023-new.jpg";
 import timeline2023 from "@/assets/timeline-2023.jpeg";
 import timeline2024 from "@/assets/timeline-2024.jpg";
+import timeline2025 from "@/assets/timeline-2025.jpg";
 
 interface TimelineItem {
   year: string;
@@ -73,7 +74,7 @@ const timelineData: TimelineItem[] = [
     title: "Palestras + Podcasts",
     description:
       "Consolida-se como palestrante requisitada, presente em agências como CDPV, TalkLab e Visão Palestras. Amplia participações em podcasts e eventos pelo Brasil, levando temas como longevidade, empreendedorismo na beleza e protagonismo da mulher madura a novos públicos.",
-    image: timeline2023,
+    image: timeline2025,
   },
 ];
 
