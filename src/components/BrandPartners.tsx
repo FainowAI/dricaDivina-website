@@ -28,7 +28,7 @@ const BrandPartners = () => {
           .order("display_order", { ascending: true });
 
         if (error) throw error;
-        setBrands((data as BrandPartner[]) || []);
+        setBrands((data as unknown as BrandPartner[]) || []);
       } catch (err) {
         console.error("Error fetching brand partners:", err);
       } finally {
