@@ -7,6 +7,7 @@ import timeline2019 from "@/assets/timeline-2019-academy.jpg";
 import timeline2020 from "@/assets/timeline-2020-new.png";
 import timeline2021 from "@/assets/timeline-2021.jpeg";
 import timeline2022 from "@/assets/timeline-2022.jpg";
+import timeline2023new from "@/assets/timeline-2023-new.jpg";
 import timeline2023 from "@/assets/timeline-2023.jpeg";
 
 interface TimelineItem {
