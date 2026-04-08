@@ -9,6 +9,7 @@ import timeline2021 from "@/assets/timeline-2021-v2.jpg";
 import timeline2022 from "@/assets/timeline-2022.jpg";
 import timeline2023new from "@/assets/timeline-2023-new.jpg";
 import timeline2023 from "@/assets/timeline-2023.jpeg";
+import timeline2024 from "@/assets/timeline-2024.jpg";
 
 interface TimelineItem {
   year: string;
@@ -65,7 +66,7 @@ const timelineData: TimelineItem[] = [
     title: "Grandes Emissoras e Palco Internacional",
     description:
       "Participa do ELLE Talks – Beleza no Cubo JK em São Paulo, discutindo longevidade e reinvenção ao lado de Ana Paula Padrão. Marca presença na Times Square em Nova York, levando a mensagem da beleza madura para o cenário internacional.",
-    image: timeline2023,
+    image: timeline2024,
   },
   {
     year: "2025",
