@@ -9,6 +9,7 @@ import timeline2021 from "@/assets/timeline-2021-v2.jpg";
 import timeline2022 from "@/assets/timeline-2022.jpg";
 import timeline2023new from "@/assets/timeline-2023-new.jpg";
 import timeline2023 from "@/assets/timeline-2023.jpeg";
+import timeline2024 from "@/assets/timeline-2024.jpg";
 
 interface TimelineItem {
   year: string;
