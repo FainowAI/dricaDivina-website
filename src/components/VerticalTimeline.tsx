@@ -6,6 +6,7 @@ import timeline2018 from "@/assets/timeline-2019.jpeg";
 import timeline2019 from "@/assets/timeline-2019-academy.jpg";
 import timeline2020 from "@/assets/timeline-2020-new.png";
 import timeline2021 from "@/assets/timeline-2021.jpeg";
+import timeline2022 from "@/assets/timeline-2022.jpg";
 import timeline2023 from "@/assets/timeline-2023.jpeg";
 
 interface TimelineItem {
@@ -49,7 +50,7 @@ const timelineData: TimelineItem[] = [
     title: "Lançamento do DRICAPOD",
     description:
       "Lança o DRICAPOD, o primeiro videocast para a #mulhermadura, com episódios às terças e quintas no Spotify e YouTube. Amplia o escopo para maturidade, autocuidado, longevidade, relações e carreira, dando voz e visibilidade às mulheres 40+.",
-    image: timeline2021,
+    image: timeline2022,
   },
   {
     year: "2023",
