@@ -74,7 +74,7 @@ const timelineData: TimelineItem[] = [
     title: "Palestras + Podcasts",
     description:
       "Consolida-se como palestrante requisitada, presente em agências como CDPV, TalkLab e Visão Palestras. Amplia participações em podcasts e eventos pelo Brasil, levando temas como longevidade, empreendedorismo na beleza e protagonismo da mulher madura a novos públicos.",
-    image: timeline2023,
+    image: timeline2025,
   },
 ];
 
