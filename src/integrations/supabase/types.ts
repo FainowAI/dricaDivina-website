@@ -47,6 +47,39 @@ export type Database = {
         }
         Relationships: []
       }
+      brand_partners: {
+        Row: {
+          category: string | null
+          created_at: string | null
+          display_order: number | null
+          id: string
+          is_active: boolean | null
+          logo_url: string | null
+          name: string
+          website_url: string | null
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string | null
+          display_order?: number | null
+          id?: string
+          is_active?: boolean | null
+          logo_url?: string | null
+          name: string
+          website_url?: string | null
+        }
+        Update: {
+          category?: string | null
+          created_at?: string | null
+          display_order?: number | null
+          id?: string
+          is_active?: boolean | null
+          logo_url?: string | null
+          name?: string
+          website_url?: string | null
+        }
+        Relationships: []
+      }
       business_contacts: {
         Row: {
           cnpj: string
@@ -116,6 +149,39 @@ export type Database = {
           post_count?: number | null
           slug?: string
           updated_at?: string
+        }
+        Relationships: []
+      }
+      image_prompt_logs: {
+        Row: {
+          category_slug: string
+          created_at: string
+          id: string
+          post_title: string | null
+          prompt1: string
+          prompt2: string
+          scene_elements: Json | null
+          search_topic: string | null
+        }
+        Insert: {
+          category_slug: string
+          created_at?: string
+          id?: string
+          post_title?: string | null
+          prompt1: string
+          prompt2: string
+          scene_elements?: Json | null
+          search_topic?: string | null
+        }
+        Update: {
+          category_slug?: string
+          created_at?: string
+          id?: string
+          post_title?: string | null
+          prompt1?: string
+          prompt2?: string
+          scene_elements?: Json | null
+          search_topic?: string | null
         }
         Relationships: []
       }
