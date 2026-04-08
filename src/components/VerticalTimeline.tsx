@@ -21,7 +21,7 @@ const timelineData: TimelineItem[] = [
     title: "Início da Beleza Madura",
     description:
       "Aos 47 anos, Drica reposiciona o @dricadivina para falar exclusivamente com mulheres 35+, tornando-se pioneira em conteúdo de beleza madura no Brasil. \"Não me via representada. Eram sempre rostos jovens\" — com essa convicção, abandona o posicionamento genérico e passa a ensinar técnicas adaptadas à pele madura.",
-    image: timeline2019,
+    image: timeline2018,
   },
   {
     year: "2019",
