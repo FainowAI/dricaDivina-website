@@ -66,7 +66,7 @@ const timelineData: TimelineItem[] = [
     title: "Grandes Emissoras e Palco Internacional",
     description:
       "Participa do ELLE Talks – Beleza no Cubo JK em São Paulo, discutindo longevidade e reinvenção ao lado de Ana Paula Padrão. Marca presença na Times Square em Nova York, levando a mensagem da beleza madura para o cenário internacional.",
-    image: timeline2023,
+    image: timeline2024,
   },
   {
     year: "2025",
