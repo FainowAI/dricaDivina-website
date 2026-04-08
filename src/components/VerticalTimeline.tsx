@@ -7,6 +7,7 @@ import timeline2019 from "@/assets/timeline-2019-academy.jpg";
 import timeline2020 from "@/assets/timeline-2020-new.png";
 import timeline2021 from "@/assets/timeline-2021.jpeg";
 import timeline2022 from "@/assets/timeline-2022.jpg";
+import timeline2023new from "@/assets/timeline-2023-new.jpg";
 import timeline2023 from "@/assets/timeline-2023.jpeg";
 
 interface TimelineItem {
@@ -57,7 +58,7 @@ const timelineData: TimelineItem[] = [
     title: "Capa + Indicação TikTok Awards",
     description:
       "Ultrapassa 1 milhão de seguidores e é reconhecida pelo gshow como a maior criadora de beleza madura do Brasil. Torna-se a primeira creator de beleza madura indicada ao TikTok Awards na categoria \"Surra de Beleza\", consolidando seu nome no cenário nacional.",
-    image: timeline2023,
+    image: timeline2023new,
   },
   {
     year: "2024",
