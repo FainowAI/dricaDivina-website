@@ -2,10 +2,15 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import FadeIn from "@/components/FadeIn";
 
-import timeline2019 from "@/assets/timeline-2019.jpeg";
-import timeline2020 from "@/assets/timeline-2020.jpeg";
-import timeline2021 from "@/assets/timeline-2021.jpeg";
+import timeline2018 from "@/assets/timeline-2019.jpeg";
+import timeline2019 from "@/assets/timeline-2019-academy.jpg";
+import timeline2020 from "@/assets/timeline-2020-new.png";
+import timeline2021 from "@/assets/timeline-2021-v2.jpg";
+import timeline2022 from "@/assets/timeline-2022.jpg";
+import timeline2023new from "@/assets/timeline-2023-new.jpg";
 import timeline2023 from "@/assets/timeline-2023.jpeg";
+import timeline2024 from "@/assets/timeline-2024.jpg";
+import timeline2025 from "@/assets/timeline-2025.jpg";
 
 interface TimelineItem {
   year: string;
@@ -20,7 +25,7 @@ const timelineData: TimelineItem[] = [
     title: "Início da Beleza Madura",
     description:
       "Aos 47 anos, Drica reposiciona o @dricadivina para falar exclusivamente com mulheres 35+, tornando-se pioneira em conteúdo de beleza madura no Brasil. \"Não me via representada. Eram sempre rostos jovens\" — com essa convicção, abandona o posicionamento genérico e passa a ensinar técnicas adaptadas à pele madura.",
-    image: timeline2019,
+    image: timeline2018,
   },
   {
     year: "2019",
@@ -48,28 +53,28 @@ const timelineData: TimelineItem[] = [
     title: "Lançamento do DRICAPOD",
     description:
       "Lança o DRICAPOD, o primeiro videocast para a #mulhermadura, com episódios às terças e quintas no Spotify e YouTube. Amplia o escopo para maturidade, autocuidado, longevidade, relações e carreira, dando voz e visibilidade às mulheres 40+.",
-    image: timeline2021,
+    image: timeline2022,
   },
   {
     year: "2023",
     title: "Capa + Indicação TikTok Awards",
     description:
       "Ultrapassa 1 milhão de seguidores e é reconhecida pelo gshow como a maior criadora de beleza madura do Brasil. Torna-se a primeira creator de beleza madura indicada ao TikTok Awards na categoria \"Surra de Beleza\", consolidando seu nome no cenário nacional.",
-    image: timeline2023,
+    image: timeline2023new,
   },
   {
     year: "2024",
     title: "Grandes Emissoras e Palco Internacional",
     description:
       "Participa do ELLE Talks – Beleza no Cubo JK em São Paulo, discutindo longevidade e reinvenção ao lado de Ana Paula Padrão. Marca presença na Times Square em Nova York, levando a mensagem da beleza madura para o cenário internacional.",
-    image: timeline2023,
+    image: timeline2024,
   },
   {
     year: "2025",
     title: "Palestras + Podcasts",
     description:
       "Consolida-se como palestrante requisitada, presente em agências como CDPV, TalkLab e Visão Palestras. Amplia participações em podcasts e eventos pelo Brasil, levando temas como longevidade, empreendedorismo na beleza e protagonismo da mulher madura a novos públicos.",
-    image: timeline2023,
+    image: timeline2025,
   },
 ];
 
