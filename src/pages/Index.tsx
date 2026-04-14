@@ -5,11 +5,17 @@ import LatestPosts from "@/components/LatestPosts";
 import BrowseThemes from "@/components/BrowseThemes";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
+import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      <Navbar />
+    <>
+      <SEOHead canonicalPath="/" />
+      <OrganizationJsonLd />
+      <WebSiteJsonLd />
+      <div className="min-h-screen">
+        <Navbar />
 
       <FullscreenHero />
 
@@ -19,7 +25,8 @@ const Index = () => {
       <BrowseThemes />
       <Newsletter />
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

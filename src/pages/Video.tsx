@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEOHead from "@/components/SEOHead";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CategoryHeader from "@/components/CategoryHeader";
@@ -32,8 +33,14 @@ const Video = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <>
+      <SEOHead
+        title="Vídeos | Drica Divina"
+        description="Assista aos vídeos da Drica Divina sobre beleza, skincare e lifestyle."
+        canonicalPath="/video"
+      />
+      <div className="min-h-screen bg-background">
+        <Navbar />
 
       {/* Category Header */}
       <div className="pt-40 md:pt-44 lg:pt-56">
@@ -132,7 +139,8 @@ const Video = () => {
 
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

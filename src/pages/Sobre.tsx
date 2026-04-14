@@ -12,6 +12,7 @@ import {
   VideosIcon,
   FollowersIcon
 } from "@/components/AnimatedIcons";
+import SEOHead from "@/components/SEOHead";
 
 const TikTokIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -21,8 +22,14 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 
 const Sobre = () => {
   return (
-    <div className="min-h-screen">
-      <Navbar />
+    <>
+      <SEOHead
+        title="Sobre | Drica Divina"
+        description="Conheça a Drica Divina: inspiração, beleza e autenticidade para mulheres reais."
+        canonicalPath="/sobre"
+      />
+      <div className="min-h-screen">
+        <Navbar />
 
       {/* Hero Section */}
       <section className="pt-40 md:pt-60 lg:pt-80 pb-12 bg-background">
@@ -210,7 +217,8 @@ const Sobre = () => {
 
       {/* Footer */}
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 import { Mail } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Newsletter from "@/components/Newsletter";
@@ -6,8 +7,14 @@ import FadeIn from "@/components/FadeIn";
 
 const Contato = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <>
+      <SEOHead
+        title="Contato | Drica Divina"
+        description="Entre em contato com a Drica Divina para parcerias, publicidade e colaborações."
+        canonicalPath="/contato"
+      />
+      <div className="min-h-screen bg-background">
+        <Navbar />
 
       {/* Contact Section */}
       <section className="pt-40 pb-12 md:py-28 lg:py-32">
@@ -80,7 +87,8 @@ const Contato = () => {
 
       <Newsletter />
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

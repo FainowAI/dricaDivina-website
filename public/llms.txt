@@ -1,0 +1,35 @@
+# Drica Divina
+
+> Drica Divina é um portal de conteúdo brasileiro sobre beleza, skincare, cuidados com o cabelo, maquiagem e saúde feminina. Publica artigos originais com dicas práticas, reviews de produtos e tendências do mercado de beleza, voltado para mulheres que querem se sentir bem de forma autêntica.
+
+O site é organizado por categorias temáticas. Cada artigo é escrito em português brasileiro e cobre tópicos como rotinas de skincare, procedimentos estéticos, produtos capilares, tendências de maquiagem, fitness e wellness.
+
+- O conteúdo é publicado regularmente via sistema automatizado com curadoria editorial
+- Foco em produtos disponíveis no mercado brasileiro (nacionais e internacionais vendidos no Brasil)
+- Público-alvo: mulheres brasileiras interessadas em beleza, autocuidado e saúde
+
+## Categorias
+
+- [Skincare](https://dricadivina.com.br/skincare): Procedimentos estéticos, produtos de skincare internacionais vendidos no Brasil, rotinas de cuidados com a pele
+- [Cabelo](https://dricadivina.com.br/cabelo): Tintura, tratamentos capilares, produtos e dicas para cuidar do cabelo
+- [Maquiagem](https://dricadivina.com.br/maquiagem): Tendências de maquiagem, melhores bases, corretivos, produtos nacionais e internacionais
+- [Saúde](https://dricadivina.com.br/saude): Fitness, wellness, exercícios e dicas de saúde equilibrada
+
+## Páginas Principais
+
+- [Home](https://dricadivina.com.br/): Página inicial com posts em destaque e últimas publicações
+- [Blog](https://dricadivina.com.br/blog): Todos os artigos publicados com busca e filtros
+- [Sobre](https://dricadivina.com.br/sobre): Quem é Drica Divina, história e missão
+- [Vídeos](https://dricadivina.com.br/video): Conteúdo em vídeo sobre beleza e lifestyle
+- [Contato](https://dricadivina.com.br/contato): Parcerias, publicidade e colaborações
+
+## Artigos
+
+Os artigos estão disponíveis em formato individual na rota `/artigo/{slug}`. Cada artigo contém:
+- Título, data de publicação, categoria, tags
+- Conteúdo completo em HTML com imagem de destaque
+- Resumo (summary) e metadados SEO (meta_title, meta_description)
+
+## Optional
+
+- [Sitemap XML](https://fonpnogwwrqjhzahcbge.supabase.co/functions/v1/sitemap): Lista completa de URLs do site com datas de atualização

@@ -1,6 +1,10 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { Share2, Facebook, Twitter, Link2, Pin } from "lucide-react";
 import DOMPurify from "dompurify";
+import SEOHead from "@/components/SEOHead";
+import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import { truncateForMeta } from "@/lib/seo";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Newsletter from "@/components/Newsletter";
@@ -26,17 +30,23 @@ const ArticlePage = () => {
   );
 
   const handleShare = (platform: string) => {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent(post?.title || "");
+
+    const shareUrls: Record<string, string> = {
+      Pinterest: `https://pinterest.com/pin/create/button/?url=${url}&description=${text}&media=${encodeURIComponent(post?.featured_image || "")}`,
+      Facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+      Twitter: `https://twitter.com/intent/tweet?url=${url}&text=${text}`,
+    };
+
     if (platform === "copy") {
       navigator.clipboard.writeText(window.location.href);
       toast({
         title: "Link copiado!",
         description: "O link foi copiado para a área de transferência.",
       });
-    } else {
-      toast({
-        title: "Compartilhar",
-        description: `Abrindo ${platform}...`,
-      });
+    } else if (shareUrls[platform]) {
+      window.open(shareUrls[platform], "_blank", "noopener,noreferrer,width=600,height=400");
     }
   };
 
@@ -170,12 +180,56 @@ const ArticlePage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {post && (
+        <>
+          <SEOHead
+            title={`${post.meta_title || post.title} | Drica Divina`}
+            description={post.meta_description || post.summary || truncateForMeta(post.content)}
+            ogImage={post.featured_image || undefined}
+            ogType="article"
+            canonicalPath={`/artigo/${post.slug}`}
+            article={{
+              publishedTime: post.published_at || undefined,
+              modifiedTime: post.updated_at,
+              author: "Drica Divina",
+              section: post.categories?.name || undefined,
+              tags: post.tags || undefined,
+            }}
+          />
+          <ArticleJsonLd
+            title={post.title}
+            description={post.meta_description || post.summary || truncateForMeta(post.content)}
+            slug={post.slug}
+            image={post.featured_image}
+            publishedAt={post.published_at}
+            updatedAt={post.updated_at}
+            authorName="Drica Divina"
+            categoryName={post.categories?.name || undefined}
+            tags={post.tags || undefined}
+          />
+          <BreadcrumbJsonLd
+            items={[
+              { name: "Home", path: "/" },
+              ...(post.categories ? [{ name: post.categories.name, path: `/${post.categories.slug || "blog"}` }] : []),
+              { name: post.title, path: `/artigo/${post.slug}` },
+            ]}
+          />
+        </>
+      )}
       <Navbar />
 
       {/* Article Header */}
       <article className="pt-36 pb-12 md:pt-28 md:pb-16 lg:pt-32 lg:pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
+            <Breadcrumbs
+              items={[
+                ...(post.categories
+                  ? [{ label: post.categories.name, href: `/${post.categories.slug || "blog"}` }]
+                  : []),
+                { label: post.title },
+              ]}
+            />
             <FadeIn>
               {/* Categories and Date */}
               <div className="flex flex-wrap items-center gap-3 mb-6 md:mb-8">
@@ -254,6 +308,7 @@ const ArticlePage = () => {
                   <img
                     src={post.featured_image}
                     alt={post.title}
+                    loading="lazy"
                     className="w-full h-full object-cover"
                   />
                   <button
